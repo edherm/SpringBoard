@@ -1,0 +1,2 @@
+module StatePagesHelper
+end
