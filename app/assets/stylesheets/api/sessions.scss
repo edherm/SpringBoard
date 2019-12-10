@@ -1,3 +1,25 @@
 // Place all the styles related to the api::sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+form > input:last-child {
+  color: white;
+  background-color: rgb(84,162,104);
+  padding: 8px 16px 8px 16px;
+  width: 354px;
+  margin: 0 auto;
+  border: 1px solid rgb(84,162,104);
+}
+
+.session-form-container {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  border: 1px solid grey;
+}
+
+.Sig-button {
+  border-radius: 20px;
+}
+.Log-button {
+
+}

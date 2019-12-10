@@ -42,11 +42,11 @@ class SessionForm extends React.Component {
     }
    
    return (
-      <div>
+      <div className="session-form-container" >
         <h2 className="formType-header">
           {formType} {`${formType === "Sign Up" ? "for" : "to"}`} SpringBoard
         </h2>
-        <form onSubmit={this.handleSubmit}>
+        <form className="session-form" onSubmit={this.handleSubmit}>
           {nameField}
           <label>Email: 
             <input required type="text" onChange={this.handleChange("email")} value={this.state.email} />
@@ -57,7 +57,7 @@ class SessionForm extends React.Component {
         <ul>
           {errorMessages()}
         </ul>
-          <input type="submit" value={this.props.formType} />
+          <input className={`${formType.slice(0,3)}-button`} type="submit" value={this.props.formType} />
         </form>
       </div>
     )

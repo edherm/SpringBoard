@@ -1,0 +1,51 @@
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 14px;
+}
+
+.nav-logo {
+  display: flex;
+}
+
+.nav-logo-img, .nav-logo-title {
+  margin: auto;
+  margin-right: 5px;
+}
+
+h1.nav-logo-title {
+  display: flex;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.nav-logo-img {
+  height: 30px;
+}
+
+.nav-links, .nav-dropdown {
+  display: flex;
+}
+
+.nav-links {
+  // justify-content: space-around;
+}
+
+.Log-a, .Sig-a {
+  font-weight: bold;
+  display: flex;
+  padding: 6px 13px 6px 13px;
+  border: 1px solid black;
+  margin: auto;
+  margin-left: 10px;
+}
+
+.Sig-a {
+  background-color: black;
+  color: white;
+}
+
+.Log-a {
+  color: black;
+}

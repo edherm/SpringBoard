@@ -24,7 +24,8 @@ time, mark, audio, video {
     outline:0;
     font-size:100%;
     vertical-align:baseline;
-    background:transparent;
+    background: rgb(246,242,240);
+    font-family: 'Open Sans', sans-serif;
 }
 
 body {
@@ -56,6 +57,7 @@ a {
     font-size:100%;
     vertical-align:baseline;
     background:transparent;
+    text-decoration: none;
 }
 
 /* change colours to suit your needs */
