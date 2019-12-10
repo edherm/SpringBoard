@@ -3,10 +3,14 @@ import { Link } from 'react-router-dom';
 
 
 export default ({ currentUser, logout }) => {
-  const display = (
+  const display = currentUser ? (
+    <div>
+      <button onClick={() => logout()}>DropdownLogout</button>
+    </div>
+  ) : (
     <div className="nav-dropdown">
-      <Link to="/signup">Sign Up</Link>
-      <Link to="/login">Log In</Link>
+      <Link to="/login">Sign In</Link>
+      <Link to="/signup">Try it Free</Link>
     </div>
   )
 
