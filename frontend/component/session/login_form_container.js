@@ -7,7 +7,8 @@ const msp = state => ({
     email: "",
     password: ""
   },
-  formType: "Login"
+  errors: state.errors,
+  formType: "Log In"
 })
 
 const mdp = dispatch => ({

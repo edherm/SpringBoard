@@ -8,6 +8,7 @@ const msp = state => ({
     password: "",
     name: ""
   },
+  errors: state.errors,
   formType: "Sign Up"
 })
 

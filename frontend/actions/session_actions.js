@@ -29,7 +29,8 @@ export const signup = user => dispatch => {
     .then(user => {
       debugger
       return dispatch(receiveCurrentUser(user))
-    }, (errors) => {
+    }, errors => {
+      debugger
       return dispatch(receiveErrors(errors.responseJSON))
     })
 }
@@ -38,7 +39,7 @@ export const login = user => dispatch => (
   SessionAPIUtil.login(user)
     .then(user => {
       return dispatch(receiveCurrentUser(user))
-    }, (errors) => {
+    }, errors => {
       return dispatch(receiveErrors(errors.responseJSON))
     })
 )
@@ -47,7 +48,7 @@ export const logout = () => dispatch => (
   SessionAPIUtil.logout()
   .then(() => {
     return dispatch(logoutCurrentUser())
-  }, (errors) => {
+  }, errors => {
     return dispatch(receiveErrors(errors.responseJSON))
   })
 )
