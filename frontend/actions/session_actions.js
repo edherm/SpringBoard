@@ -24,7 +24,7 @@ export const receiveErrors = errors => ({
 // Thunk action creators
 
 export const signup = user => dispatch => {
-  debugger
+  // debugger
   return SessionAPIUtil.signup(user)
     .then(user => {
       debugger

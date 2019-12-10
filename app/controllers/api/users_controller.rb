@@ -1,13 +1,17 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
-    debugger
+    # debugger
     if @user.save
       login(@user)
-      render json: :show
+      render :show
     else
       render json: @user.errors.full_messages
     end
+  end
+
+  def show
+    
   end
 
 
