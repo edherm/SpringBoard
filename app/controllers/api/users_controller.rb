@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
-
+    debugger
     if @user.save
+      login(@user)
       render json: :show
     else
       render json: @user.errors.full_messages
