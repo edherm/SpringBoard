@@ -14,17 +14,42 @@ form > input:last-child {
 .session-form-container {
   display: flex;
   flex-direction: column;
-  background-color: whitesmoke;
+  background-color: white;
   margin: auto;
   border: 1px solid grey;
   border-radius: 10px;
   width: 400px;
 }
 
+.input-container {
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 5px;
+  background-color: white;
+  padding: 0 4px;
+  position: relative;
+  margin: 5px;
+}
+
+.input-label {
+  background-color: rgba(245, 245, 245, 0);
+  position: absolute;
+  font-size: 16px;
+}
+
+.input-form {
+  border: none;
+  outline: 0;
+  font-size: 16px;
+  border-style: none;
+  padding: 16px 0 10px;
+  width: 150px;
+}
+
 .session-form-container form, .formType-header {
   display: flex;
   flex-direction: column;
   padding: 30px;
+  background-color: white;
 }
 
 .formType-header {

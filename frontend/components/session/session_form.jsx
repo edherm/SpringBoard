@@ -27,10 +27,10 @@ class SessionForm extends React.Component {
     let nameField;
     if (formType === "Sign Up") {
       nameField = (
-        <>
-          <label for="name">Your name</label>
-          <input required type="text" id="name" onChange={this.handleChange("name")} value={this.state.name} />
-        </>
+        <div className="input-container">
+          <label htmlFor="input-form" className="input-label" >Your name</label>
+          <input id="input-form" className="input-form" required type="text" id="name" onChange={this.handleChange("name")} value={this.state.name} />
+        </div>
       )
     }
 
@@ -49,10 +49,14 @@ class SessionForm extends React.Component {
         </h2>
         <form className="session-form" onSubmit={this.handleSubmit}>
           {nameField}
-          <label for="email">Your email address</label>
-          <input required id="email" type="text" onChange={this.handleChange("email")} value={this.state.email} />
-          <label for="password">Your password</label>
-          <input required type="password" id="password" onChange={this.handleChange("password")} value={this.state.password} />
+          <div className="input-container">
+            <label htmlFor="input-form" className="input-label" >Your email address</label>
+            <input id="input-form" className="input-form" required id="email" type="text" onChange={this.handleChange("email")} value={this.state.email} />
+          </div>
+          <div className="input-container">
+           <label htmlFor="input-form" className="input-label" >Your password</label>
+            <input id="input-form" className="input-form" required type="password" id="password" onChange={this.handleChange("password")} value={this.state.password} />
+          </div>
           <ul>
             {errorMessages()}
           </ul>

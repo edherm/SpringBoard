@@ -19,10 +19,10 @@ export default ({ currentUser, logout }) => {
 
   return (
     <div className="nav-container">
-      <div className="nav-logo">
+      <Link to="/" className="nav-logo">
         <img className="nav-logo-img" src={window.springURL} alt="SpringBoard Logo" />
         <h1 className="nav-logo-title">Springboard</h1>
-      </div>
+      </Link>
       {display}
     </div>
   )
