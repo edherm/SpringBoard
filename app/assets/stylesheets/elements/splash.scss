@@ -1,0 +1,43 @@
+.splash-content {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  
+}
+
+.splash-content > h2, .splash-content > p, .splash-content > p {
+  margin-top: 10px;
+}
+
+.splash-content > h2 {
+  font-size: 4vw;
+}
+
+.bold-p {
+  background-color: transparent;
+}
+
+.splash-content > p {
+  line-height: 25px;
+  margin-bottom: 45px;
+}
+
+
+// .signup {
+//   width: fit-content;
+// }
+
+.signup > a {
+  background-color: rgb(251, 224, 76);
+  color: black;
+  font-weight: bold;
+  padding: 10px 57px 10px 57px;
+  
+}
+
+
+.user-count {
+  margin-top: 12px;
+  font-size: 12px;
+  // width: fit-content;
+}

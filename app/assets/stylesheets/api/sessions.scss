@@ -12,14 +12,40 @@ form > input:last-child {
 }
 
 .session-form-container {
+  display: flex;
+  flex-direction: column;
   background-color: whitesmoke;
-  border-radius: 10px;
+  margin: auto;
   border: 1px solid grey;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.session-form-container form, .formType-header {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.formType-header {
+  margin: 0 auto;
 }
 
 .Sig-button {
+  margin: auto;
   border-radius: 20px;
 }
 .Log-button {
+  
+}
 
+form > input {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 3px;
+}
+
+form > label {
+  position: relative;
+  top: 10px;
 }

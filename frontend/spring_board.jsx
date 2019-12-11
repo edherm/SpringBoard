@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from './store/store';
 import Root from './components/root';
-import { login, logout } from "./actions/session_actions";
+// import { login, logout } from "./actions/session_actions";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,7 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
       session: { currentUser: window.currentUser.id }
     };
     store = configureStore(preloadedState);
+    // debugger
     delete window.currentUser;
+    // debugger
   } else {
     store = configureStore();
   }

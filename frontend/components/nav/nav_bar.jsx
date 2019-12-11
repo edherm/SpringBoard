@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom';
 
 export default ({ currentUser, logout }) => {
   const display = currentUser ? (
-    <div className="nav-dropdown">
-      <button onClick={() => logout()}>DropdownLogout</button>
+    <div className="nav-right dropdown" >
+      {`${currentUser.email}`}
+      <div className="dropdown-content" >
+        <button className="logout-button" onClick={() => logout()}>Sign Out</button>
+      </div>
     </div>
   ) : (
-    <div className="nav-links">
+    <div className="nav-links nav-right">
       <Link className="Log-a" to="/login">Sign In</Link>
       <Link className="Sig-a" to="/signup">Try it FREE</Link>
     </div>

@@ -1,0 +1,30 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  background-color: whitesmoke;
+  min-width: 150px;
+  min-height: 250px;
+  box-shadow: 5px 10px 5px 0px grey;
+  border: 2px solid gray;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+.logout-button {
+  font-weight: bold;
+  display: flex;
+  padding: 6px 13px 6px 13px;
+  border: none;
+  margin: auto;
+  margin-left: 10px;
+  background-color: whitesmoke;
+}

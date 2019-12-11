@@ -4,12 +4,12 @@ const _nullErrors = [];
 
 export default (oldState = _nullErrors, action) => {
   Object.freeze(oldState);
-  debugger
+  // debugger
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       return _nullErrors;
     case RECEIVE_ERRORS:
-      debugger
+      // debugger
       return action.errors;
     default:
       return oldState;
