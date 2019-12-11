@@ -6,21 +6,32 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 20px;
+  top: 30px;
   right: 0px;
   background-color: whitesmoke;
-  min-width: 150px;
+  min-width: 250px;
   min-height: 250px;
-  box-shadow: 5px 10px 5px 0px grey;
-  border: 2px solid gray;
+  box-shadow: 3px 3px 5px 0px grey;
+  border: 1px solid rgb(234, 234, 234);
 }
 
 .dropdown:hover .dropdown-content {
   display: flex;
 }
 
+.dropdown-header {
+  display: flex;
+  align-self: center;
+  margin-left: 20px;
+  padding: 6px 13px 6px 13px;
+}
+
+.dropdown-content ul {
+  list-style: none;
+}
+
 .logout-button {
-  font-weight: bold;
+  // font-weight: bold;
   display: flex;
   padding: 6px 13px 6px 13px;
   border: none;
@@ -28,5 +39,7 @@
   margin-left: 10px;
   background-color: whitesmoke;
   position: absolute;
-  bottom: 0px;
+  
+  bottom: 10px;
+  left: 10px;
 }

@@ -41,11 +41,21 @@ h1.nav-logo-title {
 
 .nav-right {
   display: flex;
+  align-self: center;
 }
 
 .nav-links {
   // justify-content: space-around;
 }
+
+.user-initial {
+  border: 1px solid rgb(245, 186, 105);
+  border-radius: 180px;
+  padding: 8px 10px;
+  background-color: rgb(245, 186, 105);
+  color: white;
+}
+
 
 .Log-a, .Sig-a {
   font-weight: bold;

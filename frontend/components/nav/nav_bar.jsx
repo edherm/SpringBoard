@@ -5,9 +5,14 @@ import { Link } from 'react-router-dom';
 export default ({ currentUser, logout }) => {
   const navRight = currentUser ? (
     <div className="nav-right dropdown" >
-      {`${currentUser.email}`}
+      <div className="user-initial" >
+        {`${currentUser.name[0].toUpperCase()}`}
+      </div>
       <div className="dropdown-content" >
-        <button className="logout-button" onClick={() => logout()}>Sign Out</button>
+        <h3 className="dropdown-header" >Personal Settings</h3>
+        <ul>
+          <li><button className="logout-button" onClick={() => logout()}>Sign Out</button></li>
+        </ul>
       </div>
     </div>
   ) : (
