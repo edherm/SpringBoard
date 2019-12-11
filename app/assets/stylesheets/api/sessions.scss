@@ -27,13 +27,20 @@ form > input:last-child {
   background-color: white;
   padding: 0 4px;
   position: relative;
-  margin: 5px;
+  margin-bottom: 5px;
+}
+
+.input-container:active .input-label {
+  transform: translate(0, 4px) scale(.75);
 }
 
 .input-label {
   background-color: rgba(245, 245, 245, 0);
   position: absolute;
   font-size: 16px;
+  transform: translate(0, 16px) scale(1);
+  transform-origin: top left;
+  transition: all ls ease-in-out;
 }
 
 .input-form {
@@ -42,18 +49,23 @@ form > input:last-child {
   font-size: 16px;
   border-style: none;
   padding: 16px 0 10px;
-  width: 150px;
+  width: 100%;
 }
 
-.session-form-container form, .formType-header {
+.session-form {
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 0px 30px 30px 30px;
   background-color: white;
+  border-bottom-color: 1px solid rgb(217, 217, 217);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .formType-header {
+  padding: 30px;
   margin: 0 auto;
+  background-color: transparent;
 }
 
 .Sig-button {

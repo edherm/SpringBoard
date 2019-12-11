@@ -25,6 +25,20 @@ h1.nav-logo-title {
   height: 30px;
 }
 
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  align-self: center;
+}
+
+.nav-links > li, .nav-links > li > a {
+  display: flex;
+  padding-right: 5px;
+  justify-content: flex-end;
+  color: black;
+}
+
 .nav-right {
   display: flex;
 }
@@ -39,10 +53,10 @@ h1.nav-logo-title {
   padding: 7px 14px 7px 14px;
   border: 1px solid black;
   margin: auto;
-  margin-left: 10px;
 }
 
 .Sig-a {
+  margin-left: 10px;
   background-color: black;
   color: white;
 }

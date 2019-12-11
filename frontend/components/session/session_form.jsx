@@ -6,9 +6,8 @@ class SessionForm extends React.Component {
 
     this.state = this.props.user;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.fillForm = this.fillForm.bind(this);
   }
-
-
 
   handleSubmit(e) {
     e.preventDefault();
@@ -20,17 +19,25 @@ class SessionForm extends React.Component {
     return (e) => this.setState({ [field]: e.currentTarget.value })
   }
 
+  fillForm(e) {
+    e.preventDefault();
+    this.setState({email: "email", name: "name", password: "password"})
+  }
 
   render () {
     const { formType, errors } = this.props;
-
-    let nameField;
+    
+    let formOption;
     if (formType === "Sign Up") {
-      nameField = (
-        <div className="input-container">
+      formOption = (
+        <div className="input-container" >
           <label htmlFor="input-form" className="input-label" >Your name</label>
           <input id="input-form" className="input-form" required type="text" id="name" onChange={this.handleChange("name")} value={this.state.name} />
         </div>
+      )
+    } else {
+      formOption = (
+        <button onClick={this.fillForm}>Demo User</button>
       )
     }
 
@@ -48,12 +55,12 @@ class SessionForm extends React.Component {
           {formType} {`${formType === "Sign Up" ? "for" : "to"}`} SpringBoard
         </h2>
         <form className="session-form" onSubmit={this.handleSubmit}>
-          {nameField}
-          <div className="input-container">
+          {formOption}
+          <div className="input-container" >
             <label htmlFor="input-form" className="input-label" >Your email address</label>
             <input id="input-form" className="input-form" required id="email" type="text" onChange={this.handleChange("email")} value={this.state.email} />
           </div>
-          <div className="input-container">
+          <div className="input-container" >
            <label htmlFor="input-form" className="input-label" >Your password</label>
             <input id="input-form" className="input-form" required type="password" id="password" onChange={this.handleChange("password")} value={this.state.password} />
           </div>
