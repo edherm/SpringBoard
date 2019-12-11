@@ -9,9 +9,9 @@ class SessionForm extends React.Component {
     this.fillForm = this.fillForm.bind(this);
   }
 
-  // componentWillUnmount () {
-  //   this.props.dismissErrors()
-  // }
+  componentDidMount () {
+    this.props.dismissErrors()
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -62,16 +62,35 @@ class SessionForm extends React.Component {
           {formOption}
           <div className="input-container" >
             <label htmlFor="input-form" className="input-label" >Your email address</label>
-            <input id="input-form" className="input-form" required id="email" type="text" onChange={this.handleChange("email")} value={this.state.email} />
+            <input 
+              id="input-form" 
+              className="input-form" 
+              required id="email" 
+              type="text" 
+              onChange={this.handleChange("email")} 
+              value={this.state.email} 
+            />
           </div>
           <div className="input-container" >
            <label htmlFor="input-form" className="input-label" >Your password</label>
-            <input id="input-form" className="input-form" required type="password" id="password" onChange={this.handleChange("password")} value={this.state.password} />
+            <input 
+              id="input-form" 
+              className="input-form" 
+              required 
+              type="password" 
+              id="password" 
+              onChange={this.handleChange("password")} 
+              value={this.state.password} 
+            />
           </div>
           <ul>
             {errorMessages()}
           </ul>
-          <input className={`${formType.slice(0,3)}-button`} type="submit" value={this.props.formType} />
+          <input 
+            className={`${formType.slice(0,3)}-button`} 
+            type="submit" 
+            value={this.props.formType} 
+          />
         </form>
       </div>
     )

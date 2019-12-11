@@ -14,7 +14,7 @@ const msp = state => ({
 
 const mdp = dispatch => ({
   action: user => dispatch(signup(user)),
-  clearErrors: () => dispatch(dismissErrors())
+  dismissErrors: () => dispatch(dismissErrors())
 })
 
 export default connect(msp, mdp)(SessionForm)
