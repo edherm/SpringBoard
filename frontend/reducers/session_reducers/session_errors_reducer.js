@@ -12,6 +12,6 @@ export default (oldState = _nullErrors, action) => {
       // debugger
       return action.errors;
     default:
-      return oldState;
+      return [];
   }
 }

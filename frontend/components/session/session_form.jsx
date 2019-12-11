@@ -9,6 +9,10 @@ class SessionForm extends React.Component {
     this.fillForm = this.fillForm.bind(this);
   }
 
+  // componentWillUnmount () {
+  //   this.props.dismissErrors()
+  // }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.action(this.state)
