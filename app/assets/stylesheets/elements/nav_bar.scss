@@ -10,6 +10,11 @@
   color: black;
 }
 
+.nav-logo.user {
+  display: flex;
+  color: #54a268;
+}
+
 .nav-logo-img, .nav-logo-title {
   margin: auto;
   margin-right: 5px;
@@ -32,11 +37,18 @@ h1.nav-logo-title {
   align-self: center;
 }
 
-.nav-links > li, .nav-links > li > a {
+.nav-links.new-user > li, .nav-links.new-user > li > a {
   display: flex;
   padding-right: 5px;
   justify-content: flex-end;
   color: black;
+}
+
+.nav-links.user > li, .nav-links.user > li > a {
+  display: flex;
+  padding-right: 15px;
+  justify-content: space-around;
+  color: #54a268;
 }
 
 .nav-right {
@@ -51,9 +63,12 @@ h1.nav-logo-title {
 .user-initial {
   border: 1px solid rgb(245, 186, 105);
   border-radius: 180px;
-  padding: 8px 10px;
+  padding: 8px 8px;
+  text-align: center;
   background-color: rgb(245, 186, 105);
   color: white;
+  width: 16px;
+  height: 16px;
 }
 
 

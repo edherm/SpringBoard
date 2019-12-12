@@ -5,7 +5,7 @@ class Api::SessionsController < ApplicationController
     if @user
       # debugger
       login(@user)
-      render "/api/projects/index"
+      render "/api/users/show"
     else
       # debugger
       render json: ["Invalid email/password combo"], status: 404

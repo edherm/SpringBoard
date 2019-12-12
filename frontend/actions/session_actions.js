@@ -8,10 +8,12 @@ export const DISMISS_ERRORS = 'DISMISS_ERRORS';
 
 // Actions
 
-export const receiveCurrentUser = user => ({
+export const receiveCurrentUser = user => {
+  // debugger
+  return {
   type: RECEIVE_CURRENT_USER,
   user
-})
+}}
 
 export const logoutCurrentUser = () => ({
   type: LOGOUT_CURRENT_USER
@@ -33,7 +35,8 @@ export const signup = user => dispatch => {
   return SessionAPIUtil.signup(user)
     .then(user => {
       // debugger
-      return dispatch(receiveCurrentUser(user))
+      dispatch(receiveCurrentUser(user))
+      return user;
     }, errors => {
       // debugger
       return dispatch(receiveErrors(errors.responseJSON))
@@ -43,7 +46,9 @@ export const signup = user => dispatch => {
 export const login = user => dispatch => (
   SessionAPIUtil.login(user)
     .then(user => {
-      return dispatch(receiveCurrentUser(user))
+      // debugger
+      dispatch(receiveCurrentUser(user))
+      return user;
     }, errors => {
       return dispatch(receiveErrors(errors.responseJSON))
     })

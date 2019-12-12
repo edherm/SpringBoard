@@ -17,7 +17,8 @@ class SessionForm extends React.Component {
     e.preventDefault();
     this.props.action(this.state)
       .then((user) => {
-        debugger
+        // this.setState();
+        // debugger
         this.props.history.push(`/${user.id}/projects`)
       });
   }
