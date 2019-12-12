@@ -1,0 +1,70 @@
+.form-container, .project-input-container {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-container {
+  width: 80%;
+  min-height: 788px;
+  border: 1px solid grey;
+  padding: 50px;
+}
+
+.project-input-container {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  width: 545px;
+}
+
+.project-input-container > label {
+  display: flex;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 10px;
+  justify-items: left;
+}
+
+.project-input-container > input {
+  width: 100%;
+  background-color: transparent;
+  border-style: none;
+  border: 1px solid rgb(217, 217, 217)
+}
+
+.project-input-container > input:focus {
+  box-shadow: 3px rgb(173, 210, 251);
+}
+
+.project-input-container > input:nth-child(4) {
+  height: 50px;
+}
+
+.form-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.projectCreate-header {
+  font-size: 24px;
+}
+
+.create-project-img {
+  width: 113px;
+}
+
+form.project-input-container > input.project-submit-button {
+  border-radius: 20px;
+  width: fit-content;
+  background-color: rgb(84,162,104);
+  padding: 8px 16px 8px 16px;
+  color: white;
+}
+
+form.project-input-container > label {
+  font-size: 18px;
+  text-align: left;
+}

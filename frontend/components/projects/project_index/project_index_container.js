@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import ProjectIndex from './project_index';
-import { fetchProjects } from '../../actions/project_actions';
+import { fetchProjects } from '../../../actions/project_actions';
 
 const msp = (state, ownProps) => ({
-  projects: state.entities.projects,
+  projects: Object.values(state.entities.projects),
   userId: ownProps.match.params.userId
 });
 

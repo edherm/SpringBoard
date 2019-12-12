@@ -17,7 +17,7 @@ class ProjectIndex extends React.Component {
             <ProjectIndexItem key={project.id} project={project} />
           )}
           <li className="project-index-item-container">
-            <Link to="">
+            <Link to={`/${this.props.userId}/projects/create`}>
               <h1 className="project-index-item-name plus">+</h1>
               <p className="project-index-item-description plus-text" >Add another project</p>
             </Link>
