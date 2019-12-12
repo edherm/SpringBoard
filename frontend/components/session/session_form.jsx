@@ -9,14 +9,17 @@ class SessionForm extends React.Component {
     this.fillForm = this.fillForm.bind(this);
   }
 
-  componentDidMount () {
-    this.props.dismissErrors()
-  }
+  // componentDidMount () {
+  //   this.props.dismissErrors()
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.action(this.state)
-      .then(() => this.props.history.push('/'));
+      .then((user) => {
+        debugger
+        this.props.history.push(`/${user.id}/projects`)
+      });
   }
 
   handleChange (field) {
@@ -25,7 +28,7 @@ class SessionForm extends React.Component {
 
   fillForm(e) {
     e.preventDefault();
-    this.setState({email: "email", name: "name", password: "password"})
+    this.setState({email: "demo@email.com", password: "password"})
   }
 
   render () {
@@ -36,7 +39,13 @@ class SessionForm extends React.Component {
       formOption = (
         <div className="input-container" >
           <label htmlFor="input-form" className="input-label" >Your name</label>
-          <input id="input-form" className="input-form" required type="text" id="name" onChange={this.handleChange("name")} value={this.state.name} />
+          <input 
+            id="input-form" 
+            className="input-form" 
+            required type="text" 
+            id="name" 
+            onChange={this.handleChange("name")} 
+            value={this.state.name} />
         </div>
       )
     } else {

@@ -6,7 +6,7 @@ export default ({ currentUser, logout }) => {
   const navRight = currentUser ? (
     <div className="nav-right dropdown" >
       <div className="user-initial" >
-        {`${currentUser.name[0].toUpperCase()}`}
+        {`${currentUser.name}`}
       </div>
       <div className="dropdown-content" >
         <h3 className="dropdown-header" >Personal Settings</h3>

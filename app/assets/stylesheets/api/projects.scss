@@ -1,0 +1,63 @@
+// Place all the styles related to the api/projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.projects {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-index-item-container, .project-index-item-name, .project-index-item-description {
+  background-color: rgb(255, 255, 255);
+}
+
+.projects-ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-index-item-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(225, 222, 220);
+  border-radius: 10px;
+  padding: 2px 20px 20px 20px;
+  margin-bottom: 20px;
+  width: 620px;
+  height: 180px;
+  align-self: center;
+}
+
+.edit-project {
+  display: flex;
+  align-self: flex-end;
+  color: rgb(179,179,179);
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.project-index-item-name {
+  padding-top: 5px;
+  margin-bottom: 3px;
+  font-size: 18px;
+}
+
+.projects-header {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.plus, .plus-text {
+  text-align: center;  
+}
+
+.plus {
+  color: rgb(84, 162, 104);
+  font-size: 100px;
+  font-weight: lighter;
+}
+
+.plus-text {
+  font-size: 10px;
+  color: black;
+}

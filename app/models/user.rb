@@ -19,6 +19,11 @@ class User < ApplicationRecord
   attr_reader :password
   after_initialize :ensure_session_token
 
+  has_many :managed_projects,
+    foreign_key: :manager_id,
+    primary_key: :id,
+    class_name: :Project
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
