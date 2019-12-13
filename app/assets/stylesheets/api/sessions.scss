@@ -169,14 +169,12 @@ form > label {
 }
 
 .login-options-instruction {
-  // display: flex;
+  display: flex;
   background-color: white;
   // margin: auto;
 }
 
 .login-options-instruction > h2 {
-  display: flex;
-  justify-content: baseline;
   width: 100%;
   border-bottom: 1px solid #7f7f7f;
   line-height: 0.1em;
@@ -186,9 +184,6 @@ form > label {
 .login-options-instruction > h2 > span {
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
   background-color: white;
-  margin: 0 10px;
   padding: 0 10px;
 }
