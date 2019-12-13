@@ -1,39 +1,50 @@
-.form-container, .project-input-container {
+.project-form-container, .project-input-container {
   margin: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: white;
 }
 
-.form-container {
-  width: 80%;
+.project-form-container {
+  width: 75%;
   min-height: 788px;
-  border: 1px solid grey;
+  border: 1px solid rgb(217, 217, 217);
   padding: 50px;
 }
 
 .project-input-container {
   display: flex;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 40px;
   width: 545px;
 }
 
-.project-input-container > label {
+.project-input-container > h3 {
+  width: 100%;
+  background-color: white;
+  margin-top: 20px;
+}
+
+.project-input-container > h3 > label {
   display: flex;
-  text-align: left;
   font-weight: bold;
   margin-bottom: 10px;
-  justify-items: left;
+  background-color: white;
 }
 
-.project-input-container > input {
-  width: 100%;
+.project-input-container > input, .project-input-container > textarea {
+  width: 98%;
   background-color: transparent;
   border-style: none;
-  border: 1px solid rgb(217, 217, 217)
+  border: 1px solid rgb(217, 217, 217);
+  vertical-align: top;
 }
 
+.project-input-container > textarea {
+  height: 90px;
+  border-radius: 3px;
+}
 .project-input-container > input:focus {
   box-shadow: 3px rgb(173, 210, 251);
 }
@@ -42,14 +53,16 @@
   height: 50px;
 }
 
-.form-header {
+.project-form-header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: white;
 }
 
 .projectCreate-header {
   font-size: 24px;
+  background-color: white;
 }
 
 .create-project-img {
@@ -67,4 +80,8 @@ form.project-input-container > input.project-submit-button {
 form.project-input-container > label {
   font-size: 18px;
   text-align: left;
+}
+
+input.project-submit-button {
+  margin-top: 50px;
 }

@@ -51,6 +51,11 @@ q:before, q:after {
     content:none;
 }
 
+
+::placeholder {
+  vertical-align: top;
+}
+
 a {
     margin:0;
     padding:0;

@@ -15,4 +15,4 @@ const mdp = dispatch => ({
   projectAction: project => dispatch(createProject(project))
 })
 
-export default connect(msp, mdp)(ProjectForm); 
+export default connect(msp, mdp)(ProjectForm);

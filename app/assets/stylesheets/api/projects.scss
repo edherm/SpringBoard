@@ -7,7 +7,7 @@
   flex-direction: column;
 }
 
-.project-index-item-container, .project-index-item-name, .project-index-item-description {
+.project-index-item-container, .project-index-item-li, .project-index-item-name, .project-index-item-description {
   background-color: rgb(255, 255, 255);
 }
 
@@ -16,24 +16,30 @@
   flex-direction: column;
 }
 
-.project-index-item-container {
+.project-index-item-li, .project-index-item-container {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgb(225, 222, 220);
   border-radius: 10px;
   padding: 2px 20px 20px 20px;
   margin-bottom: 20px;
   width: 620px;
   height: 180px;
   align-self: center;
+  color: black;
+}
+
+.project-index-item-container {
+  border: 1px solid rgb(225, 222, 220);
 }
 
 .edit-project {
+  
   display: flex;
   align-self: flex-end;
   color: rgb(179,179,179);
   font-weight: bolder;
   font-size: 20px;
+  z-index: 5;
 }
 
 .project-index-item-name {

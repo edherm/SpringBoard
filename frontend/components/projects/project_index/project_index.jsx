@@ -14,7 +14,10 @@ class ProjectIndex extends React.Component {
         <h1 className="projects-header">Your Projects</h1>
         <ul className="projects-ul" >
           {this.props.projects.map(project =>
-            <ProjectIndexItem key={project.id} project={project} />
+            <ProjectIndexItem key={project.id} 
+              project={project} 
+              userId={this.props.match.params.userId} 
+            />
           )}
           <li className="project-index-item-container">
             <Link to={`/${this.props.userId}/projects/create`}>

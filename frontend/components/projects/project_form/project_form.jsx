@@ -11,10 +11,15 @@ class ProjectForm extends React.Component {
   
   handleSubmit (e) {
     e.preventDefault();
-
+    debugger
     const project = Object.assign({}, this.state);
-    this.props.projectAction(project)
-      .then(project => this.props.history.push(`/${project.id}/`))
+    const that = this;
+
+    this.props.projectAction(project).then(
+      (payload) => {
+        debugger
+        that.props.history.push(`./${payload.project.id}/`)
+      })
   }
 
   handleInput (field) {
@@ -43,8 +48,8 @@ class ProjectForm extends React.Component {
     }
 
     return (
-      <div className="form-container">
-        <div className="form-header">
+      <div className="project-form-container">
+        <div className="project-form-header">
           {formLogo}
           <h1 className={`${formType}-header`}>
             {formType === "projectCreate" ? (
@@ -55,19 +60,19 @@ class ProjectForm extends React.Component {
           </h1>
         </div>
         <form className="project-input-container" onSubmit={this.handleSubmit}>
-          <label>{nameInput}</label>
+          <h3><label>{nameInput}</label></h3>
           <input 
             type="text" 
             placeholder="e.g Office Renovation" 
             value={name} 
-            onChange={() => this.handleInput("name")} 
+            onChange={this.handleInput("name")} 
           />
-          <label>{descriptionInput}</label>
-          <input
-            type="text"
+          <h3><label>{descriptionInput}</label></h3>
+          <textarea
+
             placeholder="e.g Plans and scheduling for expanding the office"
             value={description}
-            onChange={() => this.handleInput("description")}
+            onChange={this.handleInput("description")}
           />
           <input className="project-submit-button" type="submit" value={submitButton}/>
         </form>

@@ -14,11 +14,14 @@ class Api::ProjectsController < ApplicationController
   end
 
   def create
+    # debugger
     @project = current_user.managed_projects.new(project_params)
 
     if @project.save
-      render "/api/projects/#{@project.id}"
+      # debugger
+      render :show
     else
+      # debugger
       render json: @project.errors.full_messages, status: 404
     end
   end
