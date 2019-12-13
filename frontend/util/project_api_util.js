@@ -12,7 +12,7 @@ export const fetchProject = projectId => (
 )
 
 export const createProject = project => {
-  debugger
+  // debugger
   return $.ajax({
     url: `api/projects`,
     method: "POST",

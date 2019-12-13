@@ -11,7 +11,7 @@ export const receiveProjects = (projects) => ({
 })
 
 export const receiveProject = project => {
-  debugger
+  // debugger
   return {
   type: RECEIVE_PROJECT,
   project
@@ -38,7 +38,7 @@ export const fetchProject = projectId => dispatch => (
 )
 
 export const createProject = project => dispatch => {
-  debugger
+  // debugger
   return projectAPIUtil.createProject(project)
     .then(project => {
       return dispatch(receiveProject(project));

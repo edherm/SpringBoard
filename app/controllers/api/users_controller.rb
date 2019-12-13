@@ -1,9 +1,7 @@
 class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
-    # debugger
     if @user.save
-      # debugger
       login(@user)
       render :show
     else
@@ -13,7 +11,6 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    # debugger
   end
 
 

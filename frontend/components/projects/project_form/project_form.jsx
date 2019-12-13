@@ -11,13 +11,13 @@ class ProjectForm extends React.Component {
   
   handleSubmit (e) {
     e.preventDefault();
-    debugger
+    // debugger
     const project = Object.assign({}, this.state);
     const that = this;
 
     this.props.projectAction(project).then(
       (payload) => {
-        debugger
+        // debugger
         that.props.history.push(`./${payload.project.id}/`)
       })
   }

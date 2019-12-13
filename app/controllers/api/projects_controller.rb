@@ -1,6 +1,5 @@
 class Api::ProjectsController < ApplicationController
   def index
-    # debugger
     user = User.find_by(id: params[:userId])
     @projects = user.managed_projects
   end
@@ -14,14 +13,13 @@ class Api::ProjectsController < ApplicationController
   end
 
   def create
-    # debugger
     @project = current_user.managed_projects.new(project_params)
 
     if @project.save
-      # debugger
+
       render :show
     else
-      # debugger
+
       render json: @project.errors.full_messages, status: 404
     end
   end
