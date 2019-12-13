@@ -6,19 +6,26 @@ class ProjectForm extends React.Component {
 
     this.state = this.props.project;
 
+    this.nameField = React.createRef();
+
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidUpdate () {
+    debugger
+    if (this.props.errors) {
+      this.nameField.current.focus();
+    }
   }
   
   handleSubmit (e) {
     e.preventDefault();
     // debugger
     const project = Object.assign({}, this.state);
-    const that = this;
 
     this.props.projectAction(project).then(
       (payload) => {
-        // debugger
-        that.props.history.push(`./${payload.project.id}/`)
+        this.props.history.push(`./${payload.project.id}/`)
       })
   }
 
@@ -27,7 +34,7 @@ class ProjectForm extends React.Component {
   }
 
   render () {
-    const { errors, formType } = this.props;
+    const { formType } = this.props;
     const { name, description } = this.state;
     
     let formLogo;
@@ -62,6 +69,7 @@ class ProjectForm extends React.Component {
         <form className="project-input-container" onSubmit={this.handleSubmit}>
           <h3><label>{nameInput}</label></h3>
           <input 
+            ref={this.nameField}
             type="text" 
             placeholder="e.g Office Renovation" 
             value={name} 

@@ -35,8 +35,7 @@ export const signup = user => dispatch => {
   return SessionAPIUtil.signup(user)
     .then(user => {
       // debugger
-      dispatch(receiveCurrentUser(user))
-      return user;
+      return dispatch(receiveCurrentUser(user))
     }, errors => {
       // debugger
       return dispatch(receiveErrors(errors.responseJSON))

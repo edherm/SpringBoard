@@ -3,22 +3,40 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 form.session-form > input:last-child {
-  color: white;
-  background-color: rgb(84,162,104);
+  font-size: 16px;
   padding: 8px 16px 8px 16px;
-  width: 354px;
+  height: 42px;
   margin: 0 auto;
-  border: 1px solid rgb(84,162,104);
+  margin-top: 0;
+  // border: 1px solid rgb(84,162,104);
 }
 
+.Log {
+  margin-top: 75px;
+}
+
+.Sig {
+  margin-top: 24px;
+}
+
+.form-logo-img {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 5px;
+  width: 70px;
+
+}
 .session-form-container {
   display: flex;
   flex-direction: column;
   background-color: white;
   margin: auto;
-  border: 1px solid grey;
+  padding: 30px;
+  // border: 1px solid grey;
   border-radius: 10px;
-  width: 400px;
+  box-shadow: 0 -1px 10px rgba(0,0,0,0.05), 0 1px 4px rgba(0,0,0,0.1), 0 10px 30px #f3ece8;;
+  width: 420px;
 }
 
 .input-container {
@@ -27,7 +45,7 @@ form.session-form > input:last-child {
   background-color: white;
   padding: 0 4px;
   position: relative;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .input-container:active .input-label {
@@ -38,6 +56,7 @@ form.session-form > input:last-child {
   background-color: rgba(245, 245, 245, 0);
   position: absolute;
   font-size: 16px;
+  color: grey;
   transform: translate(0, 16px) scale(1);
   transform-origin: top left;
   transition: all ls ease-in-out;
@@ -55,25 +74,59 @@ form.session-form > input:last-child {
 .session-form {
   display: flex;
   flex-direction: column;
-  padding: 0px 30px 30px 30px;
+  // padding: 0px 30px 30px 30px;
   background-color: white;
+  color: #283c46;
   border-bottom-color: 1px solid rgb(217, 217, 217);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 
-.formType-header {
-  padding: 30px;
-  margin: 0 auto;
+.form-header-container, .inner-header-container {
+  display: flex;
   background-color: transparent;
 }
 
-.Sig-button {
+.inner-header-container {
   margin: auto;
-  border-radius: 20px;
+  margin-bottom: 20px; 
 }
+
+.sign-up-instructions {
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.Sig-header {
+  display: flex;
+  padding: 30px;
+  margin: auto;
+  font-size: 25px;
+  background-color: transparent;
+}
+
+.Log-header {
+  display: flex;
+  padding: 0 20px 20px 20px;
+  margin: auto;
+  background-color: white;
+  font-size: 20px;
+}
+
+.Sig-button {
+  border-radius: 21px;
+  color: white;
+  background-color: #2da562;
+  width: 400px;
+}
+
 .Log-button {
-  
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  width: 420px;
 }
 
 form > input {
@@ -85,4 +138,57 @@ form > input {
 form > label {
   position: relative;
   top: 10px;
+}
+
+.login-options {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+  background-color: white;
+} 
+
+.demo-button {
+  display: flex;
+  background-color: white;
+}
+
+.demo-button > button {
+  display: flex;
+  justify-content: center;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: 700;
+  margin: auto;
+  margin-bottom: 15px;
+  width: 100%;
+  height: 45px;
+  // box-shadow: 0 -1px 10px rgba(0,0,0,0.05), 0 1px 4px rgba(0,0,0,0.1), 0 10px 30px #f3ece8;;
+  background-color: transparent;
+  
+}
+
+.login-options-instruction {
+  // display: flex;
+  background-color: white;
+  // margin: auto;
+}
+
+.login-options-instruction > h2 {
+  display: flex;
+  justify-content: baseline;
+  width: 100%;
+  border-bottom: 1px solid #7f7f7f;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+
+.login-options-instruction > h2 > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: white;
+  margin: 0 10px;
+  padding: 0 10px;
 }

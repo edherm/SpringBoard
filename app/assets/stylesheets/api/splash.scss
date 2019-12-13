@@ -10,7 +10,7 @@
 }
 
 .splash-content > h2 {
-  font-size: 4vw;
+  font-size: 60px;
 }
 
 .bold-p {
@@ -20,6 +20,7 @@
 .splash-content > p {
   line-height: 25px;
   margin-bottom: 45px;
+  font-size: 20px;
 }
 
 
@@ -28,16 +29,16 @@
 // }
 
 .signup > a {
-  background-color: rgb(251, 224, 76);
+  background-color: #fbe04c;
   color: black;
   font-weight: bold;
-  padding: 10px 57px 10px 57px;
-  
+  padding: 10px 60px 10px 60px;
+  font-size: 20px;
 }
 
 
 .user-count {
-  margin-top: 12px;
-  font-size: 12px;
+  margin-top: 25px;
+  font-size: 90%;
   // width: fit-content;
 }

@@ -20,7 +20,7 @@ class SessionForm extends React.Component {
     this.props.action(user)
       .then((user) => {
         // this.setState();
-        // debugger
+        debugger
         this.props.history.push(`/${user.id}/projects`)
       });
   }
@@ -37,24 +37,69 @@ class SessionForm extends React.Component {
   render () {
     const { formType, errors } = this.props;
     
-    let formOption;
-    if (formType === "Sign Up") {
-      formOption = (
-        <div className="input-container" >
-          <label htmlFor="input-form" className="input-label" >Your name</label>
-          <input 
-            id="input-form" 
-            className="input-form" 
-            required type="text" 
-            id="name" 
-            onChange={this.handleChange("name")} 
-            value={this.state.name} />
-        </div>
-      )
-    } else {
-      formOption = (
-        <button onClick={this.fillForm}>Demo User</button>
-      )
+    const formOption = () => {
+      if (formType === "Sign Up") {
+        return (
+          <div className="input-container" >
+            <label htmlFor="input-form" className="input-label" >Your name</label>
+              <input 
+                id="input-form" 
+                className="input-form" 
+                required type="text" 
+                id="name" 
+                onChange={this.handleChange("name")} 
+                value={this.state.name} 
+              />
+          </div>
+        )
+      } else {
+        return (
+          <div className="login-options">
+            <div className="demo-button">
+              <button onClick={this.fillForm}>Use my Demo account</button>
+            </div>
+            <div className="login-options-instruction">
+              <h2>
+                <span>Or, use my email address</span>
+              </h2>
+            </div>
+          </div>
+        )
+      }
+    }
+
+    const klass = formType.slice(0, 3);
+
+    const outerHeader = () => {
+      if (formType === "Sign Up") {
+        return (
+          <div className="form-header-container">
+            <h2 className={`${klass}-header`}>
+              {formType} for SpringBoard Personal
+            </h2>
+          </div>
+        )
+      }
+    }
+
+    const innerHeader = ()=> {
+      if (formType === "Log In") {
+        return (
+          <div className="form-header-container">
+            <h2 className={`${klass}-header`}>
+              {formType} to SpringBoard
+            </h2>
+          </div>
+        )
+      } else {
+        return (
+          <div className="inner-header-container">
+            <h3 className={`sign-up-instructions`}>
+              Type your name & email address to begin
+            </h3>
+          </div>
+        )
+      }
     }
 
     const errorMessages = () => {
@@ -64,46 +109,49 @@ class SessionForm extends React.Component {
         return <li key={i}>{error}</li>
       })
     }
+
    
    return (
-      <div className="session-form-container" >
-        <h2 className="formType-header">
-          {formType} {`${formType === "Sign Up" ? "for" : "to"}`} SpringBoard
-        </h2>
-        <form className="session-form" onSubmit={this.handleSubmit}>
-          {formOption}
-          <div className="input-container" >
-            <label htmlFor="input-form" className="input-label" >Your email address</label>
+      <div className={klass}>
+        <img className="form-logo-img" src={window.springURL} alt="SpringBoard Logo" />
+        {outerHeader()}
+        <div className="session-form-container" >
+          {innerHeader()}
+          <form className="session-form" onSubmit={this.handleSubmit}>
+            {formOption()}
+            <div className="input-container" >
+              <label htmlFor="input-form" className="input-label" >Your email (e.g. julie@widgetco.com)</label>
+              <input 
+                id="input-form" 
+                className="input-form" 
+                required id="email" 
+                type="text" 
+                onChange={this.handleChange("email")} 
+                value={this.state.email} 
+              />
+            </div>
+            <div className="input-container" >
+            <label htmlFor="input-form" className="input-label" >Your password</label>
+              <input 
+                id="input-form" 
+                className="input-form" 
+                required 
+                type="password" 
+                id="password" 
+                onChange={this.handleChange("password")} 
+                value={this.state.password} 
+              />
+            </div>
+            <ul>
+              {errorMessages()}
+            </ul>
             <input 
-              id="input-form" 
-              className="input-form" 
-              required id="email" 
-              type="text" 
-              onChange={this.handleChange("email")} 
-              value={this.state.email} 
+              className={`${formType.slice(0,3)}-button`} 
+              type="submit" 
+              value={this.props.formType} 
             />
-          </div>
-          <div className="input-container" >
-           <label htmlFor="input-form" className="input-label" >Your password</label>
-            <input 
-              id="input-form" 
-              className="input-form" 
-              required 
-              type="password" 
-              id="password" 
-              onChange={this.handleChange("password")} 
-              value={this.state.password} 
-            />
-          </div>
-          <ul>
-            {errorMessages()}
-          </ul>
-          <input 
-            className={`${formType.slice(0,3)}-button`} 
-            type="submit" 
-            value={this.props.formType} 
-          />
-        </form>
+          </form>
+        </div>
       </div>
     )
   }

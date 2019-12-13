@@ -38,27 +38,24 @@ export const fetchProject = projectId => dispatch => (
 )
 
 export const createProject = project => dispatch => {
-  // debugger
   return projectAPIUtil.createProject(project)
     .then(project => {
       return dispatch(receiveProject(project));
-      // return project;
     }, errors => (
       dispatch(receiveProjectErrors(errors.responseJSON))
     )
   )
 }
 
-export const updateProject = project => dispatch => (
-  projectAPIUtil.updateProject(project)
+export const updateProject = project => dispatch => {
+  return projectAPIUtil.updateProject(project)
     .then(project => {
-      dispatch(receiveProject(project));
-      return project
+      return dispatch(receiveProject(project));
     }, errors => (
       dispatch(receiveProjectErrors(errors.responseJSON))
     )
   )
-)
+}
 
 export const deleteProject = projectId => dispatch => (
   projectAPIUtil.deleteProject(projectId)
