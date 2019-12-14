@@ -12,7 +12,7 @@ class ProjectForm extends React.Component {
   }
 
   componentDidUpdate () {
-    debugger
+    // debugger
     if (this.props.errors) {
       this.nameField.current.focus();
     }

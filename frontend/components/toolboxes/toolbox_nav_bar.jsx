@@ -1,6 +1,6 @@
 import React from "react";
 
-class ProjNavBar extends React.Component {
+class ToolboxNavBar extends React.Component {
   render () {
     return (
       <div>
@@ -14,4 +14,4 @@ class ProjNavBar extends React.Component {
   }
 } 
 
-export default ProjNavBar;
+export default ToolboxNavBar;

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { logout, receiveCurrentUser } from "../../actions/session_actions";
+import { logout, receiveCurrentUser } from "../../../actions/session_actions";
 import NavBar from "./nav_bar";
 
 const msp = state => ({
