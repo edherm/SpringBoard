@@ -25,6 +25,7 @@ class Api::ProjectsController < ApplicationController
   end
 
   def edit
+    debugger
     @project = Project.find(params[:id])
   end
 

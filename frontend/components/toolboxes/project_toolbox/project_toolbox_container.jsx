@@ -6,9 +6,21 @@ import { fetchProject, createProject } from '../../../actions/project_actions';
 
 
 
-const HeaderLeft = (<h2>HeaderLeft</h2>)
-const HeaderCenter = (<h1>HeaderCenter</h1>)
-const HeaderRight = (<h2>HeaderRight</h2>)
+const HeaderLeft = () => {
+  return (
+    <h2>HeaderLeft</h2>
+  )
+}
+const HeaderCenter = () => {
+  return (
+    <h1>HeaderCenter</h1>
+  )
+}
+const HeaderRight = () => {
+  return (
+    <h2>HeaderRight</h2>
+  )
+}
 
 
 const msp = (state, ownprops) => ({

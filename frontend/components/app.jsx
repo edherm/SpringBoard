@@ -8,6 +8,7 @@ import Splash from "./splash/splash";
 import ProjectIndexContainer from "./projects/project_index_container";
 import ProjectCreateContainer from "./forms/projects/project_create_container";
 import ProjectToolboxContainer from "./toolboxes/project_toolbox/project_toolbox_container";
+import ProjectEditToolbox from "./toolboxes/project_toolbox/project_edit_toolbox";
 
 const App = () => (
   <div>
@@ -21,6 +22,7 @@ const App = () => (
     <Route exact path="/" component={Splash} />
     <Switch>
       <Route exact path="/:userId/projects/create" component={ProjectCreateContainer} />
+      <Route path="/:userId/projects/:projectId/edit" component={ProjectEditToolbox} />
       <Route path="/:userId/projects/:projectId" component={ProjectToolboxContainer} />
       <Route path="/:userId/projects" component={ProjectIndexContainer} />
     </Switch>
