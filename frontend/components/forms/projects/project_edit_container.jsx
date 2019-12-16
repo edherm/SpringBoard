@@ -18,7 +18,7 @@ class Toolbox extends React.Component {
   render () {
     const { toolbox, projectAction, errors, formType, project } = this.props;
     const { NavBar, HeaderLeft, HeaderCenter, HeaderRight, Body } = toolbox;
-    debugger
+    // debugger
 
     if (!project) return null;
 
@@ -57,7 +57,7 @@ class Toolbox extends React.Component {
 
 
 const msp = (state, ownProps) => {
-  debugger
+  // debugger
   return {
     project: state.entities.projects[ownProps.match.params.projectId],
     errors: Object.values(state.errors),

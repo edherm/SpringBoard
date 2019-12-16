@@ -25,12 +25,12 @@ class Api::ProjectsController < ApplicationController
   end
 
   def edit
-    debugger
+    # debugger
     @project = Project.find(params[:id])
   end
 
   def update
-    debugger
+    # debugger
     @project = Project.find(params[:id])
     if @project.update_attributes(project_params)
       render :show

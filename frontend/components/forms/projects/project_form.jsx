@@ -4,7 +4,7 @@ import React from 'react';
 class ProjectForm extends React.Component {
   constructor (props) {
     super(props);
-    debugger
+    // debugger
     this.state = this.props.project;
 
     this.nameField = React.createRef();
@@ -13,7 +13,7 @@ class ProjectForm extends React.Component {
   }
 
   componentDidUpdate () {
-    debugger
+    // debugger
     if (this.props.errors.projects) {
       this.nameField.current.focus();
     }
@@ -24,11 +24,11 @@ class ProjectForm extends React.Component {
     // debugger
     const project = Object.assign({}, this.state);
     const that = this;
-    debugger
+    // debugger
     this.props.projectAction(project).then(
       (payload) => {
         that.props;
-        debugger
+        // debugger
         that.props.history.push(`/${that.props.match.params.userId}/projects/${payload.project.id}/`)
       })
   }
@@ -57,7 +57,7 @@ class ProjectForm extends React.Component {
       descriptionInput = "Description (optional)";
       submitButton = "Save changes";
     }
-    debugger
+    // debugger
     return (
       <div className="project-form-container">
         <div className="project-form-header">

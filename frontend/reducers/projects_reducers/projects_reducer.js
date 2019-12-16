@@ -8,7 +8,7 @@ export default (oldState = {}, action ) => {
     case RECEIVE_PROJECTS:
       return Object.assign({}, oldState, action.projects)
     case RECEIVE_PROJECT:
-      debugger
+      // debugger
       return Object.assign({}, oldState, { [action.project.id]: action.project })
     case REMOVE_PROJECT:
       let nextState = Object.assign({}, oldState)

@@ -20,7 +20,7 @@ class SessionForm extends React.Component {
     this.props.action(user)
       .then((user) => {
         // this.setState();
-        debugger
+        // debugger
         this.props.history.push(`/${user.id}/projects`)
       });
   }
