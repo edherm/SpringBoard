@@ -48,8 +48,10 @@ export const createProject = project => dispatch => {
 }
 
 export const updateProject = project => dispatch => {
+  debugger
   return projectAPIUtil.updateProject(project)
     .then(project => {
+      debugger
       return dispatch(receiveProject(project));
     }, errors => (
       dispatch(receiveProjectErrors(errors.responseJSON))

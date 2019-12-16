@@ -23,7 +23,7 @@ const App = () => (
     <Route exact path="/" component={Splash} />
     <Switch>
       <Route exact path="/:userId/projects/create" component={ProjectCreateContainer} />
-      <Route path="/:userId/projects/:projectId/edit" component={ProjectEditToolbox} />
+      <Route path="/:userId/projects/:projectId/edit" component={ProjectEditContainer} />
       <Route path="/:userId/projects/:projectId" component={ProjectToolboxContainer} />
       <Route path="/:userId/projects" component={ProjectIndexContainer} />
     </Switch>

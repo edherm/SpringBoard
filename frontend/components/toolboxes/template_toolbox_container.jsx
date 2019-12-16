@@ -2,7 +2,6 @@
 // import { connect } from 'react-redux';
 // import Toolbox from "../toolbox";
 // import ProjectToolboxBody from "./project_toolbox_body";
-// import { fetchProject, createProject } from '../../../actions/project_actions';
 
 // const ToolboxNav = () => {
 //   return (
