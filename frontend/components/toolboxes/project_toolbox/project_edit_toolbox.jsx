@@ -27,7 +27,7 @@ const msp = (state, ownprops) => ({
   HeaderLeft: null,
   HeaderCenter: HeaderCenter,
   HeaderRight: "",
-  Body: ProjectEditContainer
+  Body: <ProjectEditContainer state= {state}/>
 })
 
 // const mdp = dispatch => (

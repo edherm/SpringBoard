@@ -8,14 +8,16 @@ import { updateProject, fetchProject } from '../../../actions/project_actions';
 
 class ProjectEditForm extends React.Component {
   componentDidMount () {
+    debugger
     this.props.fetchProject(this.props.match.params.projectId)
   }
   
   render () {
-    const {errors, project, formType, projectAction} = this.props.project;
-
+    debugger
+    
     if (!project) return null;
-
+    const {errors, project, formType, projectAction} = this.props.project;
+    debugger
     return (
       <ProjectForm 
         errors={errors} 
@@ -29,12 +31,21 @@ class ProjectEditForm extends React.Component {
 }
 
 
+
+
 const msp = (state, ownProps) => {
   debugger
   return {
   errors: Object.values(state.errors),
-  project: state.projects[ownProps.match.params.projectId],
-  formType: "projectEdit"
+  project: state.entities.projects[ownProps.match.params.projectId],
+  formType: "projectEdit",
+  toolBox: {
+    NavBar: ToolboxNav,
+    HeaderLeft: HeaderLeft,
+    HeaderCenter: HeaderCenter,
+    HeaderRight: HeaderRight,
+    Body: ProjectForm
+  }
 }}
 
 const mdp = dispatch => ({

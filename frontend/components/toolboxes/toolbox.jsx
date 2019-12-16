@@ -2,9 +2,9 @@ import React from "react";
 
 const Toolbox = ({NavBar, HeaderLeft, HeaderCenter, HeaderRight, Body}) => {
   return (
-    <div>
-      {NavBar ? <NavBar /> : null }
-      <div className="toolbox-container">
+    <div className="toolbox-container">
+      {NavBar ? <div className="toolbox-nav"><NavBar /></div> : null}
+      <div className="toolbox-main">
         <div className="toolbox-header">
           <div className="toolbox-header-left">
             { HeaderLeft ? <HeaderLeft /> : null }

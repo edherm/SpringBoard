@@ -24,7 +24,7 @@ time, mark, audio, video {
     outline:0;
     font-size:100%;
     vertical-align:baseline;
-    background-color: rgb(246,242,240);
+    background-color: inherit;
     font-family: 'Open Sans', sans-serif;
 }
 

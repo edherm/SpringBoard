@@ -10,7 +10,7 @@
   right: 0px;
   background-color: whitesmoke;
   min-width: 250px;
-  min-height: 250px;
+  height: 100px;
   box-shadow: 3px 3px 5px 0px grey;
   border: 1px solid rgb(234, 234, 234);
 }
@@ -21,8 +21,9 @@
 
 .dropdown-header {
   display: flex;
-  align-self: center;
+  align-self: flex-start;
   margin-left: 20px;
+  margin-top: 20px;
   padding: 6px 13px 6px 13px;
 }
 
@@ -40,6 +41,6 @@
   background-color: whitesmoke;
   position: absolute;
   
-  bottom: 10px;
-  left: 10px;
+  bottom: 30px;
+  left: 11px;
 }

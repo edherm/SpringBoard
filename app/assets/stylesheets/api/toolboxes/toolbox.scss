@@ -1,0 +1,58 @@
+.toolbox-main, .toolbox-nav {
+  background-color: white;
+}
+
+.toolbox-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f7f2f0;
+}
+
+.toolbox-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 850px;
+  height: 40px;
+  box-shadow: 0 -1px 10px rgba(0,0,0,0.05), 0 1px 4px rgba(0,0,0,0.1), 0 10px 30px #f3ece8;
+  font-size: 16px;
+}
+
+.toolbox-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 -1px 10px rgba(0,0,0,0.05), 0 1px 4px rgba(0,0,0,0.1), 0 10px 30px #f3ece8;
+  width: 75%;
+  min-height: 788px;
+  padding: 50px 50px 50px 50px;
+}
+
+.toolbox-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 740px;
+  height: 38px;
+  padding-bottom: 10px;
+  margin: 0 -48px 20px -48px;
+  border-bottom: 3px solid rgb(40,60,70);
+}
+
+.toolbox-header-left {
+  width: 80px;
+  // margin-left: 20px;
+  text-align: left;
+}
+
+.toolbox-header-center {
+  font-size: 32px;
+}
+
+.toolbox-header-right {
+  width: 80px;
+  margin-right: 20px;
+  text-align: right;
+}
+

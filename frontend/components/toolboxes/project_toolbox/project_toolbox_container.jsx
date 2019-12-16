@@ -4,7 +4,11 @@ import Toolbox from "../toolbox";
 import ProjectToolboxBody from "./project_toolbox_body";
 import { fetchProject, createProject } from '../../../actions/project_actions';
 
-
+const ToolboxNav = () => {
+  return (
+    <a href="">ToolboxNav</a>
+  )
+}
 
 const HeaderLeft = () => {
   return (
@@ -24,7 +28,7 @@ const HeaderRight = () => {
 
 
 const msp = (state, ownprops) => ({
-  NavBar: null,
+  NavBar: ToolboxNav,
   HeaderLeft: HeaderLeft,
   HeaderCenter: HeaderCenter,
   HeaderRight: HeaderRight,
