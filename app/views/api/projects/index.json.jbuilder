@@ -1,5 +1,5 @@
-json.array! @projects do |project|
-  json.id project.id
-  json.name project.name
-  json.description project.description
+@projects.each do |project|
+  json.set! project.id do 
+    json.partial! "project", project: project
+  end
 end

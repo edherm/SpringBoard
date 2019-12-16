@@ -9,18 +9,12 @@ class SessionForm extends React.Component {
     this.fillForm = this.fillForm.bind(this);
   }
 
-  // componentDidMount () {
-  //   this.props.dismissErrors()
-  // }
-
   handleSubmit(e) {
     e.preventDefault();
 
     const user = Object.assign({}, this.state)
     this.props.action(user)
       .then((user) => {
-        // this.setState();
-        // debugger
         this.props.history.push(`/${user.id}/projects`)
       });
   }
@@ -36,11 +30,13 @@ class SessionForm extends React.Component {
 
   render () {
     const { formType, errors } = this.props;
-    
+    const formTypeKlass = formType.slice(0, 3);
+    const activeKlass = "input-container";
+
     const formOption = () => {
       if (formType === "Sign Up") {
         return (
-          <div className="input-container" >
+          <div className={activeKlass} >
             <label htmlFor="input-form" className="input-label" >Your name</label>
               <input 
                 id="input-form" 
@@ -68,13 +64,11 @@ class SessionForm extends React.Component {
       }
     }
 
-    const klass = formType.slice(0, 3);
-
     const outerHeader = () => {
       if (formType === "Sign Up") {
         return (
           <div className="form-header-container">
-            <h2 className={`${klass}-header`}>
+            <h2 className={`${formTypeKlass}-header`}>
               {formType} for SpringBoard Personal
             </h2>
           </div>
@@ -86,7 +80,7 @@ class SessionForm extends React.Component {
       if (formType === "Log In") {
         return (
           <div className="form-header-container">
-            <h2 className={`${klass}-header`}>
+            <h2 className={`${formTypeKlass}-header`}>
               {formType} to SpringBoard
             </h2>
           </div>
@@ -109,17 +103,16 @@ class SessionForm extends React.Component {
         return <li key={i}>{error}</li>
       })
     }
-
    
-   return (
-      <div className={klass}>
+    return (
+      <div className={formTypeKlass}>
         <img className="form-logo-img" src={window.springURL} alt="SpringBoard Logo" />
         {outerHeader()}
         <div className="session-form-container" >
           {innerHeader()}
           <form className="session-form" onSubmit={this.handleSubmit}>
             {formOption()}
-            <div className="input-container" >
+            <div className={activeKlass} >
               <label htmlFor="input-form" className="input-label" >Your email (e.g. julie@widgetco.com)</label>
               <input 
                 id="input-form" 
@@ -130,7 +123,7 @@ class SessionForm extends React.Component {
                 value={this.state.email} 
               />
             </div>
-            <div className="input-container" >
+            <div className={activeKlass} >
             <label htmlFor="input-form" className="input-label" >Your password</label>
               <input 
                 id="input-form" 

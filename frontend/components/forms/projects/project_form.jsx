@@ -12,6 +12,12 @@ class ProjectForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.fetchProject) {
+      this.props.fetchProject(this.props.match.params.projectId)
+    }
+  }
+  
   componentDidUpdate () {
     // debugger
     if (this.props.errors.projects) {

@@ -11,9 +11,7 @@ class Toolbox extends React.Component {
     super(props)
   } 
 
-  componentDidMount () {
-    this.props.fetchProject(this.props.match.params.projectId)
-  }
+  
 
   render () {
     const { toolbox, projectAction, errors, formType, project } = this.props;

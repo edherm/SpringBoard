@@ -9,11 +9,11 @@ export const NavBarLinks = ({currentUser}) => {
     return (
       <ul className="nav-links user" >
         <li><Link to={`/${currentUser.id}/projects`}>Home</Link></li>
-        <li><a href="#">Pings</a></li>
+        {/* <li><a href="#">Pings</a></li>
         <li><a href="#">Hey!</a></li>
         <li><a href="#">Activity</a></li>
         <li><a href="#">My Stuff</a></li>
-        <li><a href="#">Find</a></li>
+        <li><a href="#">Find</a></li> */}
       </ul>
     )
   } else {

@@ -16,16 +16,16 @@ const App = () => (
     {/* <header> */}
     {/* </header> */}
     <Switch >
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
+      <ProtectedRoute exact path="/signup" component={SignupFormContainer} />
+      <ProtectedRoute exact path="/login" component={LoginFormContainer} />
       <Route path ="/" component={NavBarContainer} />
     </Switch>
-    <Route exact path="/" component={Splash} />
+    <ProtectedRoute exact path="/" component={Splash} />
     <Switch>
-      <Route exact path="/:userId/projects/create" component={ProjectCreateContainer} />
-      <Route path="/:userId/projects/:projectId/edit" component={ProjectEditContainer} />
-      <Route path="/:userId/projects/:projectId" component={ProjectToolboxContainer} />
-      <Route path="/:userId/projects" component={ProjectIndexContainer} />
+      <AuthRoute exact path="/:userId/projects/create" component={ProjectCreateContainer} />
+      <AuthRoute path="/:userId/projects/:projectId/edit" component={ProjectEditContainer} />
+      <AuthRoute path="/:userId/projects/:projectId" component={ProjectToolboxContainer} />
+      <AuthRoute path="/:userId/projects" component={ProjectIndexContainer} />
     </Switch>
   </div>
 )
