@@ -19,15 +19,16 @@ import NavBarUser from "./nav_bar_user";
       
       let logo = "nav-logo";
       const klass = currentUser ? logo + " user" : logo;
+      const containerKlass = currentUser ? "-user" : ""
     return (
-      <div className="nav-container" >
-        <Link to="/" className={klass} >
-          <img className="nav-logo-img" src={window.springURL} alt="SpringBoard Logo" />
-          <h1 className="nav-logo-title">Springboard</h1>
-        </Link>
-        <div className="nav-center">
-          <NavBarLinks currentUser={currentUser} />
+      <div className={`nav-container${containerKlass}`} >
+        <div className="navbar-left">
+          <Link to="/" className={klass} >
+            <img className="nav-logo-img" src={window.springURL} alt="SpringBoard Logo" />
+            <h1 className="nav-logo-title">Springboard</h1>
+          </Link>
         </div>
+        
         <div className="nav-right">
           <NavBarUser currentUser={currentUser} logout={logout} />
         </div>

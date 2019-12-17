@@ -36,6 +36,7 @@ class SessionForm extends React.Component {
   }
 
   handleFocus (field) {
+    debugger
     return () => {
       let selected = this.state.selected;
       selected[field] = true;
@@ -59,6 +60,8 @@ class SessionForm extends React.Component {
   fillForm(e) {
     e.preventDefault();
     this.setState({email: "demo@email.com", password: "password"})
+    this.handleFocus("email");
+    this.handleFocus("password");
   }
 
   render () {
@@ -206,11 +209,13 @@ class SessionForm extends React.Component {
             <ul>
               {errorMessages()}
             </ul>
-            <input 
-              className={`${formType.slice(0,3)}-button`} 
-              type="submit" 
-              value={this.props.formType} 
-            />
+            <div className="session-submit-container">
+              <input 
+                className={`${formType.slice(0,3)}-button`} 
+                type="submit" 
+                value={this.props.formType} 
+              />
+            </div>
           </form>
         </div>
       </div>
