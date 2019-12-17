@@ -36,7 +36,7 @@ class SessionForm extends React.Component {
   }
 
   handleFocus (field) {
-    debugger
+    // debugger
     return () => {
       let selected = this.state.selected;
       selected[field] = true;
