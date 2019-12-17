@@ -6,3 +6,10 @@ export default combineReducers({
   users: usersReducer,
   projects: projectsReducer
 })
+
+// if (action.type === LOGOUT_CURRENT_USER) {
+//   return {
+//     users: {},
+//     projects: {}
+//   }
+// }

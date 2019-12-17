@@ -1,6 +1,7 @@
 import React from "react";
 
 const Toolbox = ({NavBar, HeaderLeft, HeaderCenter, HeaderRight, Body}) => {
+  // debugger
   return (
     <div className="toolbox-container">
       {NavBar ? <div className="toolbox-nav"><NavBar /></div> : null}

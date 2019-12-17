@@ -14,38 +14,21 @@ class Toolbox extends React.Component {
   
 
   render () {
-    const { toolbox, projectAction, errors, formType, project } = this.props;
-    const { NavBar, HeaderLeft, HeaderCenter, HeaderRight, Body } = toolbox;
+    const { projectAction, errors, formType, project } = this.props;
     // debugger
 
     if (!project) return null;
 
     return (
-      <div className="toolbox-container">
-        {NavBar ? <div className="toolbox-nav"><NavBar /></div> : null}
-        <div className="toolbox-main">
-          <div className="toolbox-header">
-            <div className="toolbox-header-left">
-              { HeaderLeft ? <HeaderLeft /> : null }
-            </div>
-            <div className="toolbox-header-center">
-              { HeaderCenter ? <HeaderCenter /> : null }
-            </div>
-            <div className="toolbox-header-right">
-              { HeaderRight ? <HeaderRight /> : null }
-            </div>
-          </div>
-          <div className="toolbox-body">
-            <ProjectForm 
-              history={this.props.history} 
-              match={this.props.match} 
-              errors={errors}
-              project={project} 
-              formType={formType} 
-              projectAction={projectAction} 
-            />
-          </div>
-        </div>
+      <div className="toolbox-body">
+        <ProjectForm 
+          history={this.props.history} 
+          match={this.props.match} 
+          errors={errors}
+          project={project} 
+          formType={formType} 
+          projectAction={projectAction} 
+        />
       </div>
     )
 
@@ -58,13 +41,7 @@ const msp = (state, ownProps) => {
   // debugger
   return {
     project: state.entities.projects[ownProps.match.params.projectId],
-    errors: Object.values(state.errors),
-    toolbox: {
-      NavBar: null,
-      HeaderLeft: null,
-      HeaderCenter: () => (<h1>Edit details for this project</h1>),
-      HeaderRight: null
-    }
+    errors: Object.values(state.errors)
   }
 }
 

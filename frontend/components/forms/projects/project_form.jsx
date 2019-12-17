@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 
 class ProjectForm extends React.Component {
@@ -44,7 +45,7 @@ class ProjectForm extends React.Component {
   }
 
   render () {
-    const { formType } = this.props;
+    const { formType, project } = this.props;
     const { name, description } = this.state;
     
     let formLogo;
@@ -65,16 +66,29 @@ class ProjectForm extends React.Component {
     }
     // debugger
     return (
-      <div className="project-form-container">
-        <div className="project-form-header">
-          {formLogo}
-          <h1 className={`${formType}-header`}>
+      <div className="toolbox-container">
+        {formType === "projectCreate" ? null : (<div className="toolbox-nav">
+          <Link to={`/${this.props.match.params.userId}/projects/${project.id}`}>{project.name}</Link>
+        </div>)}
+        <div className="toolbox-main">
+        <div className={formType === "projectCreate" ? "project-form-header" : "toolbox-header"}>
+            {formType === "projectCreate" ? (
+              formLogo
+              ) : (
+              <div className="toolbox-header-left"></div>
+            )}
+          <h1 className={formType === "projectCreate" ? "projectCreate-header" : "toolbox-header-center"}>
             {formType === "projectCreate" ? (
               "All right, let's get your project started!"
             ) : (
               "Edit details for this project"
             )}
           </h1>
+            {formType === "projectCreate" ? (
+              null
+            ) : (
+                <div className="toolbox-header-right"></div>
+              )}
         </div>
         <form className="project-input-container" onSubmit={this.handleSubmit}>
           <h3><label>{nameInput}</label></h3>
@@ -94,7 +108,7 @@ class ProjectForm extends React.Component {
           />
           <input className="project-submit-button" type="submit" value={submitButton}/>
         </form>
-
+        </div>
       </div>
     )
   }

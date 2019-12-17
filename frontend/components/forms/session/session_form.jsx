@@ -59,9 +59,10 @@ class SessionForm extends React.Component {
 
   fillForm(e) {
     e.preventDefault();
-    this.setState({email: "demo@email.com", password: "password"})
-    this.handleFocus("email");
-    this.handleFocus("password");
+    this.props.action({ email: "demo@email.com", password: "password" })
+      .then((user) => {
+        this.props.history.push(`/${user.id}/projects`)
+      });
   }
 
   render () {
