@@ -8,7 +8,8 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <script type="text/javascript">
-      window.springURL = "<%= image_url('spring.jpg') %>";
+      window.springBoardURL = "<%= image_url('spring_board_off.png') %>";
+      window.springBoardLitURL = "<%= image_url('spring_board_on.png') %>";
     </script>
     <% if logged_in? %>
       <script type="text/javascript">

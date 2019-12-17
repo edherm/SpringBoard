@@ -53,7 +53,7 @@ class ProjectForm extends React.Component {
     let submitButton;
 
     if (formType === "projectCreate") { 
-      formLogo = (<img className="create-project-img" src={window.springURL} alt="SpringBoard Logo" />);
+      formLogo = (<img className="create-project-img" src={window.springBoardLitURL} alt="SpringBoard Logo" />);
       nameInput = "Name this project";
       descriptionInput = "Add an optional description";
       submitButton = "Create this project"

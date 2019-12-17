@@ -12,11 +12,16 @@
 
 .form-logo-container {
   display: flex;
+  width: 100px;
+  // width: 100px;
 }
 
 .form-logo-img {
-  width: 100px;
-  margin-bottom: 15px;
+  position: relative;
+  // width: 200px;
+  bottom: 20px;
+    width: 193px;
+    margin-bottom: 0px;
 }
 
 .session-form-container {
@@ -26,7 +31,6 @@
   background-color: white;
   box-shadow: 0 -1px 10px rgba(0,0,0,0.05), 0 1px 4px rgba(0,0,0,0.1), 0 10px 30px #f3ece8;
   border-radius: 10px;
-  margin-top: 20px;
   padding: 24px;
 }
 
@@ -45,11 +49,12 @@
 // Inputs, buttons, and labels
 .session-input-container {
   padding: 20px 8px, 5px, 8px;
-  border: 2px solid #f6f2ef;
+  border: 1.25px solid #d9d9d9;
   border-radius: 5px;
   margin-bottom: 10px;
 }
 .session-label {
+  margin-left: 10px;
   background-color: rgba(245, 245, 245, 0);
   position: absolute;
   font-size: 16px;
@@ -72,8 +77,9 @@
   outline: 0;
   font-size: 16px;
   border-style: none;
-  padding: 16px 0 10px;
+  padding: 16px 0 10px 10px;
   width: 100%;
+  background-color: transparent;
 }
 
 .Sig-button, .Log-button {
@@ -94,6 +100,7 @@
   display: flex;
   justify-content: center;
   padding: 10px 15px;
+  border: 1px solid #d9d9d9;
   font-size: 17px;
   font-weight: 700;
   margin: auto;
@@ -109,12 +116,12 @@
 ///////// Sign Up specific Style /////////
 
 .Sig {
-  margin-top: 72px;
+  margin-top: 10px;
 }
 
 .signup-header-container {
   display: flex;
-
+  margin-bottom: 30px;
 }
 
 .signup-header {
@@ -139,7 +146,7 @@
 ///////// Login specific style /////////
 
 .Log {
-  margin-top: 65px;
+  margin-top: 0px;
 }
 
 .login-header-container {
@@ -175,6 +182,8 @@
 }
 
 .Log-button {
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
   background-color: white;
   color: black;
   font-weight: bold;

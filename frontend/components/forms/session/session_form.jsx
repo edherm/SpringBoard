@@ -193,7 +193,7 @@ class SessionForm extends React.Component {
     return (
       <div className={formTypeKlass}>
         <div className="form-logo-container">
-          <img className="form-logo-img" src={window.springURL} alt="SpringBoard Logo" />
+          <img className="form-logo-img" src={window.springBoardLitURL} alt="SpringBoard Logo" />
         </div>
         {outerHeader()}
         <div className="session-form-container" >

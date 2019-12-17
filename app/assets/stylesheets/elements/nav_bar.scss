@@ -4,79 +4,82 @@
   justify-content: space-between;
   padding: 24px;
   font-size: 14px;
-  
 }
 
 .nav-container-user {
   background-color: #f7f2f0;
+  color: #2da562;
 }
 
 .nav-container {
   background-color: white;
+  color: #1d2d35;
 }
 
 .nav-left {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: row;
+  // justify-content: flex-start;
+  margin-left: 15px;
 }
+
+  .nav-logo-link, .nav-logo-link-user {
+    display: flex;    
+  }
+
+  .nav-logo-img, .nav-logo-img-user .nav-logo-title, .nav-logo-title-user {
+    display: flex;
+    align-items: center;
+    margin: auto;
+  }
+
+  .nav-logo-title, .nav-logo-title-user {
+    display: flex;
+    // justify-content: center;
+    // text-align: center;
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .nav-logo-title {
+    color: #1d2d35;
+  }
+
+  .nav-logo-title-user {
+    color: #2da562;
+  }
+
+  .nav-logo-img-container {
+    width: 50px;
+    height: 50px;
+  }
+
+  .nav-logo-img {
+    position: relative;
+    bottom: 55px;
+    right: 10px;
+    height: 100px;
+  }
 
 .nav-right {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-end;
+  width: 25%;
 }
 
-.nav-logo {
-  display: flex;
-  color: black;
-}
+  // .nav-link-right, .nav-link-right-user {
+  //   display: flex;
+  // }
 
-.nav-logo.user {
-  display: flex;
-  color: #2da562;;
-}
-
-.nav-logo-img, .nav-logo-title {
-  margin: auto;
-  margin-right: 5px;
-}
-
-h1.nav-logo-title {
-  display: flex;
-  font-size: 23px;
-  font-weight: bold;
-  color: #1d2d35;
-}
-
-.nav-logo-img {
-  height: 30px;
-}
-
-// .nav-center {
-//   display: flex;
-//   justify-content: center;
-// }
+  // .nav-link-right {
+  //   color: inherit;
+  // }
 
 .nav-links {
   display: flex;
-  font-weight: bold;
-  // align-self: center;
-}
-
-.nav-links.new-user > li, .nav-links.new-user > li > a {
-  display: flex;
-  // padding-right: 5px;
-  // justify-content: flex-end;
-  color: black;
-}
-
-.nav-links.user > li, .nav-links.user > li > a {
-  display: flex;
-  color: #2da562;;
-}
-
-
-.nav-links {
-  // justify-content: space-around;
 }
 
 .user-initial {
@@ -95,7 +98,7 @@ h1.nav-logo-title {
   font-size: 17px;
   display: flex;
   padding: 10px 15px 10px 15px;
-  border: 1px solid #1d2d35;
+  border: 2px solid #1d2d35;
   margin: auto;
 }
 
@@ -108,3 +111,22 @@ h1.nav-logo-title {
 .Log-a {
   color: #1d2d35;
 }
+
+
+// .nav-links {
+//   display: flex;
+//   font-weight: bold;
+//   // align-self: center;
+// }
+
+// .nav-links.new-user > li, .nav-links.new-user > li > a {
+//   display: flex;
+//   // padding-right: 5px;
+//   // justify-content: flex-end;
+//   color: inherit;
+// }
+
+// .nav-links.user > li, .nav-links.user > li > a {
+//   display: flex;
+//   color: inherit;
+// }

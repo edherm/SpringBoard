@@ -17,18 +17,36 @@ import NavBarUser from "./nav_bar_user";
     render () {
       const { currentUser, logout } = this.props;
       
-      let logo = "nav-logo";
-      const klass = currentUser ? logo + " user" : logo;
-      const containerKlass = currentUser ? "-user" : ""
+      // = "nav-logo";
+      let linkKlass;
+      let containerKlass;
+      let imgKlass;
+      let navLogoTitleKlass;
+
+      if (currentUser) {
+        linkKlass = "nav-logo-link-user";
+        containerKlass = "nav-container-user";
+        imgKlass = "nav-logo-img-user";
+        navLogoTitleKlass = "nav-logo-title-user";
+      } else {
+        linkKlass = "nav-logo-link";
+        containerKlass = "nav-container";
+        imgKlass = "nav-logo-img";
+        navLogoTitleKlass = "nav-logo-title";
+      }
+      
+      // const linkKlass = currentUser ? logo + " user" : logo;
+      // const containerKlass = currentUser ? "-user" : ""
     return (
-      <div className={`nav-container${containerKlass}`} >
-        <div className="navbar-left">
-          <Link to="/" className={klass} >
-            <img className="nav-logo-img" src={window.springURL} alt="SpringBoard Logo" />
-            <h1 className="nav-logo-title">Springboard</h1>
+      <div className={containerKlass} >
+        <div className="nav-left">
+          <Link to="/" className={linkKlass} >
+            <div className="nav-logo-img-container">
+              <img className="nav-logo-img" src={window.springBoardLitURL} alt="SpringBoard Logo" />
+            </div>
+            <h1 className={navLogoTitleKlass}>Springboard</h1>
           </Link>
         </div>
-        
         <div className="nav-right">
           <NavBarUser currentUser={currentUser} logout={logout} />
         </div>
