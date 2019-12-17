@@ -13,8 +13,9 @@
 .nav-container-user {
   background-color: #f7f2f0ba;
   color: #2da562;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  height: 40px;
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 
 .nav-container {
@@ -37,26 +38,29 @@
   .nav-logo-img, .nav-logo-img-user .nav-logo-title, .nav-logo-title-user {
     display: flex;
     align-items: center;
-    margin: auto;
+    justify-content: center;
+    // margin: auto;
   }
 
   .nav-logo-title, .nav-logo-title-user {
     display: flex;
     // justify-content: center;
     // text-align: center;
-    margin-top: 5px;
-    font-size: 24px;
     font-weight: bold;
   }
   
   .nav-logo-title {
+    font-size: 24px;
     color: #1d2d35;
     margin-left: 15px;
+    margin-top: 5px;
   }
 
   .nav-logo-title-user {
+    font-size: 20px;
     color: #2da562;
     margin-left: -5px;
+    margin-bottom: 5px;
   }
 
   .nav-logo-img-container {

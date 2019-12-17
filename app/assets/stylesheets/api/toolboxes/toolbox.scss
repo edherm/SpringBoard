@@ -29,30 +29,69 @@
   padding: 50px 50px 50px 50px;
 }
 
-.toolbox-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 740px;
-  height: 38px;
-  padding-bottom: 10px;
-  margin: 0 -48px 20px -48px;
-  border-bottom: 3px solid rgb(40,60,70);
-}
+//////////// Toolbox Header ////////////
+  .toolbox-header-bordered, .toolbox-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 740px;
+    height: 38px;
+    padding-bottom: 10px;
+    margin: 0 -48px 20px -48px;
+  }
 
-.toolbox-header-left {
-  width: 80px;
-  // margin-left: 20px;
-  text-align: left;
-}
+  .toolbox-header-bordered {
+    border-bottom: 3px solid rgb(40,60,70);
+  }
 
-.toolbox-header-center {
-  font-size: 32px;
-}
+  .toolbox-header {
+    border-bottom: none;
+  }
 
-.toolbox-header-right {
-  width: 80px;
-  margin-right: 20px;
-  text-align: right;
-}
+  .toolbox-header-left {
+    width: 80px;
+    // margin-left: 20px;
+    text-align: left;
+  }
 
+  .toolbox-header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+    .toolbox-header-center > h1 {
+      font-size: 32px;
+    }
+
+    .toolbox-header-center > h3 {
+      font-weight: normal;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+  .toolbox-header-right {
+    width: 80px;
+    margin-right: 20px;
+    text-align: right;
+  }
+
+  .toolbox-edit-link {
+    background-color: transparent;
+    position: absolute;
+    top: 70px;
+    right: 145px;
+    border: 1px solid #d9d9d9;
+    border-radius: 180px;
+    padding: 4px 5px;
+  }
+
+  .toolbox-project-edit-link {
+    position: relative;
+    bottom: 5.4px;
+    color: #283c46;
+    font-weight: bolder;
+    font-size: 23px;
+    text-align: center;
+    text-justify: center;
+  }

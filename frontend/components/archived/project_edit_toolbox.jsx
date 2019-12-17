@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Toolbox from "../toolbox";
-import ProjectEditContainer from "../../forms/projects/project_edit_container";
+import Toolbox from "../toolboxes/toolbox";
+import ProjectEditContainer from "../forms/projects/project_edit_container";
 // import { fetchProject, createProject } from '../../../actions/project_actions';
 
 

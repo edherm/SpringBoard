@@ -8,7 +8,6 @@ import Splash from "./splash/splash";
 import ProjectIndexContainer from "./projects/project_index_container";
 import ProjectCreateContainer from "./forms/projects/project_create_container";
 import ProjectToolboxContainer from "./toolboxes/project_toolbox/project_toolbox_container";
-import ProjectEditToolbox from "./toolboxes/project_toolbox/project_edit_toolbox";
 import ProjectEditContainer from "./forms/projects/project_edit_container";
 
 const App = () => (
