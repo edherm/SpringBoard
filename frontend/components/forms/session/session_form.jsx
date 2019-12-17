@@ -4,8 +4,20 @@ class SessionForm extends React.Component {
   constructor (props) {
     super(props)
 
-    this.state = this.props.user;
+    this.state = {
+      email: "",
+      name: "",
+      password: "",
+      selected: { 
+        email: false,
+        name: false,
+        password: false
+      }
+    }
+    this.props.user;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
     this.fillForm = this.fillForm.bind(this);
   }
 
@@ -23,6 +35,27 @@ class SessionForm extends React.Component {
     return (e) => this.setState({ [field]: e.currentTarget.value })
   }
 
+  handleFocus (field) {
+    return () => {
+      let selected = this.state.selected;
+      selected[field] = true;
+      this.setState({ selected })
+    }
+  }
+
+  handleBlur(field) {
+    // debugger
+    return (e) => {
+      const value = this.state[field];
+      if (value === "") {
+        // debugger
+        let selected = this.state.selected;
+        selected[field] = false;
+        this.setState({ selected })
+      }
+    }
+  }
+
   fillForm(e) {
     e.preventDefault();
     this.setState({email: "demo@email.com", password: "password"})
@@ -31,19 +64,26 @@ class SessionForm extends React.Component {
   render () {
     const { formType, errors } = this.props;
     const formTypeKlass = formType.slice(0, 3);
-    const activeKlass = "input-container";
+
+    // debugger
 
     const formOption = () => {
       if (formType === "Sign Up") {
         return (
-          <div className={activeKlass} >
-            <label htmlFor="input-form" className="input-label" >Your name</label>
+          <div className="session-input-container" >
+            <label 
+              htmlFor="input-form" 
+              className={this.state.selected.name ? "filled session-label" : "session-label"} 
+              >Your name
+            </label>
               <input 
                 id="input-form" 
                 className="input-form" 
                 required type="text" 
                 id="name" 
                 onChange={this.handleChange("name")} 
+                onFocus= {this.handleFocus("name")} 
+                onBlur={() => this.handleBlur("name")} 
                 value={this.state.name} 
               />
           </div>
@@ -51,11 +91,13 @@ class SessionForm extends React.Component {
       } else {
         return (
           <div className="login-options">
-            <div className="demo-button">
-              <button onClick={this.fillForm}>Use my Demo account</button>
+            <div className="demo-button-container">
+              <button className="demo-button" onClick={this.fillForm}>
+                Use my Demo account
+              </button>
             </div>
             <div className="login-options-instruction">
-              <h2>
+              <h2 className="login-instructions">
                 <span>Or, use my email address</span>
               </h2>
             </div>
@@ -67,8 +109,8 @@ class SessionForm extends React.Component {
     const outerHeader = () => {
       if (formType === "Sign Up") {
         return (
-          <div className="form-header-container">
-            <h2 className={`${formTypeKlass}-header`}>
+          <div className="signup-header-container">
+            <h2 className="signup-header">
               {formType} for SpringBoard Personal
             </h2>
           </div>
@@ -79,22 +121,63 @@ class SessionForm extends React.Component {
     const innerHeader = ()=> {
       if (formType === "Log In") {
         return (
-          <div className="form-header-container">
-            <h2 className={`${formTypeKlass}-header`}>
+          <div className="login-header-container">
+            <h2 className={`login-header`}>
               {formType} to SpringBoard
             </h2>
           </div>
         )
       } else {
         return (
-          <div className="inner-header-container">
-            <h3 className={`sign-up-instructions`}>
+          <div className="signup-instructions-container">
+            <h3 className={`signup-instructions`}>
               Type your name & email address to begin
             </h3>
           </div>
         )
       }
     }
+
+    const emailInput = () => (
+      <>
+        <label 
+          htmlFor="input-form" 
+          className={this.state.selected.email ? "filled session-label" : "session-label"} 
+          >Your email (e.g. julie@widgetco.com)
+        </label>
+        <input
+          id="input-form"
+          className="input-form"
+          required id="email"
+          type="text"
+          onChange={this.handleChange("email")}
+          onFocus={this.handleFocus("email")}
+          onBlur={() => this.handleBlur("email")} 
+          value={this.state.email}
+        />
+      </>
+    );
+
+    const passwordInput = () => (
+      <>
+        < label 
+          htmlFor = "input-form" 
+          className={this.state.selected.password ? "filled session-label": "session-label" } 
+          >Your password
+        </label>
+        <input
+          id="input-form"
+          className="input-form"
+          required
+          type="password"
+          id="password"
+          onChange={this.handleChange("password")}
+          onFocus={this.handleFocus("password")}
+          onBlur={() => this.handleBlur("password")} 
+          value={this.state.password}
+        />
+      </>
+    );
 
     const errorMessages = () => {
       let i = 0
@@ -106,34 +189,19 @@ class SessionForm extends React.Component {
    
     return (
       <div className={formTypeKlass}>
-        <img className="form-logo-img" src={window.springURL} alt="SpringBoard Logo" />
+        <div className="form-logo-container">
+          <img className="form-logo-img" src={window.springURL} alt="SpringBoard Logo" />
+        </div>
         {outerHeader()}
         <div className="session-form-container" >
           {innerHeader()}
           <form className="session-form" onSubmit={this.handleSubmit}>
             {formOption()}
-            <div className={activeKlass} >
-              <label htmlFor="input-form" className="input-label" >Your email (e.g. julie@widgetco.com)</label>
-              <input 
-                id="input-form" 
-                className="input-form" 
-                required id="email" 
-                type="text" 
-                onChange={this.handleChange("email")} 
-                value={this.state.email} 
-              />
+            <div className="session-input-container" >
+              {emailInput()}
             </div>
-            <div className={activeKlass} >
-            <label htmlFor="input-form" className="input-label" >Your password</label>
-              <input 
-                id="input-form" 
-                className="input-form" 
-                required 
-                type="password" 
-                id="password" 
-                onChange={this.handleChange("password")} 
-                value={this.state.password} 
-              />
+            <div className="session-input-container" >
+              {passwordInput()}
             </div>
             <ul>
               {errorMessages()}
