@@ -1,24 +1,31 @@
 .nav-container, .nav-container-user {
+  position: sticky;
+  top: 0;
+  z-index: 27;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 24px;
   font-size: 14px;
+  // background-color: ;
 }
 
 .nav-container-user {
-  background-color: #f7f2f0;
+  background-color: #f7f2f0ba;
   color: #2da562;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .nav-container {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.906);
   color: #1d2d35;
 }
 
 .nav-left {
   display: flex;
   flex-direction: row;
+  background-color: transparent;
   // justify-content: flex-start;
   margin-left: 15px;
 }
@@ -38,17 +45,18 @@
     // justify-content: center;
     // text-align: center;
     margin-top: 5px;
-    margin-left: 10px;
     font-size: 24px;
     font-weight: bold;
   }
-
+  
   .nav-logo-title {
     color: #1d2d35;
+    margin-left: 15px;
   }
 
   .nav-logo-title-user {
     color: #2da562;
+    margin-left: -5px;
   }
 
   .nav-logo-img-container {
@@ -56,27 +64,30 @@
     height: 50px;
   }
 
-  .nav-logo-img {
+  .nav-logo-img, .nav-logo-img-user {
     position: relative;
-    bottom: 55px;
-    right: 10px;
-    height: 100px;
   }
+
+
+.nav-logo-img {
+  bottom: 55px;
+  right: 10px;
+  height: 100px;
+}
+
+.nav-logo-img-user {
+  bottom: 35px;
+  right: 10px;
+  height: 75px;
+}
 
 .nav-right {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   width: 25%;
+  background-color: transparent;
 }
-
-  // .nav-link-right, .nav-link-right-user {
-  //   display: flex;
-  // }
-
-  // .nav-link-right {
-  //   color: inherit;
-  // }
 
 .nav-links {
   display: flex;
@@ -111,22 +122,3 @@
 .Log-a {
   color: #1d2d35;
 }
-
-
-// .nav-links {
-//   display: flex;
-//   font-weight: bold;
-//   // align-self: center;
-// }
-
-// .nav-links.new-user > li, .nav-links.new-user > li > a {
-//   display: flex;
-//   // padding-right: 5px;
-//   // justify-content: flex-end;
-//   color: inherit;
-// }
-
-// .nav-links.user > li, .nav-links.user > li > a {
-//   display: flex;
-//   color: inherit;
-// }

@@ -20,19 +20,19 @@ import NavBarUser from "./nav_bar_user";
       // = "nav-logo";
       let linkKlass;
       let containerKlass;
-      let imgKlass;
+      let navLogoImgKlass;
       let navLogoTitleKlass;
 
       if (currentUser) {
         linkKlass = "nav-logo-link-user";
         containerKlass = "nav-container-user";
-        imgKlass = "nav-logo-img-user";
         navLogoTitleKlass = "nav-logo-title-user";
+        navLogoImgKlass = "nav-logo-img-user"
       } else {
         linkKlass = "nav-logo-link";
         containerKlass = "nav-container";
-        imgKlass = "nav-logo-img";
         navLogoTitleKlass = "nav-logo-title";
+        navLogoImgKlass = "nav-logo-img"
       }
       
       // const linkKlass = currentUser ? logo + " user" : logo;
@@ -42,7 +42,7 @@ import NavBarUser from "./nav_bar_user";
         <div className="nav-left">
           <Link to="/" className={linkKlass} >
             <div className="nav-logo-img-container">
-              <img className="nav-logo-img" src={window.springBoardLitURL} alt="SpringBoard Logo" />
+              <img className={navLogoImgKlass} src={window.springBoardLitURL} alt="SpringBoard Logo" />
             </div>
             <h1 className={navLogoTitleKlass}>Springboard</h1>
           </Link>
