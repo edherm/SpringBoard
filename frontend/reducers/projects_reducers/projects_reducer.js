@@ -12,6 +12,7 @@ export default (oldState = {}, action ) => {
       // debugger
       return { [action.project.id]: action.project }
     case REMOVE_PROJECT:
+      debugger
       let nextState = Object.assign({}, oldState)
       delete nextState[action.projectId]
       return nextState;

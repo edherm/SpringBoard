@@ -3,7 +3,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import ProjectForm from './project_form';
-import { updateProject, fetchProject } from '../../../actions/project_actions';
+import { updateProject, fetchProject, deleteProject } from '../../../actions/project_actions';
 import {withRouter} from 'react-router-dom';
 
 class Toolbox extends React.Component {
@@ -14,7 +14,7 @@ class Toolbox extends React.Component {
   
 
   render () {
-    const { projectAction, errors, formType, project } = this.props;
+    const { projectAction, errors, formType, project, deleteProject } = this.props;
     // debugger
 
     if (!project) return null;
@@ -28,6 +28,7 @@ class Toolbox extends React.Component {
           project={project} 
           formType={formType} 
           projectAction={projectAction} 
+          deleteProject={deleteProject}
         />
       </div>
     )
@@ -48,7 +49,8 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => ({
   projectAction: project => dispatch(updateProject(project)),
-  fetchProject: projectId => dispatch(fetchProject(projectId))
+  fetchProject: projectId => dispatch(fetchProject(projectId)),
+  deleteProject: projectId => dispatch(deleteProject(projectId))
 })
 
 export default withRouter(connect(msp, mdp)(Toolbox));

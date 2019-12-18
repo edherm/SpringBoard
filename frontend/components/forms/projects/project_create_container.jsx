@@ -3,7 +3,7 @@ import ProjectForm from './project_form';
 import { createProject } from '../../../actions/project_actions';
 
 const msp = (state, ownProps) => ({
-  errors: Object.values(state.errors),
+  errors: Object.values(state.errors.projects),
   project: {
     name: "",
     description: ""

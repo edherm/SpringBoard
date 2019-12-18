@@ -41,9 +41,9 @@ class Api::ProjectsController < ApplicationController
   end
 
   def destroy
+    debugger
     @project = Project.find(params[:id])
     @project.destroy
-    render :index
   end
 
   private

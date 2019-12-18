@@ -53,8 +53,20 @@
   font-size: 30px;
   margin-bottom: 20px;
 }
+
+.create-project-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-project-a {
+  display: flex;
+  flex-direction: column;
+}
 .plus, .plus-text {
   text-align: center;  
+  // display: flex;
 }
 
 .plus {
@@ -64,6 +76,6 @@
 }
 
 .plus-text {
-  font-size: 10px;
-  color: black;
+  font-size: 16px;
+  color: #283c46;
 }

@@ -11,17 +11,19 @@ class ProjectForm extends React.Component {
     this.nameField = React.createRef();
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.deleteProject = this.deleteProject.bind(this);
   }
 
   componentDidMount() {
+    window.scrollTo(0,0);
     if (this.props.fetchProject) {
       this.props.fetchProject(this.props.match.params.projectId)
     }
   }
   
   componentDidUpdate () {
-    // debugger
-    if (this.props.errors.projects) {
+    debugger
+    if (this.props.errors) {
       this.nameField.current.focus();
     }
   }
@@ -37,11 +39,23 @@ class ProjectForm extends React.Component {
         that.props;
         // debugger
         that.props.history.push(`/${that.props.match.params.userId}/projects/${payload.project.id}/`)
-      })
+      }
+    )
   }
 
   handleInput (field) {
     return e => this.setState({ [field]: e.target.value })
+  }
+
+  deleteProject(e) {
+    e.preventDefault();
+    debugger
+    const that = this;
+    this.props.deleteProject(this.props.match.params.projectId).then(
+      () => {
+        that.props.history.push(`/${that.props.match.params.userId}/projects`)
+      }
+    )
   }
 
   render () {
@@ -114,8 +128,10 @@ class ProjectForm extends React.Component {
             value={description}
             onChange={this.handleInput("description")}
           />
+
           <div className={`project-submit-button-container ${formType}`}>
             <input className={`project-submit-button ${formType}`} type="submit" value={submitButton}/>
+            {formType === "projectEdit" ? <input className="project-delete-button" type="submit" value="Delete Project" onClick={this.deleteProject}/> : null}
           </div>
         </form>
         </div>
