@@ -6,7 +6,6 @@ import ProjectEditContainer from "../forms/projects/project_edit_container";
 
 
 const NavBar = () => {
-  // debugger
   return (
     <ul>
       <li><a href="">ProjectShow</a></li>
@@ -16,7 +15,6 @@ const NavBar = () => {
 
 
 const HeaderCenter = () => {
-  // debugger
   return (
     <h1>Edit details for this project</h1>
   )

@@ -25,13 +25,11 @@ class Api::ProjectsController < ApplicationController
   end
 
   def edit
-    # debugger
     @project = Project.find(params[:id])
     render :show
   end
 
   def update
-    # debugger
     @project = Project.find(params[:id])
     if @project.update_attributes(project_params)
       render :show
@@ -41,7 +39,6 @@ class Api::ProjectsController < ApplicationController
   end
 
   def destroy
-    debugger
     @project = Project.find(params[:id])
     @project.destroy
   end

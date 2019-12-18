@@ -11,14 +11,12 @@ export const receiveProjects = (projects) => ({
 })
 
 export const receiveProject = project => {
-  // debugger
   return {
   type: RECEIVE_PROJECT,
   project
 }}
 
 export const removeProject = projectId => {
-  debugger
   return {
     type: REMOVE_PROJECT,
     projectId
@@ -51,10 +49,9 @@ export const createProject = project => dispatch => {
 }
 
 export const updateProject = project => dispatch => {
-  // debugger
+
   return projectAPIUtil.updateProject(project)
     .then(project => {
-      // debugger
       return dispatch(receiveProject(project));
     }, errors => (
       dispatch(receiveProjectErrors(errors.responseJSON))
@@ -63,10 +60,9 @@ export const updateProject = project => dispatch => {
 }
 
 export const deleteProject = projectId => dispatch => {
-  debugger
+
   return projectAPIUtil.deleteProject(projectId)
     .then(() => {
-      debugger
       dispatch(removeProject(projectId))
     }
   )

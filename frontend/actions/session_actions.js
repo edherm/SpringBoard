@@ -9,7 +9,6 @@ export const DISMISS_ERRORS = 'DISMISS_ERRORS';
 // Actions
 
 export const receiveCurrentUser = user => {
-  // debugger
   return {
   type: RECEIVE_CURRENT_USER,
   user
@@ -31,13 +30,10 @@ export const dismissErrors = () => ({
 // Thunk action creators
 
 export const signup = user => dispatch => {
-  // debugger
   return SessionAPIUtil.signup(user)
     .then(user => {
-      // debugger
       return dispatch(receiveCurrentUser(user))
     }, errors => {
-      // debugger
       return dispatch(receiveErrors(errors.responseJSON))
     })
 }
@@ -45,7 +41,6 @@ export const signup = user => dispatch => {
 export const login = user => dispatch => (
   SessionAPIUtil.login(user)
     .then(user => {
-      // debugger
       dispatch(receiveCurrentUser(user))
       return user;
     }, errors => {
@@ -56,10 +51,8 @@ export const login = user => dispatch => (
 export const logout = () => dispatch => (
   SessionAPIUtil.logout()
   .then(() => {
-    // debugger
     return dispatch(logoutCurrentUser())
   }, errors => {
-    // debugger
     return dispatch(receiveErrors(errors.responseJSON))
   })
 )

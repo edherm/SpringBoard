@@ -36,7 +36,6 @@ class SessionForm extends React.Component {
   }
 
   handleFocus (field) {
-    // debugger
     return () => {
       let selected = this.state.selected;
       selected[field] = true;
@@ -45,11 +44,9 @@ class SessionForm extends React.Component {
   }
 
   handleBlur(field) {
-    // debugger
     return (e) => {
       const value = this.state[field];
       if (value === "") {
-        // debugger
         let selected = this.state.selected;
         selected[field] = false;
         this.setState({ selected })
@@ -68,8 +65,6 @@ class SessionForm extends React.Component {
   render () {
     const { formType, errors } = this.props;
     const formTypeKlass = formType.slice(0, 3);
-
-    // debugger
 
     const formOption = () => {
       if (formType === "Sign Up") {

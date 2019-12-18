@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 class ProjectForm extends React.Component {
   constructor (props) {
     super(props);
-    // debugger
     this.state = this.props.project;
 
     this.nameField = React.createRef();
@@ -22,7 +21,6 @@ class ProjectForm extends React.Component {
   }
   
   componentDidUpdate () {
-    debugger
     if (this.props.errors) {
       this.nameField.current.focus();
     }
@@ -30,14 +28,11 @@ class ProjectForm extends React.Component {
   
   handleSubmit (e) {
     e.preventDefault();
-    // debugger
     const project = Object.assign({}, this.state);
     const that = this;
-    // debugger
     this.props.projectAction(project).then(
       (payload) => {
         that.props;
-        // debugger
         that.props.history.push(`/${that.props.match.params.userId}/projects/${payload.project.id}/`)
       }
     )
@@ -49,7 +44,6 @@ class ProjectForm extends React.Component {
 
   deleteProject(e) {
     e.preventDefault();
-    debugger
     const that = this;
     this.props.deleteProject(this.props.match.params.projectId).then(
       () => {
@@ -82,7 +76,6 @@ class ProjectForm extends React.Component {
       descriptionInput = "Description (optional)";
       submitButton = "Save changes";
     }
-    // debugger
     return (
       <div className="toolbox-container">
         {formType === "projectCreate" ? (

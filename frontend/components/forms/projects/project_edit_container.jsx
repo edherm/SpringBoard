@@ -15,7 +15,6 @@ class Toolbox extends React.Component {
 
   render () {
     const { projectAction, errors, formType, project, deleteProject } = this.props;
-    // debugger
 
     if (!project) return null;
 
@@ -39,7 +38,6 @@ class Toolbox extends React.Component {
 
 
 const msp = (state, ownProps) => {
-  // debugger
   return {
     project: state.entities.projects[ownProps.match.params.projectId],
     formType: "projectEdit",
