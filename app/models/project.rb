@@ -18,4 +18,8 @@ belongs_to :manager,
   primary_key: :id,
   class_name: :User
 
+has_many :todo_lists
+
+has_many :todos, through: :todo_lists
+
 end
