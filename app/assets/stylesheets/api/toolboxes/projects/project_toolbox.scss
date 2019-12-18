@@ -19,6 +19,18 @@
   font-size: 16px;
 }
 
+.toolbox-nav > .fa-th-large {
+  font-size: 14px;
+  margin-right: 5px;
+  color: transparent;
+  text-shadow: 1px 1px 1px #fdd738;
+}
+
+.toolbox-nav > a {
+  text-decoration: underline;
+  color: #07a9f4;
+}
+
 .toolbox-main {
   display: flex;
   flex-direction: column;
@@ -27,6 +39,7 @@
   width: 820px;
   min-height: 788px;
   padding: 50px 50px 50px 50px;
+  position: relative;
 }
 
 //////////// Toolbox Header ////////////
@@ -111,10 +124,12 @@
 
   .toolbox-project-edit-link {
     position: absolute;
-    top: -3vw;
-    left: 16vw;
+    top: -35px;
+    right: -30px;
     border: 1px solid #d9d9d9;
-    border-radius: 180px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
     color: #283c46;
     font-weight: bolder;
     font-size: 23px;

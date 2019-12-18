@@ -1,5 +1,5 @@
 .project-form-container, .project-input-container {
-  margin: auto;
+  
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -7,6 +7,7 @@
 }
 
 .project-form-container {
+  margin: auto;
   width: 75%;
   min-height: 788px;
   box-shadow: 0 -1px 10px rgba(0,0,0,0.05), 0 1px 4px rgba(0,0,0,0.1), 0 10px 30px #f3ece8;;
@@ -20,15 +21,30 @@
   width: 545px;
 }
 
+.project-input-container.projectEdit {
+  width: 650px;
+  margin-top: 5px;
+}
+
 .project-input-container > h3 {
   width: 100%;
   background-color: white;
   margin-top: 20px;
+  margin-left: -15px;
+}
+
+.toolbox-header.project-edit {
+  border-bottom: 2px solid black;
+}
+
+.project-edit-header-center {
+  font-size: 33px;
 }
 
 .project-input-container > h3 > label {
   display: flex;
   font-weight: bold;
+  font-size: 19px;
   margin-bottom: 10px;
   background-color: white;
 }
@@ -36,21 +52,23 @@
 .project-input-container > input, .project-input-container > textarea {
   width: 98%;
   background-color: transparent;
+  padding: 10px;
   border-style: none;
   border: 1px solid rgb(217, 217, 217);
+  border-radius: 5px;
   vertical-align: top;
+  font-size: 16px;
+}
+
+.project-input-container > input:focus, .project-input-container > textarea:focus {
+  box-shadow: 0 0 6px #07a9f4;
+  border-color: #07a9f4;
+  outline: none;
 }
 
 .project-input-container > textarea {
   height: 90px;
   border-radius: 3px;
-}
-.project-input-container > input:focus {
-  box-shadow: 3px rgb(173, 210, 251);
-}
-
-.project-input-container > input:nth-child(4) {
-  height: 50px;
 }
 
 .project-form-header {
@@ -65,16 +83,27 @@
   background-color: white;
 }
 
-.create-project-img {
-  width: 113px;
+.create-project-img-container {
+  position: relative;
+  width: 100px;
+  height: 125px;
 }
 
-form.project-input-container > input.project-submit-button {
+.create-project-img {
+  position: absolute;
+  width: 175px;
+  bottom: 10px;
+}
+
+form.project-input-container.projectCreate > div > input.project-submit-button.projectCreate, 
+form.project-input-container.projectEdit > div > input.project-submit-button.projectEdit {
+  border: 1px solid rgb(84,162,104);
   border-radius: 20px;
   width: fit-content;
   background-color: rgb(84,162,104);
-  padding: 8px 16px 8px 16px;
+  padding: 10px 16px;
   color: white;
+  font-size: 18px;
 }
 
 form.project-input-container > label {
@@ -82,6 +111,24 @@ form.project-input-container > label {
   text-align: left;
 }
 
-input.project-submit-button {
+.project-submit-button.projectCreate {
+  display: flex;
   margin-top: 50px;
+}
+
+.project-submit-button-container.projectEdit {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+// input.project-submit-button.projectCreate {
+//   display: flex;
+//   align-items: center;
+// }
+
+input.project-submit-button.projectEdit {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 30px;
 }

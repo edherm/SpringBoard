@@ -8,15 +8,15 @@ const MessagesPreview = () => {
       <div className="toolbox-item-body" >
         <ul className="message-preview-ul">
           <li className="message-preview-li">
-            <div>PH</div>
-            <div>
-              <h2>Message Title</h2>
-              <p>message Preview</p>
+            <div className="message-preview-author-initials">PH</div>
+            <div className="message-preview-item-container">
+              <h2>2nd Message</h2>
+              <p>has content</p>
             </div>
           </li>
           <li className="message-preview-li">
-            <div>KB</div>
-            <div>
+            <div className="message-preview-author-initials">KB</div>
+            <div className="message-preview-item-container">
               <h2>Message Title</h2>
               <p>message Preview</p>
             </div>

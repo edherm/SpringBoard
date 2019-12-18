@@ -19,7 +19,7 @@ class NavBarUser extends React.Component {
       currentUser ? (
         <div className="nav-right dropdown" >
         <div className="user-initial" >
-          {`${initials(currentUser.name)}`}
+            <p>{`${initials(currentUser.name)}`}</p>
         </div>
         <div className="dropdown-content" >
           <h3 className="dropdown-header" >Personal Settings</h3>

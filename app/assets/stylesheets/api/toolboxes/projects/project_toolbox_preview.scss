@@ -10,7 +10,7 @@
 .toolbox-item-header {
   display: flex;
   align-self: center;
-  padding: 18px 0 12px;
+  padding: 5px 0 16px;
 }
 
 .toolbox-item-body {
@@ -23,13 +23,42 @@
   list-style: none;
 }
 
+.message-preview-li:first-child {
+  border-top: none;
+}
+
 .message-preview-li {
   display: flex;
   border-top: 1px solid #d9d9d9;
+  margin-bottom: 5px;
+  padding-top: 5px;
 }
 
-.message-preview-li:first-child {
-  border-top: none;
+.message-preview-author-initials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #fdd738;
+  border-radius: 50%;
+  background-color: #fdd738;
+  color: white;
+  font-size: 12px;
+}
+
+.message-preview-item-container {
+  margin-left: 5px;
+}
+
+.message-preview-item-container > h2 {
+  font-size: 12px;
+  padding-top: 2px;
+}
+
+.message-preview-item-container > p {
+  font-size: 12px;
+  padding-top: 2px;
 }
 
 //////////// Todos Preview ////////////
@@ -41,10 +70,80 @@
 .todolist-preview-ul {
   // margin-left: 15px;
   list-style: none;
+  margin-bottom: 10px;
 }
 
 .todos-preview-item {
-  
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+   margin: 5px 5px 0 0;
+}
+
+.todolist-preview-checkbox {
+  width: 15px;
+  height: 15px;
+  border-radius: 5px;
+  border: 1px solid #bfbfbf;
+  margin-right: 5px;
+}
+
+.todos-preview-item > span {
+  vertical-align: middle;
 }
 
 //////////// Schedule Preview ////////////
+
+.event-preview-ul, .event-preview-details {
+  list-style: none;
+}
+
+.event-preview-ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-preview-date:first-child {
+  border-top: none;
+}
+
+.event-preview-date {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #d9d9d9;
+  padding: 5px 0;
+}
+
+.event-preview-title {
+  display: flex;
+}
+
+.fa-calendar-day {
+  color: #07a9f4;
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.event-preview-title > h2 {
+  font-size: 15px;
+  padding-top: 2px;
+}
+
+.schedule-preview-date-details {
+
+}
+
+.preview-time {
+  color: #6c6c6c;
+}
+
+.event-preview-details {
+  font-size: 12px;
+  margin-left: 20px;
+}
+
+.event-preview-details > li {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+}

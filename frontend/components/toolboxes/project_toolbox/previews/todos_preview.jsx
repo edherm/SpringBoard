@@ -12,16 +12,16 @@ const TodosPreview = () => {
               <h2>Todo Title1</h2>
               <ul className="todolist-preview-ul" >
                 <li className="todos-preview-item" >
-                  <input type="checkbox" />
-                  Todo Item1
+                  <div className="todolist-preview-checkbox"></div>
+                  <span>Todo Item1</span>
                 </li>
                 <li className="todos-preview-item" >
-                  <input type="checkbox" />
-                  Todo Item2
+                  <div className="todolist-preview-checkbox"></div>
+                  <span>Todo Item2</span>
                 </li>
                 <li className="todos-preview-item" >
-                  <input type="checkbox" />
-                  Todo Item3
+                  <div className="todolist-preview-checkbox"></div>
+                  <span>Todo Item3</span>
                 </li>
               </ul>
             </div>
@@ -31,16 +31,16 @@ const TodosPreview = () => {
               <h2>Todo Title2</h2>
               <ul className="todolist-preview-ul" >
                 <li className="todos-preview-item" >
-                  <input type="checkbox"/>
-                  Todo Item1
+                  <div className="todolist-preview-checkbox"></div>
+                  <span>Todo Item1</span>
                 </li>
                 <li className="todos-preview-item" >
-                  <input type="checkbox" />
-                  Todo Item2
+                  <div className="todolist-preview-checkbox"></div>
+                  <span>Todo Item2</span>
                 </li>
                 <li className="todos-preview-item" >
-                  <input type="checkbox" />
-                  Todo Item3
+                  <div className="todolist-preview-checkbox"></div>
+                  <span>Todo Item3</span>
                 </li>
               </ul>
             </div>

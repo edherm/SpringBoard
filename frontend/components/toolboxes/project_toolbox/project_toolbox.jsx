@@ -42,9 +42,9 @@ class ProjectToolbox extends React.Component {
           <div className="toolbox-body">
             <div className="toolbox-items-container">
               <ul className="toolbox-items-ul">
-                <MessagesPreview />
-                <TodosPreview />
-                <SchedulePreview />
+                <Link to=""><MessagesPreview /></Link>
+                <Link to=""><TodosPreview /></Link>
+                <Link to=""><SchedulePreview /></Link>
               </ul>
             </div>
           </div>

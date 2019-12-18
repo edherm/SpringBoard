@@ -98,14 +98,20 @@
 }
 
 .user-initial {
-  border: 1px solid rgb(245, 186, 105);
-  border-radius: 180px;
-  padding: 8px 8px;
-  text-align: center;
-  background-color: rgb(245, 186, 105);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fdd738;
+  border-radius: 50%;
+  background-color: #fdd738;
   color: white;
-  width: 16px;
-  height: 16px;
+  width: 30px;
+  height: 30px;
+}
+
+.user-initial > p {
+  display: flex;
+  height: fit-content;
 }
 
 .Log-a, .Sig-a {

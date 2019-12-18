@@ -41,6 +41,7 @@ const msp = (state, ownProps) => {
   // debugger
   return {
     project: state.entities.projects[ownProps.match.params.projectId],
+    formType: "projectEdit",
     errors: Object.values(state.errors)
   }
 }

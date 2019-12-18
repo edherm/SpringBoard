@@ -45,6 +45,10 @@ class ProjectForm extends React.Component {
   }
 
   render () {
+    // if (!this.props.project) {
+    //   return null;
+    // }
+    
     const { formType, project } = this.props;
     const { name, description } = this.state;
     
@@ -67,17 +71,22 @@ class ProjectForm extends React.Component {
     // debugger
     return (
       <div className="toolbox-container">
-        {formType === "projectCreate" ? null : (<div className="toolbox-nav">
-          <Link to={`/${this.props.match.params.userId}/projects/${project.id}`}>{project.name}</Link>
-        </div>)}
+        {formType === "projectCreate" ? (
+          null
+        ) : (
+          <div className="toolbox-nav">
+            <i className="fas fa-th-large"></i>
+            <Link to={`/${this.props.match.params.userId}/projects/${project.id}`}>{project.name}</Link>
+          </div>
+        )}
         <div className="toolbox-main">
-        <div className={formType === "projectCreate" ? "project-form-header" : "toolbox-header"}>
+        <div className={formType === "projectCreate" ? "project-form-header" : "toolbox-header project-edit"}>
             {formType === "projectCreate" ? (
-              formLogo
+              <div className="create-project-img-container">{formLogo}</div>
               ) : (
               <div className="toolbox-header-left"></div>
             )}
-          <h1 className={formType === "projectCreate" ? "projectCreate-header" : "toolbox-header-center"}>
+          <h1 className={formType === "projectCreate" ? "projectCreate-header" : "project-edit-header-center"}>
             {formType === "projectCreate" ? (
               "All right, let's get your project started!"
             ) : (
@@ -90,7 +99,7 @@ class ProjectForm extends React.Component {
                 <div className="toolbox-header-right"></div>
               )}
         </div>
-        <form className="project-input-container" onSubmit={this.handleSubmit}>
+        <form className={`project-input-container ${formType}`} onSubmit={this.handleSubmit}>
           <h3><label>{nameInput}</label></h3>
           <input 
             ref={this.nameField}
@@ -101,12 +110,13 @@ class ProjectForm extends React.Component {
           />
           <h3><label>{descriptionInput}</label></h3>
           <textarea
-
             placeholder="e.g Plans and scheduling for expanding the office"
             value={description}
             onChange={this.handleInput("description")}
           />
-          <input className="project-submit-button" type="submit" value={submitButton}/>
+          <div className={`project-submit-button-container ${formType}`}>
+            <input className={`project-submit-button ${formType}`} type="submit" value={submitButton}/>
+          </div>
         </form>
         </div>
       </div>
