@@ -3,7 +3,7 @@ import ProjectToolbox from "./project_toolbox";
 import { fetchProject } from '../../../actions/project_actions';
 
 const msp = (state, ownProps) => {
-  debugger
+  // debugger
   return { project: state.entities.projects[ownProps.match.params.projectId] }
 }
 
