@@ -17,6 +17,7 @@ class Api::TodoListsController < ApplicationController
 
   def create
     project = Project.find_by(id: params[:project_id])
+    debugger
     @todo_list = project.todo_lists.new(todo_list_params)
 
     if @todo_list.save
@@ -32,7 +33,7 @@ class Api::TodoListsController < ApplicationController
 
   def update
     @todo_list = TodoList.find_by(id: params[:id])
-
+    # debugger
     if @todo_list.update_attributes(todo_list_params)
       render :show
     else

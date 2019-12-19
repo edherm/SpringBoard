@@ -12,8 +12,6 @@ import ProjectEditContainer from "./forms/projects/project_edit_container";
 
 const App = () => (
   <div>
-    {/* <header> */}
-    {/* </header> */}
     <Switch >
       <ProtectedRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute exact path="/login" component={LoginFormContainer} />

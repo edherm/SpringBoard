@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from './store/store';
 import Root from './components/root';
+import { fetchTodoLists, fetchTodoList, createTodoList, updateTodoList, deleteTodoList } from "./util/todo_list_api_util";
 // import { fetchProjects } from "./actions/project_actions";
 
 
@@ -20,7 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
   window.getState = store.getState;
-  // window.dispatch = store.dispatch;
+  window.dispatch = store.dispatch;
+  window.fetchTodoLists = fetchTodoLists;
+  window.fetchTodoList = fetchTodoList;
+  window.createTodoList = createTodoList;
+  window.updateTodoList = updateTodoList;
+  window.deleteTodoList = deleteTodoList;
+
   // window.fetchProjects = fetchProjects;
   
   const root = document.getElementById("root")
