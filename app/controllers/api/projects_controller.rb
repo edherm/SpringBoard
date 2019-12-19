@@ -26,7 +26,7 @@ class Api::ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    render :show
+    # render :show
   end
 
   def update
