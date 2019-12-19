@@ -1,3 +1,51 @@
 // Place all the styles related to the api/todo_lists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.toolbox-header-bordered.todo-list-index {
+
+}
+
+.toolbox-header-left.todo-list-index {
+  position: relative;
+}
+
+.todos-index-new-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-color: #2ea561;
+  color: white;
+  border-radius: 20px;
+  width: fit-content;
+  height: 20px;
+}
+
+.todos-index-new-list > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5px 2.5px;
+  border-radius: 20px;
+  width: 80px;
+}
+
+.new-list-plus {
+  font-size: 24px;
+}
+
+.new-list-label {
+  font-size: 10px;
+  margin-left: 5px;
+}
+
+.toolbox-body.todo-list-index {
+  justify-content: flex-start;
+  margin: 0 125px 125px 125px;
+  width: 650px;
+}
+
+.todolist-checkbox {
+  cursor: pointer;
+}

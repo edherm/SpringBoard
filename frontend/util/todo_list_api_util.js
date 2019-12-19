@@ -11,7 +11,6 @@ export const fetchTodoList = (projectId, todoListId) => {
 }
 
 export const createTodoList = (projectId, todo_list) => {
-  debugger
   return $.ajax({
     url: `/api/projects/${projectId}/todo_lists`,
     method: "POST",

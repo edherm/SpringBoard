@@ -26,7 +26,6 @@ class ProjectIndex extends React.Component {
             </Link>
           </li>
         </ul>
-
       </div>
     )
   }

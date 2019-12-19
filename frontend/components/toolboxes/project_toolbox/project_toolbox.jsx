@@ -19,13 +19,14 @@ class ProjectToolbox extends React.Component {
     }
     
     const {project} = this.props
+    const { userId, projectId } = this.props.match.params
 
     return (
       <div className="toolbox-container">
         <div className="toolbox-main">
           <div className="toolbox-edit-link-container">
             <Link className="toolbox-project-edit-link"
-              to={`/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/edit`}>
+              to={`/${userId}/projects/${projectId}/edit`}>
               ...
             </Link>
           </div>
@@ -43,7 +44,7 @@ class ProjectToolbox extends React.Component {
             <div className="toolbox-items-container">
               <ul className="toolbox-items-ul">
                 <Link to=""><MessagesPreview /></Link>
-                <Link to=""><TodosPreview /></Link>
+                <Link to={`/${userId}/projects/${projectId}/todoLists`}><TodosPreview /></Link>
                 <Link to=""><SchedulePreview /></Link>
               </ul>
             </div>

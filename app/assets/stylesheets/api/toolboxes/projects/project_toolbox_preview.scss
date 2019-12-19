@@ -67,20 +67,20 @@
   list-style: none;
 }
 
-.todolist-preview-ul {
+.todos-ul {
   // margin-left: 15px;
   list-style: none;
   margin-bottom: 10px;
 }
 
-.todos-preview-item {
+.todos-item {
   display: flex;
   align-items: center;
   font-size: 12px;
    margin: 5px 5px 0 0;
 }
 
-.todolist-preview-checkbox {
+.todolist-checkbox.false {
   width: 15px;
   height: 15px;
   border-radius: 5px;
@@ -88,7 +88,7 @@
   margin-right: 5px;
 }
 
-.todos-preview-item > span {
+.todos-item > span {
   vertical-align: middle;
 }
 

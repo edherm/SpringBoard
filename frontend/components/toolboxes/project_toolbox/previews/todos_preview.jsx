@@ -10,17 +10,17 @@ const TodosPreview = () => {
           <li className="todos-preview-li" >
             <div className="preview-list-container">
               <h2>Todo Title1</h2>
-              <ul className="todolist-preview-ul" >
-                <li className="todos-preview-item" >
-                  <div className="todolist-preview-checkbox"></div>
+              <ul className="todos-ul" >
+                <li className="todos-item" >
+                  <div className="todolist-checkbox false"></div>
                   <span>Todo Item1</span>
                 </li>
-                <li className="todos-preview-item" >
-                  <div className="todolist-preview-checkbox"></div>
+                <li className="todos-item" >
+                  <div className="todolist-checkbox false"></div>
                   <span>Todo Item2</span>
                 </li>
-                <li className="todos-preview-item" >
-                  <div className="todolist-preview-checkbox"></div>
+                <li className="todos-item" >
+                  <div className="todolist-checkbox false"></div>
                   <span>Todo Item3</span>
                 </li>
               </ul>
@@ -29,17 +29,17 @@ const TodosPreview = () => {
           <li className="todos-preview-li" >
             <div className="preview-list-container">
               <h2>Todo Title2</h2>
-              <ul className="todolist-preview-ul" >
-                <li className="todos-preview-item" >
-                  <div className="todolist-preview-checkbox"></div>
+              <ul className="todos-ul" >
+                <li className="todos-item" >
+                  <div className="todolist-checkbox false"></div>
                   <span>Todo Item1</span>
                 </li>
-                <li className="todos-preview-item" >
-                  <div className="todolist-preview-checkbox"></div>
+                <li className="todos-item" >
+                  <div className="todolist-checkbox false"></div>
                   <span>Todo Item2</span>
                 </li>
-                <li className="todos-preview-item" >
-                  <div className="todolist-preview-checkbox"></div>
+                <li className="todos-item" >
+                  <div className="todolist-checkbox false"></div>
                   <span>Todo Item3</span>
                 </li>
               </ul>
