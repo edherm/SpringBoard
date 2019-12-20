@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.todo-lists-ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.todo-lists-li {
+  margin-bottom: 40px;
+}
+
 .toolbox-header-bordered.todo-list-index {
 
 }
@@ -23,6 +32,10 @@
 }
 .toolbox-header-left.todo-list-index {
   position: relative;
+}
+
+.todo-list-title.index > a > p {
+  margin-left: 20px;
 }
 
 .todos-index-new-list {
@@ -72,6 +85,11 @@
   cursor: pointer;
 }
 
+.todolist-checkbox.false.index {
+  width: 20px;
+  height: 20px;
+}
+
 
 .expanding-form.hidden {
   display: none;
@@ -94,6 +112,10 @@
   flex-direction: column;
 }
 
+.todo-item-description.index {
+  font-size: 15px;
+}
+
 .expanding-form-container > form > input {
   display: flex;
   flex-direction: column;
@@ -104,6 +126,10 @@
 input.new-todo {
   width: 100px;
   height: 35px;
+  border-radius: 20px;
+  color: #2ea561;
+  border: 1px solid #2ea561;
+  margin-top: 10px;
 }
 
 .new-list-name {

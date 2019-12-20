@@ -12,16 +12,16 @@ const TodoList = ({todoList, page}) => {
           </Link>
         </li>
         <li className="todos-item" >
-          <div className="todolist-checkbox false"></div>
-          <span>Todo Item1</span>
+          <div className={`todolist-checkbox false ${page}`}></div>
+          <span className={`todo-item-description ${page}`}>Todo Item1</span>
         </li>
         <li className="todos-item" >
-          <div className="todolist-checkbox false"></div>
-          <span>Todo Item2</span>
+          <div className={`todolist-checkbox false ${page}`}></div>
+          <span className={`todo-item-description ${page}`}>Todo Item2</span>
         </li>
         <li className="todos-item" >
-          <div className="todolist-checkbox false"></div>
-          <span>Todo Item3</span>
+          <div className={`todolist-checkbox false ${page}`}></div>
+          <span className={`todo-item-description ${page}`}>Todo Item3</span>
         </li>
       </ul>
       <input 
