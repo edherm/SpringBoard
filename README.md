@@ -1,24 +1,17 @@
-# README
+# SpringBoard ![Logo](app/assets/images/spring_board_small.png) 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+[SpringBoard on Heroku](https://springboard-app.herokuapp.com/#/ "SpringBoard's Splash Page")
 
-* Configuration
+### Table of Contents
+* App Summary
+* 
 
-* Database creation
 
-* Database initialization
+## App Summary
 
-* How to run the test suite
+SpringBoard collects your todo lists, message board, and schedule associated with a project into one easy to navigate dashboard and allows the creation of multiple projects.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[App Preview](app/assets/images/SpringBoardPreview.png)
