@@ -5,16 +5,56 @@ import TodoList from "./todo_list";
 class TodoListIndex extends React.Component {
   constructor (props) {
     super(props)
+
+    this.state = {
+      newListForm: "hidden",
+      newTodoList: {
+        name: "",
+        details: ""
+      }
+    }
+
+    this.revealForm = this.revealForm.bind(this)
+    this.hideForm = this.hideForm.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount () {
     this.props.fetchTodoLists(this.props.match.params.projectId);
     this.props.fetchProject(this.props.match.params.projectId);
   }
+
+  handleSubmit (e) {
+    e.preventDefault();
+    this.props.createTodoList(this.props.match.params.projectId, this.state.newTodoList)
+      .then( ({ todoList }) => {
+        // this.props.history.push(`./todoLists/${todoList.id}`)
+        this.hideForm();
+      }
+      )
+  }
+
+  handleInput (field) {
+    return e => {
+      let newTodoList = Object.assign({}, this.state.newTodoList, { [field]: e.target.value })
+      this.setState({ newTodoList: newTodoList})}
+  }
+
+  revealForm () {
+    this.setState({newListForm: "revealed"})
+  }
+
+  hideForm (e) {
+    if (e) {
+      e.preventDefault();
+    }
+    this.setState({newListForm: "hidden"})
+  }
   
   render () {
     const { todoLists, project } = this.props;
     const { projectId, userId } = this.props.match.params;
+    const { name, details } = this.state.newTodoList;
     
     return (
       <div className="toolbox-container  todo-list-index">
@@ -27,12 +67,12 @@ class TodoListIndex extends React.Component {
         <div className="toolbox-main todo-list-index">
           <div className="toolbox-header-bordered todo-list-index">
             <div className="toolbox-header-left todo-list-index">
-              <Link to="" className="todos-index-new-list">
+              <div onClick={this.revealForm} className="todos-index-new-list">
                 <div>
                   <span className="new-list-plus">+</span>
                   <label className="new-list-label" >New List</label>
                 </div>
-              </Link>
+              </div>
             </div>
             <div className="toolbox-header-center todo-list-index">
               <h1>To-dos</h1>
@@ -42,6 +82,26 @@ class TodoListIndex extends React.Component {
             </div>
           </div>
           <div className="toolbox-body todo-list-index">
+            <div className={`expanding-form ${this.state.newListForm}`}>
+              <div>
+                <form onSubmit={this.handleSubmit} >
+                  <input 
+                    type="text" 
+                    placeholder="Name this list..." 
+                    value={name} 
+                    onChange={this.handleInput("name")} 
+                  />
+                  <input 
+                    type="text" 
+                    placeholder="Add extra details" 
+                    value={details} 
+                    onChange={this.handleInput("details")} 
+                  />
+                  <input type="submit" value="Add this list"/>
+                </form>
+                <button onClick={this.hideForm}>Cancel</button>
+              </div>
+            </div>
             <ul className="todo-lists-ul">
               {todoLists.map( todoList => 
                 <li className="todo-lists-li">

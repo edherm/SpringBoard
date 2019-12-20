@@ -19,6 +19,7 @@
 bundle.js*
 bundle.js
 ​
+/frontend/components/archived/
 ​
 /node_modules
 /yarn-error.log

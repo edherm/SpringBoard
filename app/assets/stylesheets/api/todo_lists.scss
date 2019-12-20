@@ -11,6 +11,7 @@
 }
 
 .todos-index-new-list {
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,6 +24,8 @@
 }
 
 .todos-index-new-list > div {
+  cursor: inherit;
+  pointer-events: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,6 +35,8 @@
 }
 
 .new-list-plus {
+  cursor: inherit;
+  pointer-events: none;
   font-size: 24px;
 }
 
@@ -48,4 +53,13 @@
 
 .todolist-checkbox {
   cursor: pointer;
+}
+
+
+.expanding-form.hidden {
+  display: none;
+}
+
+.expanding-form.revealed {
+  display: flex;
 }

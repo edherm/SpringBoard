@@ -1,4 +1,9 @@
 class Api::TodosController < ApplicationController
+  def index
+    todo_list = TodoList.find_by(id: params[:todo_list_id])
+    @todos = todo_list.todos
+  end
+  
   def show
     @todo = Todo.find_by(id: params[:id])
   end

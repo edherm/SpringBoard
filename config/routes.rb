@@ -3,10 +3,9 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     resources :projects do 
       resources :todo_lists do
-        resources :todos, only: [:create, :update, :destroy]
+        resources :todos, only: [:index, :show, :create, :update, :destroy]
       end
     end
-    resources :todos, only: [:show]
     resource :sessions, only: [:create, :destroy]
   end
 
