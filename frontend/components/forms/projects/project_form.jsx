@@ -21,7 +21,7 @@ class ProjectForm extends React.Component {
   }
   
   componentDidUpdate () {
-    if (this.props.errors) {
+    if (this.props.errors.length > 0) {
       this.nameField.current.focus();
     }
   }
