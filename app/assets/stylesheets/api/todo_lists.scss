@@ -6,46 +6,63 @@
 
 }
 
+.toolbox-header-center.todo-list-index {
+  display: flex;
+  flex-direction: row;
+}
+
+.toolbox-header-center.todo-list-index > h1, .toolbox-header-center.todo-list-index > h4 {
+  display: flex;
+  margin: 5px;
+  align-items: flex-end;
+}
+
+.toolbox-header-center.todo-list-index > h4 {
+  font-size: 10px;
+  font-weight: normal;
+}
 .toolbox-header-left.todo-list-index {
   position: relative;
 }
 
 .todos-index-new-list {
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  cursor: pointer;
   background-color: #2ea561;
   color: white;
   border-radius: 20px;
   width: fit-content;
-  height: 20px;
+  height: 30px;
 }
 
 .todos-index-new-list > div {
-  cursor: inherit;
-  pointer-events: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2.5px 2.5px;
+  cursor: inherit;
+  pointer-events: none;
+  padding: 1.5px 2.5px;
   border-radius: 20px;
-  width: 80px;
+  width: 95px;
+
 }
 
 .new-list-plus {
   cursor: inherit;
   pointer-events: none;
-  font-size: 24px;
+  font-size: 30px;
 }
 
 .new-list-label {
-  font-size: 10px;
+  font-size: 13px;
   margin-left: 5px;
 }
 
 .toolbox-body.todo-list-index {
+  display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   margin: 0 125px 125px 125px;
   width: 650px;
@@ -58,8 +75,73 @@
 
 .expanding-form.hidden {
   display: none;
+  align-self: center;
 }
 
 .expanding-form.revealed {
   display: flex;
+  padding: 15px 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 580px;
+  height: 100px;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+}
+
+.expanding-form-container > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.expanding-form-container > form > input {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  margin-bottom: 10px;
+}
+
+input.new-todo {
+  width: 100px;
+  height: 35px;
+}
+
+.new-list-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.new-list-details {
+  border-top: 1px solid #e5e5e5;
+  font-size: 17px;
+}
+
+.submit-new-list {
+  display: flex;
+  justify-content: center;
+  background-color: #2ea561;
+  border-radius: 20px;
+  width: fit-content;
+  height: 30px;
+  width: 95px;
+}
+
+.submit-new-list > input {
+  font-size: 14px;  
+  border: none;
+  color: white;
+  background-color: transparent;
+}
+
+.new-list-buttons {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.new-list-buttons > button {
+  font-size: 14px;  
+  border-radius: 20px;
+  border-color: #2ea561;
+  color: #2ea561;
+  margin-left: 5px;
 }

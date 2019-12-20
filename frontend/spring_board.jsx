@@ -20,7 +20,13 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-  
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
+  // window.fetchTodos = fetchTodos;
+  // window.fetchTodo = fetchTodo;
+  // window.createTodo = createTodo;
+  // window.updateTodo = updateTodo;
+  // window.deleteTodo = deleteTodo;
   
   const root = document.getElementById("root")
 

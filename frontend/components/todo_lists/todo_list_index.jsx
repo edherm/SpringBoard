@@ -83,23 +83,29 @@ class TodoListIndex extends React.Component {
           </div>
           <div className="toolbox-body todo-list-index">
             <div className={`expanding-form ${this.state.newListForm}`}>
-              <div>
+              <div className="expanding-form-container">
                 <form onSubmit={this.handleSubmit} >
                   <input 
+                    className="new-list-name"
                     type="text" 
                     placeholder="Name this list..." 
                     value={name} 
                     onChange={this.handleInput("name")} 
                   />
                   <input 
+                    className="new-list-details" 
                     type="text" 
                     placeholder="Add extra details" 
                     value={details} 
                     onChange={this.handleInput("details")} 
                   />
-                  <input type="submit" value="Add this list"/>
+                  <div className="new-list-buttons">
+                    <div className="submit-new-list" >
+                      <input type="submit" value="Add this list"/>
+                    </div>
+                    <button onClick={this.hideForm}>Cancel</button>
+                  </div>
                 </form>
-                <button onClick={this.hideForm}>Cancel</button>
               </div>
             </div>
             <ul className="todo-lists-ul">
