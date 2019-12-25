@@ -1,5 +1,6 @@
 @todos.each do |todo|
   json.set! todo.id do
-    json.partial! "todo", todo: todo
+    json.partial! "api/todos/todo", todo: todo
   end
 end
+

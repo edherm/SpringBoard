@@ -39,6 +39,7 @@ export const fetchTodoLists = (projectId) => dispatch => {
 }
 
 export const fetchTodoList = (projectId, todoListId) => dispatch => {
+  debugger
   return todoListAPIUtil.fetchTodoList(projectId, todoListId)
     .then(todoList => {
       return dispatch(receiveTodoList(todoList))

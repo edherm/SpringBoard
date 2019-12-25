@@ -1,37 +1,46 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Todo from "./todos/todo"
+import NewTodoFormContainer from "../forms/todos/new_todo_form_container";
 
-const TodoList = ({todoList, page}) => {
-  return (
-    <>
-      <ul className="todos-ul">
-        <li className={`todo-list-title ${page}`}>
-          <Link to={`./todoLists/${todoList.id}`} >
-            <p>0/6 completed</p>
-            <h3>{todoList.name}</h3>
-          </Link>
-        </li>
-        <li className="todos-item" >
-          <div className={`todolist-checkbox false ${page}`}></div>
-          <span className={`todo-item-description ${page}`}>Todo Item1</span>
-        </li>
-        <li className="todos-item" >
-          <div className={`todolist-checkbox false ${page}`}></div>
-          <span className={`todo-item-description ${page}`}>Todo Item2</span>
-        </li>
-        <li className="todos-item" >
-          <div className={`todolist-checkbox false ${page}`}></div>
-          <span className={`todo-item-description ${page}`}>Todo Item3</span>
-        </li>
-      </ul>
-      <input 
-        className="new-todo" 
-        type="submit" 
-        onClick={ e => e.preventDefault() } 
-        value="Add a to-do" 
-      />
-    </>
-  )
+class TodoList extends React.Component {
+  constructor (props) {
+    super(props);
+  }
+
+  
+  componentDidMount () {
+    debugger
+    this.props.fetchTodos(this.props.projectId, this.props.todoList.id)
+    debugger
+  }
+
+  render () {
+    const { todoList, page, todos } = this.props;
+    debugger
+    if (!todos) {
+      return null;
+    }
+    return (
+      <>
+        <ul className="todos-ul">
+          <li className={`todo-list-title ${page}`}>
+            <Link to={`./todoLists/${todoList.id}`} >
+              <p>0/6 completed</p>
+              <h3>{todoList.name}</h3>
+            </Link>
+          </li>
+          {todos.map(todo => {
+            debugger
+            if (todo.todo_list_id === todoList.id) {
+              return (<Todo page={page} todo={todo} />)
+            }
+          })}
+        </ul>
+        <NewTodoFormContainer />
+      </>
+    )
+  }
 }
 
 export default TodoList;

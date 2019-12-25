@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchTodoList } from "../../actions/todo_list_actions";
 import { fetchProject } from "../../actions/project_actions";
+import { fetchTodos, createTodo } from "../../actions/todo_actions";
 import TodoList from "./todo_list";
 import { Link } from "react-router-dom";
 
@@ -11,15 +12,16 @@ class TodoListShow extends React.Component {
     super(props)
   }
   componentDidMount () {
+    debugger
     // const { todoListId, projectId } = this.props.match.params;
-    this.props.fetchTodoList(this.props.match.params.projectId, this.props.match.params.todoListId);
     this.props.fetchProject(this.props.match.params.projectId);
+    this.props.fetchTodoList(this.props.match.params.projectId, this.props.match.params.todoListId);
   }
 
   render () {
     if (!this.props.todoList) return null
 
-    const { todoList, project } = this.props
+    const { todoList, project, fetchTodos, todos } = this.props
     const { userId, projectId } = this.props.match.params
     return(
       <div className="toolbox-container  todo-list-index">
@@ -38,10 +40,16 @@ class TodoListShow extends React.Component {
             <div className="toolbox-header-right todo-list-index"></div>
           </div >
           <div className="toolbox-body todo-list-index">
-            <TodoList todoList={todoList} page="show" />
+            <TodoList 
+            todoList={todoList} 
+            page="show" 
+            fetchTodos={fetchTodos} 
+            projectId={project.id} 
+            todos={todos} 
+            />
            </div>
-        </div >
-      </div >
+        </div>
+      </div>
     )
   }
 }
@@ -49,16 +57,20 @@ class TodoListShow extends React.Component {
 
 
 const msp = (state, ownProps) => {
+  debugger
   return {
+    project: state.entities.projects[ownProps.match.params.projectId],
     todoList: state.entities.todo_lists[ownProps.match.params.todoListId],
-    project: state.entities.projects[ownProps.match.params.projectId]
+    todos: Object.values(state.entities.todos)
   } 
 }
 
 const mdp = dispatch => {
   return {
-  fetchTodoList: (todoListId) => dispatch(fetchTodoList(todoListId)),
-  fetchProject: projectId => dispatch(fetchProject(projectId))
+  fetchTodoList: (projectId, todoListId) => dispatch(fetchTodoList(projectId, todoListId)),
+  fetchProject: projectId => dispatch(fetchProject(projectId)),
+  fetchTodos: (projectId, todoListId) => dispatch(fetchTodos(projectId, todoListId)),
+  createTodo: (projectId, todoListId, todo) => dispatch(createTodo(projectId, todoListId, todo))
   }
 }
 

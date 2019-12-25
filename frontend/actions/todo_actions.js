@@ -6,6 +6,7 @@ export const REMOVE_TODO = "REMOVE_TODO";
 export const RECEIVE_TODO_ERRORS = "RECEIVE_TODO_ERRORS";
 
 export const receiveTodos = todos => {
+  debugger
   return {
     type: RECEIVE_TODOS,
     todos
@@ -34,6 +35,7 @@ export const receiveTodoErrors = errors => {
 }
 
 export const fetchTodos = (projectId, todoListId) => dispatch => {
+  debugger
   return todoAPIUtil.fetchTodos(projectId, todoListId)
     .then(todos => dispatch(receiveTodos(todos)))
 }

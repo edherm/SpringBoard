@@ -20,8 +20,9 @@ class TodoListIndex extends React.Component {
   }
 
   componentDidMount () {
-    this.props.fetchTodoLists(this.props.match.params.projectId);
-    this.props.fetchProject(this.props.match.params.projectId);
+    const projectId = this.props.match.params.projectId;
+    this.props.fetchTodoLists(projectId);
+    this.props.fetchProject(projectId);
   }
 
   handleSubmit (e) {
@@ -52,7 +53,7 @@ class TodoListIndex extends React.Component {
   }
   
   render () {
-    const { todoLists, project } = this.props;
+    const { todoLists, project, fetchTodos, todos } = this.props;
     const { projectId, userId } = this.props.match.params;
     const { name, details } = this.state.newTodoList;
     
@@ -110,8 +111,14 @@ class TodoListIndex extends React.Component {
             </div>
             <ul className="todo-lists-ul">
               {todoLists.map( todoList => 
-                <li className="todo-lists-li">
-                  <TodoList todoList={todoList} page="index" key={todoList.id} />
+                <li key={todoList.id} className="todo-lists-li">
+                  <TodoList 
+                  todoList={todoList} 
+                  page="index" 
+                  fetchTodos={fetchTodos}
+                  project={project} 
+                  todos={todos} 
+                  key={todoList.id} />
                 </li>
               )}
             </ul>

@@ -32,7 +32,6 @@ class ProjectForm extends React.Component {
     const that = this;
     this.props.projectAction(project).then(
       (payload) => {
-        that.props;
         that.props.history.push(`/${that.props.match.params.userId}/projects/${payload.project.id}/`)
       }
     )
