@@ -1,6 +1,6 @@
 class Api::TodosController < ApplicationController
   def index
-    debugger
+    # debugger
     @todo_list = TodoList.find_by(id: params[:todo_list_id])
     @todos = @todo_list.todos
   end

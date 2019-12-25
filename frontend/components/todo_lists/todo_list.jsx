@@ -16,7 +16,7 @@ class TodoList extends React.Component {
   }
 
   render () {
-    const { todoList, page, todos } = this.props;
+    const { todoList, page, todos, projectId } = this.props;
     debugger
     if (!todos) {
       return null;
@@ -37,7 +37,7 @@ class TodoList extends React.Component {
             }
           })}
         </ul>
-        <NewTodoFormContainer />
+        <NewTodoFormContainer todoList={todoList.id} projectId={projectId}/>
       </>
     )
   }

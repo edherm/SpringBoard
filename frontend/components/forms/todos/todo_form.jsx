@@ -14,7 +14,8 @@ class TodoForm extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault();
-    this.props.formAction(this.state).then(
+    const todo = Object.assign({}, this.state)
+    this.props.formAction(this.props.projectId, this.props.todoListId, todo).then(
       console.log("you added a to-do!")
     )
   }
