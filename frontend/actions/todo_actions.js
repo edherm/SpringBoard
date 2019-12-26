@@ -6,7 +6,6 @@ export const REMOVE_TODO = "REMOVE_TODO";
 export const RECEIVE_TODO_ERRORS = "RECEIVE_TODO_ERRORS";
 
 export const receiveTodos = todos => {
-  debugger
   return {
     type: RECEIVE_TODOS,
     todos
@@ -14,6 +13,7 @@ export const receiveTodos = todos => {
 }
 
 export const receiveTodo = todo => {
+  debugger
   return {
     type: RECEIVE_TODO,
     todo
@@ -35,7 +35,6 @@ export const receiveTodoErrors = errors => {
 }
 
 export const fetchTodos = (projectId, todoListId) => dispatch => {
-  debugger
   return todoAPIUtil.fetchTodos(projectId, todoListId)
     .then(todos => dispatch(receiveTodos(todos)))
 }
@@ -46,6 +45,7 @@ export const fetchTodo = (projectId, todoListId, todoId) => dispatch => {
 }
 
 export const createTodo = (projectId, todoListId, todo) => dispatch => {
+  debugger
   return todoAPIUtil.createTodo(projectId, todoListId, todo)
     .then(todo => dispatch(receiveTodo(todo)))
 }
@@ -55,7 +55,7 @@ export const updateTodo = (projectId, todoListId, todo) => dispatch => {
     .then(todo => dispatch(receiveTodo(todo)))
 }
 
-export const deleteTodo = (projectId, todoListId, todoId) => dispatch => {
-  return todoAPIUtil.deleteTodo(projectId, todoListId, todoId)
+export const deleteTodo = (todoId) => dispatch => {
+  return todoAPIUtil.deleteTodo(todoId)
     .then(() => dispatch(removeTodo(todoId)))
 }

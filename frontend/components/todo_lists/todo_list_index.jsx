@@ -114,9 +114,9 @@ class TodoListIndex extends React.Component {
                 <li key={todoList.id} className="todo-lists-li">
                   <TodoList 
                   todoList={todoList} 
+                  projectId={project.id} 
                   page="index" 
-                  fetchTodos={fetchTodos}
-                  project={project} 
+                  fetchTodos={fetchTodos} 
                   todos={todos} 
                   key={todoList.id} />
                 </li>

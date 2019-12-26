@@ -26,6 +26,7 @@ class NewTodoForm extends React.Component {
   }
 
   render () {
+    debugger
     return (
       <div className="new-todo-form-container">
         <input
@@ -41,6 +42,7 @@ class NewTodoForm extends React.Component {
             projectId={this.props.projectId} 
             formType={this.props.formType} 
             formAction ={this.props.formAction} 
+            hideForm={this.hideForm} 
           />
           <button onClick={this.hideForm}>Cancel</button>
         </div>
@@ -49,7 +51,7 @@ class NewTodoForm extends React.Component {
   }
 }
 const msp = (state, ownProps) => {
-  // debugger
+  debugger
   return ({
     todoListId: ownProps.todoList.id,
     projectId: ownProps.projectId,
@@ -62,7 +64,7 @@ const msp = (state, ownProps) => {
 }
 
 const mdp = dispatch => ({
-  formAction: (projectId, todoListId, todo) => dispatch(createTodo(projectId, todoListId, todo))
+  formAction: (projectId, todoListid, todo) => dispatch(createTodo(projectId, todoListid, todo))
 })
 
 export default connect(msp, mdp)(NewTodoForm);

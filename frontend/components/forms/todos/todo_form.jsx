@@ -3,8 +3,9 @@ import React from "react";
 class TodoForm extends React.Component {
   constructor (props) {
     super(props);
-    
+
     this.state = this.props.todo;
+    debugger
     this.handleSubmit = this.handleSubmit.bind(this);
   }  
 
@@ -14,9 +15,12 @@ class TodoForm extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault();
-    const todo = Object.assign({}, this.state)
-    this.props.formAction(this.props.projectId, this.props.todoListId, todo).then(
-      console.log("you added a to-do!")
+    const { projectId, todoListId } = this.props;
+    debugger
+
+    // const todo = Object.assign({}, this.state);
+    this.props.formAction(projectId, todoListId, this.state).then(
+      () => this.props.hideForm()
     )
   }
 

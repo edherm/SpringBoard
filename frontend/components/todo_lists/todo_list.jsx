@@ -10,22 +10,21 @@ class TodoList extends React.Component {
 
   
   componentDidMount () {
-    debugger
     this.props.fetchTodos(this.props.projectId, this.props.todoList.id)
-    debugger
   }
 
   render () {
-    const { todoList, page, todos, projectId } = this.props;
-    debugger
-    if (!todos) {
+    const { todoList, page, todos, projectId, hideForm } = this.props;
+    const todoListLink = page === "index" ? (`./todoLists/${todoList.id}`) : ("#");
+    
+    if (todos.length === 0) {
       return null;
     }
     return (
       <>
         <ul className="todos-ul">
           <li className={`todo-list-title ${page}`}>
-            <Link to={`./todoLists/${todoList.id}`} >
+            <Link to={todoListLink} >
               <p>0/6 completed</p>
               <h3>{todoList.name}</h3>
             </Link>
@@ -37,7 +36,10 @@ class TodoList extends React.Component {
             }
           })}
         </ul>
-        <NewTodoFormContainer todoList={todoList.id} projectId={projectId}/>
+        <NewTodoFormContainer 
+          todoList={todoList} 
+          projectId={projectId} 
+        />
       </>
     )
   }
