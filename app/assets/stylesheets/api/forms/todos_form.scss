@@ -1,0 +1,44 @@
+.todo-description-row.newTodo {
+  display: flex;
+}
+
+  .todolist-checkbox.false.newTodo {
+    width: 20px;
+    height: 20px;
+  }
+
+  .todo-description-input.newTodo > input, .todo-notes-input.newTodo > input {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .todo-notes-input.newTodo > input {
+
+  }
+
+  .submit-todo-container {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .submit-todo-container > input {
+    display: flex;
+    justify-content: center;
+    background-color: #2ea561;
+    border-radius: 20px;
+    width: fit-content;
+    height: 30px;
+    width: fit-content;
+    font-size: 14px;  
+    border: none;
+    color: white;
+    padding: 1px 10px 2px;
+  }
+
+  .submit-todo-container > button {
+    font-size: 14px;  
+    border-radius: 20px;
+    border-color: #2ea561;
+    color: #2ea561;
+    margin-left: 5px;
+  }

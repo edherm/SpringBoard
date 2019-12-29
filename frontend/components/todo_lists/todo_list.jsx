@@ -30,13 +30,13 @@ class TodoList extends React.Component {
             </Link>
           </li>
           {todos.map(todo => {
-            debugger
             if (todo.todo_list_id === todoList.id) {
-              return (<Todo page={page} todo={todo} />)
+              return (<Todo key={todo.id} page={page} todo={todo} />)
             }
           })}
         </ul>
         <NewTodoFormContainer 
+          page={page} 
           todoList={todoList} 
           projectId={projectId} 
         />

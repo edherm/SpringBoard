@@ -45,7 +45,6 @@ export const fetchTodo = (projectId, todoListId, todoId) => dispatch => {
 }
 
 export const createTodo = (projectId, todoListId, todo) => dispatch => {
-  debugger
   return todoAPIUtil.createTodo(projectId, todoListId, todo)
     .then(todo => dispatch(receiveTodo(todo)))
 }

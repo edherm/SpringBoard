@@ -4,9 +4,14 @@ class TodoForm extends React.Component {
   constructor (props) {
     super(props);
 
-    this.state = this.props.todo;
-    debugger
+    this.state = {
+      todo: this.props.todo,
+      newTodoForm: "hidden"
+    }
+
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.revealForm = this.revealForm.bind(this);
+    this.hideForm = this.hideForm.bind(this);
   }  
 
   handleChange (field) {
@@ -16,7 +21,6 @@ class TodoForm extends React.Component {
   handleSubmit (e) {
     e.preventDefault();
     const { projectId, todoListId } = this.props;
-    debugger
 
     // const todo = Object.assign({}, this.state);
     this.props.formAction(projectId, todoListId, this.state).then(
@@ -24,35 +28,59 @@ class TodoForm extends React.Component {
     )
   }
 
+  revealForm() {
+    this.setState({ newTodoForm: "revealed" })
+  }
+
+  hideForm(e) {
+    if (e) {
+      e.preventDefault();
+    }
+    this.setState({ newTodoForm: "hidden" })
+  }
+
   render () {
     const { description, notes } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className={`todo-description-input ${this.props.formType}`}>
-          <input 
-            type="text" 
-            placeholder="Describe this to-do..." 
-            value={description}
-            onChange={this.handleChange("description")} 
-          />
-        </div>
-
-        <div className={`todo-notes-input ${this.props.formType}`}>
-          <label>
-            <span>Notes</span>
-          </label>
-          <input 
-            type="text" 
-            placeholder= "Add extra details" 
-            value={notes} 
-            onChange={this.handleChange("notes")}
-          />
-        </div>
+      <div className="new-todo-form-container">
         <input
-        type="submit" 
+          className="new-todo"
+          type="submit"
+          onClick={this.revealForm}
+          value="Add a to-do"
         />
-      </form>
+        <div className={`expanding-form ${this.state.newTodoForm}`} >
+          <form onSubmit={this.handleSubmit}>
+            <div className={`todo-description-row ${this.props.formType}`}>
+              <div className={`todolist-checkbox ${false} ${this.props.formType}`}></div>
+              <div className={`todo-description-input ${this.props.formType}`}>
+                <input 
+                  type="text" 
+                  placeholder="Describe this to-do..." 
+                  value={description}
+                  onChange={this.handleChange("description")} 
+                />
+              </div>
+            </div>
+            <div className={`todo-notes-input ${this.props.formType}`}>
+              <label>
+                <span>Notes</span>
+              </label>
+              <input 
+                type="text" 
+                placeholder= "Add extra details" 
+                value={notes} 
+                onChange={this.handleChange("notes")}
+              />
+            </div>
+            <div className="submit-todo-container">
+              <input type="submit" value="Add this to-do" />
+              <button onClick={this.hideForm}>Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div >
     )
   }
 

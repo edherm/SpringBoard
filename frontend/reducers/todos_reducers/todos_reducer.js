@@ -7,7 +7,7 @@ import { LOGOUT_CURRENT_USER } from "../../actions/session_actions";
 
 export default (oldState = {}, action) => {
   Object.freeze(oldState);
-  debugger
+  
   switch (action.type) {
     case RECEIVE_TODOS:
       return Object.assign({}, oldState, action.todos);
