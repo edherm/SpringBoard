@@ -11,6 +11,7 @@ import ProjectToolboxContainer from "./toolboxes/project_toolbox/project_toolbox
 import ProjectEditContainer from "./forms/projects/project_edit_container";
 import TodoListIndexContainer from "./todo_lists/todo_list_index_container";
 import TodoListShowContainer from "./todo_lists/todo_list_show_container";
+import FooterLinks from "./footer_links/footer_links";
 
 const App = () => (
   <div>
@@ -28,6 +29,7 @@ const App = () => (
       <AuthRoute path="/:userId/projects/:projectId" component={ProjectToolboxContainer} />
       <AuthRoute path="/:userId/projects" component={ProjectIndexContainer} />
     </Switch>
+    <Route path="/" component={FooterLinks} />
   </div>
 )
 
