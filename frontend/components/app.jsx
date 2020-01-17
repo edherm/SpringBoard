@@ -14,7 +14,7 @@ import TodoListShowContainer from "./todo_lists/todo_list_show_container";
 import FooterLinks from "./footer_links/footer_links";
 
 const App = () => (
-  <div>
+  <>
     <Switch >
       <ProtectedRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute exact path="/login" component={LoginFormContainer} />
@@ -30,7 +30,7 @@ const App = () => (
       <AuthRoute path="/:userId/projects" component={ProjectIndexContainer} />
     </Switch>
     <Route path="/" component={FooterLinks} />
-  </div>
+  </>
 )
 
 export default App;
