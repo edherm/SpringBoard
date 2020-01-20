@@ -14,8 +14,15 @@ footer.user {
 }
 
 .footer-links-li {
-  font-size: 24px;
   margin: 10px 10px;
+}
+
+.footer-links-li > a {
+  font-size: 24px;
+}
+
+.footer-links-li:last-child > a {
+  margin-left: 6px;
 }
 
 ////// Sticky Footer Styling ///////
