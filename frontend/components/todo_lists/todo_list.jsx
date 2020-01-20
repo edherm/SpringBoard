@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Todo from "./todos/todo"
+import Todo from "./todos/todo";
 import NewTodoFormContainer from "../forms/todos/new_todo_form_container";
 
 class TodoList extends React.Component {
@@ -14,7 +14,7 @@ class TodoList extends React.Component {
   }
 
   render () {
-    const { todoList, page, todos, projectId, hideForm } = this.props;
+    const { todoList, page, todos, projectId, hideForm, updateTodo } = this.props;
     const todoListLink = page === "index" ? (`./todoLists/${todoList.id}`) : ("#");
     
     if (todos.length === 0) {
@@ -31,7 +31,13 @@ class TodoList extends React.Component {
           </li>
           {todos.map(todo => {
             if (todo.todo_list_id === todoList.id) {
-              return (<Todo key={todo.id} page={page} todo={todo} />)
+              return (<Todo 
+                key={todo.id} 
+                page={page} 
+                todo={todo} 
+                projectId={projectId} 
+                updateTodo={updateTodo}
+              />)
             }
           })}
         </ul>

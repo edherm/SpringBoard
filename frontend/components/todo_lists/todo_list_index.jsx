@@ -53,10 +53,12 @@ class TodoListIndex extends React.Component {
   }
   
   render () {
-    const { todoLists, project, fetchTodos, todos } = this.props;
+    const { todoLists, project, fetchTodos, todos, updateTodo } = this.props;
     const { projectId, userId } = this.props.match.params;
     const { name, details } = this.state.newTodoList;
     
+    if (!todoLists) return null;
+
     return (
       <div className="toolbox-container  todo-list-index">
         { !project ? null : (
@@ -110,16 +112,20 @@ class TodoListIndex extends React.Component {
               </div>
             </div>
             <ul className="todo-lists-ul">
-              {todoLists.map( todoList => 
+              {todoLists.map( todoList => {
+                return (
                 <li key={todoList.id} className="todo-lists-li">
                   <TodoList 
-                  todoList={todoList} 
-                  projectId={project.id} 
-                  page="index" 
-                  fetchTodos={fetchTodos} 
-                  todos={todos} 
-                  key={todoList.id} />
+                    todoList={todoList} 
+                    projectId={projectId} 
+                    page="index" 
+                    fetchTodos={fetchTodos} 
+                    todos={todos} 
+                    updateTodo={updateTodo} 
+                  />
                 </li>
+                )
+              }
               )}
             </ul>
           </div>

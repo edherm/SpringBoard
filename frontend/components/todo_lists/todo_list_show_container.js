@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchTodoList } from "../../actions/todo_list_actions";
 import { fetchProject } from "../../actions/project_actions";
-import { fetchTodos, createTodo } from "../../actions/todo_actions";
+import { fetchTodos, createTodo, updateTodo } from "../../actions/todo_actions";
 import TodoList from "./todo_list";
 import { Link } from "react-router-dom";
 
@@ -21,7 +21,7 @@ class TodoListShow extends React.Component {
   render () {
     if (!this.props.todoList) return null
 
-    const { todoList, project, fetchTodos, todos } = this.props
+    const { todoList, project, fetchTodos, updateTodo, todos } = this.props
     const { userId, projectId } = this.props.match.params
     return(
       <div className="toolbox-container  todo-list-index">
@@ -41,11 +41,12 @@ class TodoListShow extends React.Component {
           </div >
           <div className="toolbox-body todo-list-index">
             <TodoList 
-            todoList={todoList} 
-            page="show" 
-            fetchTodos={fetchTodos} 
-            projectId={project.id} 
-            todos={todos} 
+              todoList={todoList} 
+              page="show" 
+              fetchTodos={fetchTodos} 
+              projectId={project.id} 
+              todos={todos} 
+              updateTodo={updateTodo} 
             />
            </div>
         </div>
@@ -57,7 +58,7 @@ class TodoListShow extends React.Component {
 
 
 const msp = (state, ownProps) => {
-  debugger
+  // debugger
   return {
     project: state.entities.projects[ownProps.match.params.projectId],
     todoList: state.entities.todo_lists[ownProps.match.params.todoListId],
@@ -67,11 +68,16 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => {
   return {
-  fetchTodoList: (projectId, todoListId) => dispatch(fetchTodoList(projectId, todoListId)),
-  fetchProject: projectId => dispatch(fetchProject(projectId)),
-  fetchTodos: (projectId, todoListId) => dispatch(fetchTodos(projectId, todoListId)),
-  createTodo: (projectId, todoListId, todo) => dispatch(createTodo(projectId, todoListId, todo))
-  }
+    fetchTodoList: (projectId, todoListId) =>
+      dispatch(fetchTodoList(projectId, todoListId)),
+    fetchProject: projectId => dispatch(fetchProject(projectId)),
+    fetchTodos: (projectId, todoListId) =>
+      dispatch(fetchTodos(projectId, todoListId)),
+    createTodo: (projectId, todoListId, todo) =>
+      dispatch(createTodo(projectId, todoListId, todo)),
+    updateTodo: (projectId, todoListId, todo) =>
+      dispatch(updateTodo(projectId, todoListId, todo))
+  };
 }
 
 export default connect(msp, mdp)(TodoListShow)
