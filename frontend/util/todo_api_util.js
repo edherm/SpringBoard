@@ -19,6 +19,7 @@ export const createTodo = (projectId, todo_list_id, todo) => {
 }
 
 export const updateTodo = (projectId, todo_list_id, todo) => {
+  debugger
   return $.ajax({
     url: `/api/projects/${projectId}/todo_lists/${todo_list_id}/todos/${todo.id}`,
     method: "PATCH",

@@ -2,7 +2,7 @@ import {connect} from "react-redux";
 import TodoListIndex from "./todo_list_index";
 import { fetchTodoLists, createTodoList } from "../../actions/todo_list_actions";
 import { fetchProject } from "../../actions/project_actions";
-import { fetchTodos, createTodo } from "../../actions/todo_actions";
+import { fetchTodos, createTodo, updateTodo } from "../../actions/todo_actions";
 
 const msp = (state, ownProps) => {
   return {

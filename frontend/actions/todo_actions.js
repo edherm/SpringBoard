@@ -50,8 +50,11 @@ export const createTodo = (projectId, todoListId, todo) => dispatch => {
 }
 
 export const updateTodo = (projectId, todoListId, todo) => dispatch => {
+  debugger
   return todoAPIUtil.updateTodo(projectId, todoListId, todo)
-    .then(todo => dispatch(receiveTodo(todo)))
+    .then(todo => {
+      debugger
+      return dispatch(receiveTodo(todo))})
 }
 
 export const deleteTodo = (todoId) => dispatch => {

@@ -10,10 +10,11 @@ class Todo extends React.Component {
 
   handleClick (e) {
     // projectId, todoListId, todo
+    const { projectId, todo, updateTodo } = this.props;
     console.log("clicked a checkbox")
+    todo.complete = (!todo.complete)
     debugger
-    // this.props.updateTodo
-    // this.props.todo.todo_list_id
+    updateTodo(projectId, todo.todo_list_id, todo)
   }
 
 
