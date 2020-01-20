@@ -5,7 +5,6 @@ import { fetchProject } from "../../actions/project_actions";
 import { fetchTodos, createTodo } from "../../actions/todo_actions";
 
 const msp = (state, ownProps) => {
-  debugger
   return {
     todoLists: Object.values(state.entities.todo_lists),
     todos: Object.values(state.entities.todos),

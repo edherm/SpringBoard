@@ -12,8 +12,6 @@ class TodoListShow extends React.Component {
     super(props)
   }
   componentDidMount () {
-    debugger
-    // const { todoListId, projectId } = this.props.match.params;
     this.props.fetchProject(this.props.match.params.projectId);
     this.props.fetchTodoList(this.props.match.params.projectId, this.props.match.params.todoListId);
   }
@@ -58,7 +56,6 @@ class TodoListShow extends React.Component {
 
 
 const msp = (state, ownProps) => {
-  // debugger
   return {
     project: state.entities.projects[ownProps.match.params.projectId],
     todoList: state.entities.todo_lists[ownProps.match.params.todoListId],
