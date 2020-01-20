@@ -28,6 +28,10 @@ time, mark, audio, video {
     font-family: 'Open Sans', sans-serif;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
     line-height:1;
     background-color: #f6f2ef;

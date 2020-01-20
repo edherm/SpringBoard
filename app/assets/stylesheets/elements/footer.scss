@@ -1,0 +1,38 @@
+footer {
+  z-index: 10;
+  display: flex;
+  justify-content: start;
+}
+
+footer.user {
+  background-color: #f7f2f0ba;
+}
+
+.footer-links-ul {
+  display: flex;
+  list-style: none;
+}
+
+.footer-links-li {
+  margin: 10px 10px;
+}
+
+.footer-links-li > a {
+  font-size: 24px;
+}
+
+.footer-links-li:last-child > a {
+  margin-left: 6px;
+}
+
+////// Sticky Footer Styling ///////
+main {
+    min-height: 100%;
+}
+
+footer {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

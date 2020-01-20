@@ -187,32 +187,34 @@ class SessionForm extends React.Component {
     }
    
     return (
-      <div className={formTypeKlass}>
-        <div className="form-logo-container">
-          <img className="form-logo-img" src={window.springBoardLitURL} alt="SpringBoard Logo" />
-        </div>
-        {outerHeader()}
-        <div className="session-form-container" >
-          {innerHeader()}
-          <form className="session-form" onSubmit={this.handleSubmit}>
-            {formOption()}
-            <div className="session-input-container" >
-              {emailInput()}
-            </div>
-            <div className="session-input-container" >
-              {passwordInput()}
-            </div>
-            <ul>
-              {errorMessages()}
-            </ul>
-            <div className="session-submit-container">
-              <input 
-                className={`${formType.slice(0,3)}-button`} 
-                type="submit" 
-                value={this.props.formType} 
-              />
-            </div>
-          </form>
+      <div className="session-container">
+        <div className={formTypeKlass}>
+          <div className="form-logo-container">
+            <img className="form-logo-img" src={window.springBoardLitURL} alt="SpringBoard Logo" />
+          </div>
+          {outerHeader()}
+          <div className="session-form-container" >
+            {innerHeader()}
+            <form className="session-form" onSubmit={this.handleSubmit}>
+              {formOption()}
+              <div className="session-input-container" >
+                {emailInput()}
+              </div>
+              <div className="session-input-container" >
+                {passwordInput()}
+              </div>
+              <ul>
+                {errorMessages()}
+              </ul>
+              <div className="session-submit-container">
+                <input 
+                  className={`${formType.slice(0,3)}-button`} 
+                  type="submit" 
+                  value={this.props.formType} 
+                />
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     )
