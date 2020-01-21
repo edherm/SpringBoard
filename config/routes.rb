@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :todo_lists do
         resources :todos, only: [:index, :show, :create, :update, :destroy]
       end
+      resources :messages
     end
     resource :sessions, only: [:create, :destroy]
   end

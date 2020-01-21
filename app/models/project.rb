@@ -22,4 +22,6 @@ has_many :todo_lists, dependent: :destroy
 
 has_many :todos, through: :todo_lists
 
+has_many :messages, dependent: :destroy
+
 end
