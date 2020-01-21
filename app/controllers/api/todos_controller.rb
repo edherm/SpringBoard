@@ -20,13 +20,9 @@ class Api::TodosController < ApplicationController
 
   def update
     @todo = Todo.find_by(id: params[:id])
-    
-    if @todo.complete.to_s != todo_params[:complete]
-      debugger
-      @todo.toggle!(:complete)
-    end
+    debugger
 
-    if @todo.update_attributes(todo_params)
+    if @todo.update!(todo_params)
       debugger
       render :show
     else
