@@ -1,24 +1,41 @@
-.todo-description-row.newTodo {
-  display: flex;
+.newTodo-form {
+  width: 100%;
 }
 
-  .todo-checkbox.false.newTodo {
-    
-    
-  }
 
-  .todo-description-input.newTodo > input, .todo-notes-input.newTodo > input {
+// Todo Inputs
+  .newTodo > input, .todo-description-input {
     font-size: 18px;
     font-weight: bold;
+    width: 480px;
+  }
+  
+  div.todo-description-row.newTodo, div.todo-notes-row.newTodo {
+    width: 100%;
+  }
+// Todo Description Row
+  .todo-checkbox.false.newTodo {
+    text-align: right;
+    margin-right: 10px;
+    margin-left: 20px;
   }
 
-  .todo-notes-input.newTodo > input {
-
-  }
-
-  .submit-todo-container {
+  .todo-description-row.newTodo {
     display: flex;
-    margin-bottom: 20px;
+  }
+
+
+// Todo Notes Row  
+  .todo-notes-input > label {
+    text-align: right;
+    margin: 0 5px;
+  }
+
+// Todo Submit
+  .submit-todo-container {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
   }
 
   .submit-todo-container > input {
