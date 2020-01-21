@@ -9,21 +9,25 @@ class Todo extends React.Component {
   }
 
   handleClick (e) {
-    // projectId, todoListId, todo
     const { projectId, todo, updateTodo } = this.props;
-    console.log("clicked a checkbox")
     todo.complete = (!todo.complete)
-    
     updateTodo(projectId, todo.todo_list_id, todo)
   }
 
 
   render () {
     const {todo, page} = this.props;
+
+    const checkbox = todo.complete ? (
+      <i className="fas fa-check-square"></i>
+    ) : (
+      <i className="far fa-square"></i>
+    )
+
     return (
       <li key={todo.id} className="todos-item" >
-        <div onClick={this.handleClick} className={`todolist-checkbox ${todo.complete} ${page}`}></div>
-        <span className={`todo-item-description ${page}`}>{todo.description}</span>
+        <div onClick={this.handleClick} className={`todo-checkbox ${todo.complete} ${page}`}>{checkbox}</div>
+        <span className={`todo-item-description ${todo.complete} ${page}`}>{todo.description}</span>
       </li>
     )
   }
