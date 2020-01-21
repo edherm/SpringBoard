@@ -13,7 +13,6 @@ export const receiveTodos = todos => {
 }
 
 export const receiveTodo = todo => {
-  debugger
   return {
     type: RECEIVE_TODO,
     todo
@@ -50,10 +49,8 @@ export const createTodo = (projectId, todoListId, todo) => dispatch => {
 }
 
 export const updateTodo = (projectId, todoListId, todo) => dispatch => {
-  debugger
   return todoAPIUtil.updateTodo(projectId, todoListId, todo)
     .then(todo => {
-      debugger
       return dispatch(receiveTodo(todo))})
 }
 

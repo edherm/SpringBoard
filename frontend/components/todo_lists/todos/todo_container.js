@@ -3,7 +3,6 @@ import Todo from "./todo";
 import { updateTodo } from "../../../actions/todo_actions";
 
 const msp = state => {
-  debugger
 return {
   todo: this.state,
   projectId: ownProps.match.params.projectId

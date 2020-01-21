@@ -15,7 +15,6 @@ class Todo < ApplicationRecord
   belongs_to :todo_list
   
   def ensure_complete
-    debugger
     self.complete ||= false;
   end
 end

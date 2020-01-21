@@ -20,13 +20,10 @@ class Api::TodosController < ApplicationController
 
   def update
     @todo = Todo.find_by(id: params[:id])
-    debugger
 
     if @todo.update!(todo_params)
-      debugger
       render :show
     else
-      debugger
       render json: @todo.errors.full_messages, status:404
     end
   end
