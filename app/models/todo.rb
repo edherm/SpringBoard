@@ -10,13 +10,11 @@ class Todo < ApplicationRecord
   validates :description, :todo_list_id, presence: true
   validates :complete, inclusion: {in: [ true, false ] }
 
-  attr_reader :complete
   after_initialize :ensure_complete
 
   belongs_to :todo_list
   
   def ensure_complete
-    @complete = false;
-    self.complete = @complete
+    self.complete ||= false;
   end
 end

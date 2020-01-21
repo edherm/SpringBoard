@@ -1,10 +1,16 @@
 import { connect } from "react-redux";
 import Todo from "./todo";
+import { updateTodo } from "../../../actions/todo_actions";
 
-const msp = state => ({
-  todo: this.state
-})
+const msp = state => {
+return {
+  todo: this.state,
+  projectId: ownProps.match.params.projectId
+}};
 
 const mdp = dispatch => ({
-  fetchTodo
-})
+  updateTodo: (projectId, todoListId, todo) =>
+    dispatch(updateTodo(projectId, todoListId, todo))
+});
+
+export default connect(msp, mdp)(Todo);

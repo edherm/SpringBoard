@@ -51,9 +51,11 @@ class TodoForm extends React.Component {
           value="Add a to-do"
         />
         <div className={`expanding-form ${this.state.newTodoForm}`} >
-          <form onSubmit={this.handleSubmit}>
+          <form className={`${this.props.formType}-form`} onSubmit={this.handleSubmit}>
             <div className={`todo-description-row ${this.props.formType}`}>
-              <div className={`todolist-checkbox ${false} ${this.props.formType}`}></div>
+              <div className={`todo-checkbox ${false} ${this.props.formType}`}>
+                <i className="far fa-square"></i>
+              </div>
               <div className={`todo-description-input ${this.props.formType}`}>
                 <input 
                   type="text" 
