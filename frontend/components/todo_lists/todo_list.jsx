@@ -15,7 +15,7 @@ class TodoList extends React.Component {
   }
 
   render () {
-    const { todoList, page, todos, projectId, hideForm, updateTodo } = this.props;
+    const { todoList, page, todos, projectId, updateTodo } = this.props;
     const todoListLink = page === "index" ? (`./todoLists/${todoList.id}`) : ("#");
 
     if (todos.length === 0) {
@@ -39,14 +39,23 @@ class TodoList extends React.Component {
       }
     })
 
+    const todoListTitle = page === "project" ? (
+      <>
+        <p>{numCompleted}/{numTodos} completed</p>
+        <h3>{todoList.name}</h3>
+      </>
+    ) : (
+        <Link to = { todoListLink } >
+          <p>{ numCompleted }/{numTodos} completed</p >
+          <h3>{todoList.name}</h3>
+        </Link >
+    )
+
     return (
       <>
         <ul className="todos-ul">
           <li className={`todo-list-title ${page}`}>
-            <Link to={todoListLink} >
-              <p>{numCompleted}/{numTodos} completed</p>
-              <h3>{todoList.name}</h3>
-            </Link>
+            {todoListTitle}
           </li>
           {incompleteTodos.map(todo => {
             return (
@@ -59,11 +68,15 @@ class TodoList extends React.Component {
               />
             )
           })}
-          <NewTodoFormContainer
-            page={page}
-            todoList={todoList}
-            projectId={projectId}
-          />
+          {page === "project" ? (
+            null
+          ): (
+            <NewTodoFormContainer
+              page={page}
+              todoList={todoList}
+              projectId={projectId}
+            />
+          )}
           {completeTodos.map(todo => {
             return (
               <Todo
