@@ -16,7 +16,7 @@ class FooterLinks extends React.Component {
           <li className="footer-links-li"><a target="_blank" href="https://www.linkedin.com/in/ed-herman/"><i className="fab fa-linkedin"></i></a></li>
           <li className="footer-links-li"><a target="_blank" href="https://angel.co/ed-herman?public_profile=1"><i className="fab fa-angellist"></i></a></li>
           <li className="footer-links-li"><a target="_blank" href="https://github.com/edherm"><i className="fab fa-github"></i></a></li>
-          <li className="footer-links-li">© 2019 by Ed Herman:<a target="_blank" href="https://edherm.github.io/"><i className="far fa-id-card"></i></a></li>
+          <li className="footer-links-li">© 2019 by<a target="_blank" href="https://edherm.github.io/">Ed Herman</a></li>
         </ul>
       </footer>
     )
