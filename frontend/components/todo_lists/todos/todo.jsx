@@ -25,8 +25,13 @@ class Todo extends React.Component {
     )
 
     return (
-      <li key={todo.id} className="todos-item" >
-        <div onClick={this.handleClick} className={`todo-checkbox ${todo.complete} ${page}`}>{checkbox}</div>
+      <li key={todo.id} className={`todos-item ${page}`} >
+        <div 
+          onClick={ page === "project" ? (null) : (this.handleClick) } 
+          className={`todo-checkbox ${todo.complete} ${page}`}
+        >
+          {checkbox}
+        </div>
         <span className={`todo-item-description ${todo.complete} ${page}`}>{todo.description}</span>
       </li>
     )

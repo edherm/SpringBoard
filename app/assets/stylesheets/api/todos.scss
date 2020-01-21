@@ -3,9 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .todo-checkbox {
-  cursor: pointer;
-  font-size: 28px;
   margin-right: 10px;
+}
+
+.todo-checkbox.newTodo, .todo-checkbox.index, .todo-checkbox.show {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.todo-checkbox.project {
+
 }
 
 .todo-checkbox.false {
