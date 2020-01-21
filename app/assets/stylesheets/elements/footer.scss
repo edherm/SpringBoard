@@ -10,6 +10,7 @@ footer.user {
 
 .footer-links-ul {
   display: flex;
+  align-items: center;
   list-style: none;
 }
 
@@ -23,6 +24,9 @@ footer.user {
 
 .footer-links-li:last-child > a {
   margin-left: 6px;
+  font-size: inherit;
+  text-decoration: underline;
+  
 }
 
 ////// Sticky Footer Styling ///////
