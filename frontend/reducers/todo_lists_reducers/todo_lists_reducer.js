@@ -14,7 +14,7 @@ export default (oldState = {}, action) => {
       return Object.assign({}, oldState, { [action.todoList.id]: action.todoList});
     case REMOVE_TODO_LIST:
       let nextState = Object.assign({}, oldState);
-      delete nextState[action.projectId];
+      delete nextState[action.todoListId];
       return nextState;
     case LOGOUT_CURRENT_USER:
       return {};
