@@ -2,8 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from './store/store';
 import Root from './components/root';
-import { fetchTodos, fetchTodo, createTodo, updateTodo, deleteTodo } from "./actions/todo_actions";
-// import { fetchProjects } from "./actions/project_actions";
+import { fetchMessages, fetchMessage, createMessage, updateMessage, deleteMessage } from "./util/messages_api_util";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -20,13 +19,16 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-  // window.getState = store.getState;
-  // window.dispatch = store.dispatch;
-  // window.fetchTodos = fetchTodos;
-  // window.fetchTodo = fetchTodo;
-  // window.createTodo = createTodo;
-  // window.updateTodo = updateTodo;
-  // window.deleteTodo = deleteTodo;
+
+  // For test purposes:
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+  window.fetchMessages = fetchMessages;
+  window.fetchMessage = fetchMessage;
+  window.createMessage = createMessage;
+  window.updateMessage = updateMessage;
+  window.deleteMessage = deleteMessage;
+  
   
   const root = document.getElementById("root")
 
