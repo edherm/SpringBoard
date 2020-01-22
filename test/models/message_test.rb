@@ -1,18 +1,19 @@
 # == Schema Information
 #
-# Table name: todo_lists
+# Table name: messages
 #
 #  id         :bigint           not null, primary key
-#  name       :string           not null
-#  details    :text
+#  title      :string           not null
+#  category   :string
 #  project_id :integer          not null
+#  body       :text             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'test_helper'
 
-class TodoListTest < ActiveSupport::TestCase
+class MessageTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

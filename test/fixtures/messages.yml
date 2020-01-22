@@ -1,11 +1,12 @@
 # == Schema Information
 #
-# Table name: todo_lists
+# Table name: messages
 #
 #  id         :bigint           not null, primary key
-#  name       :string           not null
-#  details    :text
+#  title      :string           not null
+#  category   :string
 #  project_id :integer          not null
+#  body       :text             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -13,11 +14,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  details: MyText
+  title: MyString
+  category: MyString
   project_id: 1
+  body: MyText
 
 two:
-  name: MyString
-  details: MyText
+  title: MyString
+  category: MyString
   project_id: 1
+  body: MyText
