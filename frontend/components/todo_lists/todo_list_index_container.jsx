@@ -1,4 +1,4 @@
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import TodoListIndex from "./todo_list_index";
 import { fetchTodoLists, createTodoList } from "../../actions/todo_list_actions";
 import { fetchProject } from "../../actions/project_actions";
@@ -13,7 +13,6 @@ const msp = (state, ownProps) => {
 }
 
 const mdp = dispatch => {
-
   return {
     fetchTodoLists: (projectId) => 
       dispatch(fetchTodoLists(projectId)),
@@ -25,7 +24,6 @@ const mdp = dispatch => {
       dispatch(createTodoList(projectId, todoList)),
     updateTodo: (projectId, todoListId, todo) =>
       dispatch(updateTodo(projectId, todoListId, todo))
-    // createTodo: (projectId, todoListId, todo) => dispatch(createTodo(projectId, todoListId, todo))
   }
 }
 

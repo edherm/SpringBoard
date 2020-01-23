@@ -1,3 +1,109 @@
 // Place all the styles related to the api::messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.messages-index {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.messages-ul {
+  list-style: none;
+  width: 80%;
+}
+
+.message-li:first-child {
+  border-top: none;
+}
+
+.message-li {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #d9d9d9;
+  margin-bottom: 5px;
+  padding-top: 5px;
+}
+
+.index.message-li {
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+.message-author-initials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fdd738;
+  border-radius: 50%;
+  background-color: #fdd738;
+  color: white;
+}
+
+.preview.message-author-initials {
+  width: 25px;
+  height: 25px;
+  font-size: 12px;
+}
+
+.index.message-author-initials {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+}
+
+.message-item-container {
+  margin-left: 5px;
+}
+
+  .preview.message-item-container > h2 {
+    font-size: 12px;
+    padding-top: 2px;
+  }
+
+  .index.message-item-container > h2 {
+    font-size: 15px;
+  }
+
+  .preview.message-item-container > p {
+    font-size: 12px;
+    padding-top: 2px;
+  }
+  
+  .index.message-item-container > p {
+    font-size: 14px;
+    padding-top: 4px;
+  }
+
+.messages-new-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #2ea561;
+  color: white;
+  border-radius: 20px;
+  width: fit-content;
+  height: 30px;
+}
+
+.messages-new-container > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: inherit;
+  pointer-events: none;
+  padding: 1.5px 2.5px;
+  border-radius: 20px;
+  width: 120px;
+}
+
+.message.new-plus {
+  cursor: inherit;
+  pointer-events: none;
+  font-size: 30px;
+}
+
+.message.new-label {
+  font-size: 13px;
+  margin-left: 5px;
+}

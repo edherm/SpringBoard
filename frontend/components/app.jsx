@@ -1,17 +1,26 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import SignupFormContainer from "./forms/session/sign_up_form_container";
-import LoginFormContainer from "./forms/session/login_form_container";
-import NavBarContainer from "./nav/main/nav_bar_container"
-import Splash from "./splash/splash";
-import ProjectIndexContainer from "./projects/project_index_container";
-import ProjectCreateContainer from "./forms/projects/project_create_container";
-import ProjectToolboxContainer from "./toolboxes/project_toolbox/project_toolbox_container";
-import ProjectEditContainer from "./forms/projects/project_edit_container";
-import TodoListIndexContainer from "./todo_lists/todo_list_index_container";
-import TodoListShowContainer from "./todo_lists/todo_list_show_container";
-import FooterLinks from "./footer_links/footer_links";
+
+// Components
+  // Main
+    import NavBarContainer from "./nav/main/nav_bar_container"
+    import FooterLinks from "./footer_links/footer_links";
+    import Splash from "./splash/splash";
+  // Session
+    import SignupFormContainer from "./forms/session/sign_up_form_container";
+    import LoginFormContainer from "./forms/session/login_form_container";
+  // Projects
+    import ProjectIndexContainer from "./projects/project_index_container";
+    import ProjectCreateContainer from "./forms/projects/project_create_container";
+    import ProjectToolboxContainer from "./toolboxes/project_toolbox/project_toolbox_container";
+    import ProjectEditContainer from "./forms/projects/project_edit_container";
+  // TodoLists
+    import TodoListIndexContainer from "./todo_lists/todo_list_index_container";
+    import TodoListShowContainer from "./todo_lists/todo_list_show_container";
+  // Messages
+    import MessagesIndexContainer from "./messages/messages_index_container";
+
 
 const App = () => (
   <>
@@ -25,6 +34,7 @@ const App = () => (
       <AuthRoute exact path="/:userId/projects/create" component={ProjectCreateContainer} />
       <AuthRoute path="/:userId/projects/:projectId/todoLists/:todoListId" component={TodoListShowContainer} />
       <AuthRoute path="/:userId/projects/:projectId/todoLists" component={TodoListIndexContainer} />
+      <AuthRoute path="/:userId/projects/:projectId/messages" component={MessagesIndexContainer} />
       <AuthRoute path="/:userId/projects/:projectId/edit" component={ProjectEditContainer} />
       <AuthRoute path="/:userId/projects/:projectId" component={ProjectToolboxContainer} />
       <AuthRoute path="/:userId/projects" component={ProjectIndexContainer} />
