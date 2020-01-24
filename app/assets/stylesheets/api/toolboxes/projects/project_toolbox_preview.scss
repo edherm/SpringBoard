@@ -19,50 +19,6 @@
   border-top: 1.4px solid #d9d9d9;
   padding: 10px 0 10px;
 }
-
-//////////// Messages Previews ////////////
-.message-preview-ul {
-  list-style: none;
-}
-
-.message-preview-li:first-child {
-  border-top: none;
-}
-
-.message-preview-li {
-  display: flex;
-  border-top: 1px solid #d9d9d9;
-  margin-bottom: 5px;
-  padding-top: 5px;
-}
-
-.message-preview-author-initials {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25px;
-  height: 25px;
-  border: 1px solid #fdd738;
-  border-radius: 50%;
-  background-color: #fdd738;
-  color: white;
-  font-size: 12px;
-}
-
-.message-preview-item-container {
-  margin-left: 5px;
-}
-
-.message-preview-item-container > h2 {
-  font-size: 12px;
-  padding-top: 2px;
-}
-
-.message-preview-item-container > p {
-  font-size: 12px;
-  padding-top: 2px;
-}
-
 //////////// Todos Preview ////////////
 
 .todos-preview-ul {

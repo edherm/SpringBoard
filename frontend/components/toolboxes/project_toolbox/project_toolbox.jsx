@@ -25,41 +25,45 @@ class ProjectToolbox extends React.Component {
       <div className="toolbox-container">
         <div className="toolbox-main">
           <div className="toolbox-edit-link-container">
-            <Link className="toolbox-project-edit-link"
-              to={`/${userId}/projects/${projectId}/edit`}>
+            <Link
+              className="toolbox-project-edit-link"
+              to={`/${userId}/projects/${projectId}/edit`}
+            >
               ...
             </Link>
           </div>
           <div className="toolbox-header">
-            <div className="toolbox-header-left">
-            </div>
+            <div className="toolbox-header-left"></div>
             <div className="toolbox-header-center">
               <h1>{project.name}</h1>
               <h3>{project.description}</h3>
             </div>
-            <div className="toolbox-header-right">
-            </div>
+            <div className="toolbox-header-right"></div>
           </div>
           <div className="toolbox-body">
             <div className="toolbox-items-container">
               <ul className="toolbox-items-ul">
-                <Link to=""><MessagesPreview /></Link>
+                <Link to={`/${userId}/projects/${projectId}/messages`}>
+                  <MessagesPreview />
+                </Link>
                 <Link to={`/${userId}/projects/${projectId}/todoLists`}>
-                  <TodosPreview 
-                    fetchTodoLists={fetchTodoLists} 
-                    fetchTodos={fetchTodos} 
-                    projectId={projectId} 
-                    todoLists={todoLists} 
-                    todos={todos} 
+                  <TodosPreview
+                    fetchTodoLists={fetchTodoLists}
+                    fetchTodos={fetchTodos}
+                    projectId={projectId}
+                    todoLists={todoLists}
+                    todos={todos}
                   />
                 </Link>
-                <Link to=""><SchedulePreview /></Link>
+                <Link to="">
+                  <SchedulePreview />
+                </Link>
               </ul>
             </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

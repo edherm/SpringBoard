@@ -1,7 +1,7 @@
 import { 
   RECEIVE_MESSAGES, 
   RECEIVE_MESSAGE, 
-  RECEIVE_MESSAGES_ERRORS 
+  RECEIVE_MESSAGE_ERRORS 
 } from "../../actions/message_actions";
 
 const _nullErrors = [];
@@ -10,7 +10,7 @@ export default (oldState = _nullErrors, action) => {
   Object.freeze(oldState);
 
   switch (action.type) {
-    case RECEIVE_MESSAGES_ERRORS:
+    case RECEIVE_MESSAGE_ERRORS:
       return [action.errors];
     case RECEIVE_MESSAGES:
       return _nullErrors;
