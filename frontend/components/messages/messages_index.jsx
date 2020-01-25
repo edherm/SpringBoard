@@ -26,12 +26,12 @@ class MessagesIndex extends React.Component {
         <div className="toolbox-main messages-index">
           <div className="toolbox-header-bordered messages-index">
             <div className="toolbox-header-left messages-index">
-              <div className="messages-new-container">
+              <Link to={`/${userId}/projects/${projectId}/messages/new`} className="messages-new-container">
                 <div>
                   <span className="message new-plus">+</span>
                   <label className="message new-label">New Message</label>
                 </div>
-              </div>
+              </Link>
             </div>
             <div className="toolbox-header-center messages-index">
               <h1>To-dos</h1>
