@@ -15,6 +15,7 @@ export default (oldState = {}, action) => {
     case REMOVE_MESSAGE:
       let nextState = Object.assign({}, oldState);
       delete nextState[action.messageId];
+      return nextState;
     case LOGOUT_CURRENT_USER:
       return {};
     default:

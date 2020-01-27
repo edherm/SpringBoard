@@ -6,6 +6,7 @@ class MessagesIndex extends React.Component {
 
   componentDidMount () {
     const { projectId } = this.props.match.params
+    
     this.props.fetchMessages(projectId)
     this.props.fetchProject(projectId)
     window.scrollTo(0, 0);
@@ -34,7 +35,7 @@ class MessagesIndex extends React.Component {
               </Link>
             </div>
             <div className="toolbox-header-center messages-index">
-              <h1>To-dos</h1>
+              <h1>Message Board</h1>
             </div>
             <div className="toolbox-header-right messages-index"></div>
           </div>
