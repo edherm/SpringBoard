@@ -1,0 +1,31 @@
+// Message Submit
+  .submit-message-container {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  }
+
+  .submit-message-container > input {
+    display: flex;
+    justify-content: center;
+    background-color: #2ea561;
+    border-radius: 20px;
+    width: fit-content;
+    height: 30px;
+    width: fit-content;
+    font-size: 14px;  
+    border: none;
+    color: white;
+    padding: 1px 10px 2px;
+    cursor: pointer;
+  }
+
+  .submit-todo-container > button {
+    display: flex;
+    font-size: 14px;  
+    height: 30px;
+    border: 1px solid #2ea561;
+    border-radius: 20px;
+    color: #2ea561;
+    margin-left: 5px;
+  }

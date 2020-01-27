@@ -11,6 +11,10 @@ class Toolbox extends React.Component {
     super(props)
   } 
 
+  componentDidMount() {
+    this.props.fetchProject(this.props.match.params.projectId)
+  }
+
   
 
   render () {
