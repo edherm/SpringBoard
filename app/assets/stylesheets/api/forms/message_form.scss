@@ -1,3 +1,77 @@
+// 
+.toolbox-main.messages-form {
+  padding-left: 0;
+  padding-right: 0;
+  width: 920px;
+}
+
+.toolbox-body.messages-new, .toolbox-body.messages-new > form  {
+  width: 100%;
+}
+
+.toolbox-body.messages-new > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// Section 1
+.message-form-section-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 80%;
+}
+  // Select
+  div.message-form-category-select {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 30px;
+    padding: 0 10px;
+    background-color: transparent;
+    margin-bottom: 10px;    
+  }
+
+  div.message-form-category-select > select {
+    border: 0px solid;
+    background-color: transparent;
+    font-size: 13.5px;
+  }
+
+  // Title
+  input.message-form-title-input {
+    border: 0px solid;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  input.message-form-title-input:focus, 
+  div.message-form-category-select > select:focus {
+    outline: none;
+  }
+
+// Quill
+
+.quill {
+  width: 100%;
+}
+
+div.ql-toolbar.ql-snow, div.ql-container.ql-snow {
+  padding-left: 85px;
+  border-right: none;
+  border-left: none;
+  border-top: 1px solid #e5e5e5;
+}
+
+.ql-editor {
+  height: fit-content;
+  min-height: 400px
+}
+
+
+
 // Message Submit
   .submit-message-container {
   display: flex;
