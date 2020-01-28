@@ -1,4 +1,5 @@
 import React from "react";
+import ReactQuill from 'react-quill';
 import { Link } from "react-router-dom";
 import { lastUpdated } from "../../util/messages_api_util";
 
@@ -55,8 +56,12 @@ class MessageShow extends React.Component {
                 <span>{lastUpdated(message.updated_at)}</span>
               </div>
             </div>
-            <div className="message-body-wrapper" 
-              dangerouslySetInnerHTML={{__html: message.body}} >
+            <div className="message-body-wrapper" >
+              <ReactQuill
+                value={message.body}
+                readOnly={true}
+                theme={"bubble"}
+              />
             </div>
           </div>
         </div>
