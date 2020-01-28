@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
 import { Link } from 'react-router-dom';
-import { deleteMessage } from '../../../util/messages_api_util';
 
 class MessageForm extends React.Component {
   constructor(props) {
@@ -68,30 +67,40 @@ class MessageForm extends React.Component {
           </div>
         )}
         {!message ? null : (
-          <div className="toolbox-main messages-index">
+          <div className="toolbox-main messages-form">
             <div className="toolbox-body messages-new">
               <form onSubmit={this.handleSubmit}>
-                <select value={this.state.category} onChange={this.handleChange("category")}>
-                  <option value="">Pick a Category</option>
-                  <option value="None">None</option>
-                  <option value="Announcement">Announcement</option>
-                  <option value="FYI">FYI</option>
-                  <option value="Heartbeat">Heartbeat</option>
-                  <option value="Pitch">Pitch</option>
-                  <option value="Question">Question</option>
-                </select>
-                <input
-                  type="text"
-                  placeholder="Type a title..."
-                  value={this.state.title}
-                  onChange={this.handleChange("title")}
-                />
+                <section className="message-form-section-1">
+                  <div className="message-form-category-select">
+                    <select value={this.state.category} onChange={this.handleChange("category")}>
+                      <option value="">Pick a Category (optional)</option>
+                      <option value="Announcement">Announcement</option>
+                      <option value="FYI">FYI</option>
+                      <option value="Heartbeat">Heartbeat</option>
+                      <option value="Pitch">Pitch</option>
+                      <option value="Question">Question</option>
+                    </select>
+                  </div>
+                  <input 
+                    className="message-form-title-input"
+                    type="text"
+                    placeholder="Type a title..."
+                    value={this.state.title}
+                    onChange={this.handleChange("title")}
+                  />
+                </section>
                 <ReactQuill
-                  defaultValue={this.state.body}
+                  defaultValue={this.state.body} 
+                  placeholder="Write away..."
                   onChange={this.handleQuill}
                 />
-                <div className="submit-message-container">
-                  <input type="submit" value="Post this Message" />
+                <div className="message-form-section-3">
+                  <input type="submit" value={formType === "messageCreate" ? (
+                      "Post this Message" 
+                    ) :(
+                      "Save changes"
+                    )} 
+                  />
                   <button>
                     <Link to="./">Cancel</Link>
                   </button>
