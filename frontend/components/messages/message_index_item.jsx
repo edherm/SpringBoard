@@ -1,14 +1,7 @@
 import React from "react";
+import { messagePreview } from "../../util/messages_api_util";
 
 export default (props) => {
-  const messagePreview = (body) => {
-    if (body.length > 150) {
-      return `${body.slice(0,147)}...`;
-    } else {
-      return body;
-    }
-  }
-
   const lastUpdated = updated_at => {
     const d = new Date(updated_at);
     return d.toString().slice(4, 7) + ". " + d.toString().slice(7, 10) + ", " + d.toString().slice(10, 15)
