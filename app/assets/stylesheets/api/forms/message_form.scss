@@ -45,6 +45,7 @@
     font-size: 40px;
     font-weight: 700;
     margin-bottom: 10px;
+    width: 100%;
   }
   
   input.message-form-title-input:focus, 
@@ -73,13 +74,15 @@ div.ql-toolbar.ql-snow, div.ql-container.ql-snow {
 
 
 // Message Submit
-  .submit-message-container {
+  .message-form-section-3 {
   display: flex;
+  justify-content: flex-start;
+  width: 80%;
   margin-top: 10px;
   margin-bottom: 20px;
   }
 
-  .submit-message-container > input {
+  .message-form-section-3 > input {
     display: flex;
     justify-content: center;
     background-color: #2ea561;
@@ -94,7 +97,7 @@ div.ql-toolbar.ql-snow, div.ql-container.ql-snow {
     cursor: pointer;
   }
 
-  .submit-todo-container > button {
+  .message-form-section-3 > button {
     display: flex;
     font-size: 14px;  
     height: 30px;

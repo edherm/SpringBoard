@@ -94,8 +94,13 @@ class MessageForm extends React.Component {
                   placeholder="Write away..."
                   onChange={this.handleQuill}
                 />
-                <div className="submit-message-container">
-                  <input type="submit" value="Post this Message" />
+                <div className="message-form-section-3">
+                  <input type="submit" value={formType === "messageCreate" ? (
+                      "Post this Message" 
+                    ) :(
+                      "Save changes"
+                    )} 
+                  />
                   <button>
                     <Link to="./">Cancel</Link>
                   </button>
