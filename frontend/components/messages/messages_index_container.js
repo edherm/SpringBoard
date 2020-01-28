@@ -7,7 +7,8 @@ const msp = (state, ownProps) => {
   return {
     messages: Object.values(state.entities.messages),
     project: state.entities.projects[ownProps.match.params.projectId],
-    user: state.entities.users[ownProps.match.params.userId]
+    user: state.entities.users[ownProps.match.params.userId],
+    page: "index"
   }
 }
 

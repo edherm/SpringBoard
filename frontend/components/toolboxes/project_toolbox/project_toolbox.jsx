@@ -26,7 +26,7 @@ class ProjectToolbox extends React.Component {
         <div className="toolbox-main">
           <div className="toolbox-edit-link-container">
             <Link
-              className="toolbox-project-edit-link"
+              className="project toolbox-edit-link"
               to={`/${userId}/projects/${projectId}/edit`}
             >
               ...
