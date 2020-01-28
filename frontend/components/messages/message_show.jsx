@@ -13,7 +13,7 @@ class MessageShow extends React.Component {
 
 
   render () {
-    const { project, message, user, userId, projectId, page } = this.props
+    const { project, message, user, messageId, projectId, userId, page } = this.props
 
     if (!message) return null;
 
@@ -40,7 +40,15 @@ class MessageShow extends React.Component {
             <div className={`toolbox-header-center messages-${page}`}>
               
             </div>
-            <div className={`toolbox-header-right messages-${page}`}></div>
+            <div className={`toolbox-header-right messages-${page}`}>
+              <div className="toolbox-edit-link-container">
+                <Link
+                  className="message toolbox-edit-link" 
+                  to={`/${userId}/projects/${projectId}/messages/${messageId}/edit`}
+                >
+                  ...
+                </Link>
+            </div></div>
           </div>
           <div className={`toolbox-body messages-${page}`}>
             <div className="message-info-wrapper">
