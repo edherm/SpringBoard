@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
 import { Link } from 'react-router-dom';
-import { deleteMessage } from '../../../util/messages_api_util';
 
 class MessageForm extends React.Component {
   constructor(props) {

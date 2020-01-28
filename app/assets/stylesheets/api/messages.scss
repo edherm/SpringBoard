@@ -9,7 +9,7 @@
 
 .messages-ul {
   list-style: none;
-  width: 80%;
+  width: 656px;
 }
 
 .message-li:first-child {
@@ -32,6 +32,7 @@
 .message-author-initials {
   display: flex;
   justify-content: center;
+  padding: 10px;
   align-items: center;
   border: 1px solid #fdd738;
   border-radius: 50%;
