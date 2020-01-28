@@ -13,20 +13,20 @@ class MessagesIndex extends React.Component {
   }
 
   render () {
-    const { user, project, messages } = this.props;
+    const { page, user, project, messages } = this.props;
     const { projectId, userId } = this.props.match.params;
 
     return (
-      <div className="toolbox-container  messages-index">
+      <div className={`toolbox-container  messages-${page}`}>
         {!project ? null : (
           <div className="toolbox-nav">
             <i className="fas fa-th-large"></i>
             <Link to={`/${userId}/projects/${projectId}`}>{project.name}</Link>
           </div>
         )}
-        <div className="toolbox-main messages-index">
-          <div className="toolbox-header-bordered messages-index">
-            <div className="toolbox-header-left messages-index">
+        <div className={`toolbox-main messages-${page}`}>
+          <div className={`toolbox-header-bordered messages-${page}`}>
+            <div className={`toolbox-header-left messages-${page}`}>
               <Link to={`/${userId}/projects/${projectId}/messages/new`} className="messages-new-container">
                 <div>
                   <span className="message new-plus">+</span>
@@ -34,21 +34,23 @@ class MessagesIndex extends React.Component {
                 </div>
               </Link>
             </div>
-            <div className="toolbox-header-center messages-index">
+            <div className={`toolbox-header-center messages-${page}`}>
               <h1>Message Board</h1>
             </div>
-            <div className="toolbox-header-right messages-index"></div>
+            <div className={`toolbox-header-right messages-${page}`}></div>
           </div>
-          <div className="toolbox-body messages-index">
+          <div className={`toolbox-body messages-${page}`}>
             <ul className="messages-ul">
               {messages.map(message => {
                 return (
-                  <MessageIndexItem
-                    key={message.id}
-                    page="index"
-                    message={message}
-                    user={user}
-                  />
+                  <Link to={`/${userId}/projects/${projectId}/messages/${message.id}`}>
+                    <MessageIndexItem
+                      key={message.id}
+                      page={page}
+                      message={message}
+                      user={user}
+                    />
+                  </Link>
                 );
               })}
             </ul>

@@ -1,12 +1,7 @@
 import React from "react";
-import { messagePreview } from "../../util/messages_api_util";
+import { lastUpdated, messagePreview } from "../../util/messages_api_util";
 
 export default (props) => {
-  const lastUpdated = updated_at => {
-    const d = new Date(updated_at);
-    return d.toString().slice(4, 7) + ". " + d.toString().slice(7, 10) + ", " + d.toString().slice(10, 15)
-  }
-
   return (
     <li className={`${props.page} message-li`}>
       <div className={`${props.page} message-author-initials`}>
