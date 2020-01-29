@@ -4,12 +4,14 @@ import { lastUpdated, messagePreview } from "../../util/messages_api_util";
 export default (props) => {
   return (
     <li className={`${props.page} message-li`}>
-      <div className={`${props.page} message-author-initials`}>
-        {props.user.name
-          .split(" ")
-          .map(str => str[0])
-          .join("")
-          .toUpperCase()}
+      <div>
+        <div className={`${props.page} message-author-initials`}>
+          {props.user.name
+            .split(" ")
+            .map(str => str[0])
+            .join("")
+            .toUpperCase()}
+        </div>
       </div>
       <div className={`${props.page} message-item-container`}>
         <h2>{props.message.title}</h2>
