@@ -18,7 +18,7 @@ class ProjectToolbox extends React.Component {
       return null
     }
     
-    const {project, fetchTodoLists, fetchTodos, todoLists, todos} = this.props
+    const {project, user, fetchMessages, messages, fetchTodoLists, fetchTodos, todoLists, todos} = this.props
     const { userId, projectId } = this.props.match.params
 
     return (
@@ -44,7 +44,12 @@ class ProjectToolbox extends React.Component {
             <div className="toolbox-items-container">
               <ul className="toolbox-items-ul">
                 <Link to={`/${userId}/projects/${projectId}/messages`}>
-                  <MessagesPreview />
+                  <MessagesPreview 
+                    fetchMessages={fetchMessages} 
+                    messages={messages} 
+                    projectId={projectId} 
+                    user={user}
+                  />
                 </Link>
                 <Link to={`/${userId}/projects/${projectId}/todoLists`}>
                   <TodosPreview

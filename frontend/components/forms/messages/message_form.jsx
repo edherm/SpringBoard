@@ -14,7 +14,6 @@ class MessageForm extends React.Component {
 
   componentDidMount () {
     window.scrollTo(0,0);
-
     const { projectId, messageId } = this.props;
     this.props.fetchProject(projectId)
     if (this.props.formType === "messageEdit") {
@@ -33,7 +32,7 @@ class MessageForm extends React.Component {
   handleSubmit (e) {
     e.preventDefault();
     const { userId, projectId } = this.props
-    
+
     this.props.messageAction(projectId, this.state).then(
       
         // Once show page is implemented, we will push show page url
@@ -52,8 +51,8 @@ class MessageForm extends React.Component {
   }
 
   render() {
-    const { project, projectId, userId, message, messageId, errors, formType} = this.props;
-    
+    const { project, projectId, userId, message, formType} = this.props;
+  
     return (
       <div className="toolbox-container  messages-new">
         {!project || !message ? null : (

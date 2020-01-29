@@ -2,6 +2,8 @@ import React from "react";
 import { lastUpdated, messagePreview } from "../../util/messages_api_util";
 
 export default (props) => {
+  const prevLength = props.page === 'preview' ? 30 : 150;
+
   return (
     <li className={`${props.page} message-li`}>
       <div>
@@ -15,9 +17,12 @@ export default (props) => {
       </div>
       <div className={`${props.page} message-item-container`}>
         <h2>{props.message.title}</h2>
-        <p>
-          {props.user.name} · {lastUpdated(props.message.updated_at)} - {messagePreview(props.message.body)}
-        </p>
+          <p>
+            {props.page === "preview" ? null : (
+              `${ props.user.name } · ${lastUpdated(props.message.updated_at)}
+            - `)}
+            {messagePreview(props.message.body, prevLength)}
+          </p>
       </div>
     </li>
   );

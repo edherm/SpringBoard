@@ -33,7 +33,7 @@ export const deleteMessage = (projectId, messageId) => {
   });
 }
 
-export const messagePreview = messageBody => {
+export const messagePreview = (messageBody, prevLength) => {
   let messageArr = messageBody.split("<");
   
   messageArr = messageArr.map(str => {
@@ -52,8 +52,8 @@ export const messagePreview = messageBody => {
   
   let newBody = messageArr.join("");
 
-  return newBody.length > 150 ? (
-    `${newBody.slice(0, 147)}...`
+  return newBody.length > prevLength ? (
+    `${newBody.slice(0, prevLength - 3)}...`
   ) : ( 
     newBody 
   )
