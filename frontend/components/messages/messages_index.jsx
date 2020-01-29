@@ -40,7 +40,7 @@ class MessagesIndex extends React.Component {
             <div className={`toolbox-header-right messages-${page}`}></div>
           </div>
           <div className={`toolbox-body messages-${page}`}>
-            <ul className="messages-ul">
+            <ul className="message-ul">
               {messages.map(message => {
                 return (
                   <Link to={`/${userId}/projects/${projectId}/messages/${message.id}`}>
