@@ -60,8 +60,11 @@ class ProjectToolbox extends React.Component {
                     todos={todos}
                   />
                 </Link>
-                <Link to="">
-                  <SchedulePreview />
+                <Link to="#">
+                  <div className="schedule-preview">
+                    <span className="construction">Coming Soon!</span>
+                    <SchedulePreview />
+                  </div>
                 </Link>
               </ul>
             </div>
