@@ -1,30 +1,37 @@
 import React from "react";
+import MessageIndexItem from "../../../messages/message_index_item";
 
-const MessagesPreview = () => {
+class MessagesPreview extends React.Component {
   
-  return (
-    <li className="toolbox-item-li">
-      <h1 className="toolbox-item-header">Message Board</h1>
-      <div className="toolbox-item-body">
-        <ul className="preview message-ul">
-          <li className="preview message-li">
-            <div className="preview message-author-initials">PH</div>
-            <div className="preview message-item-container">
-              <h2>2nd Message</h2>
-              <p>has content</p>
-            </div>
-          </li>
-          <li className="preview message-li">
-            <div className="preview message-author-initials">KB</div>
-            <div className="preview message-item-container">
-              <h2>Message Title</h2>
-              <p>message Preview</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </li>
-  );
+  componentDidMount() {
+    this.props.fetchMessages(this.props.projectId)
+  }
+
+  render () {
+    const { messages, user } = this.props;
+
+    if (messages.length === 0) return null;
+
+    return (
+      <li className="toolbox-item-li">
+        <h1 className="toolbox-item-header">Message Board</h1>
+        <div className="toolbox-item-body">
+          <ul className="preview message-ul">
+            {messages.map(message => {
+              return (
+                <MessageIndexItem 
+                  key={message.id} 
+                  page="preview" 
+                  message={message}
+                  user={user}
+                />
+              )
+            })}
+          </ul>
+        </div>
+      </li>
+    );
+  }
 }
 
 export default MessagesPreview;
