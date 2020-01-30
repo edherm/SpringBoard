@@ -27,24 +27,26 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <>
-    <Switch >
-      <ProtectedRoute exact path="/signup" component={SignupFormContainer} />
-      <ProtectedRoute exact path="/login" component={LoginFormContainer} />
-      <Route path ="/" component={NavBarContainer} />
-    </Switch>
-    <ProtectedRoute exact path="/" component={Splash} />
-    <Switch>
-      <AuthRoute exact path="/:userId/projects/create" component={ProjectCreateContainer} />
-      <AuthRoute path="/:userId/projects/:projectId/todoLists/:todoListId" component={TodoListShowContainer} />
-      <AuthRoute path="/:userId/projects/:projectId/todoLists" component={TodoListIndexContainer} />
-      <AuthRoute path="/:userId/projects/:projectId/messages/:messageId/edit" component={MessageEditContainer} />
-      <AuthRoute path="/:userId/projects/:projectId/messages/new" component={MessageCreateContainer} />
-      <AuthRoute path="/:userId/projects/:projectId/messages/:messageId" component={MessageShowContainer} />
-      <AuthRoute path="/:userId/projects/:projectId/messages" component={MessagesIndexContainer} />
-      <AuthRoute path="/:userId/projects/:projectId/edit" component={ProjectEditContainer} />
-      <AuthRoute path="/:userId/projects/:projectId" component={ProjectToolboxContainer} />
-      <AuthRoute path="/:userId/projects" component={ProjectIndexContainer} />
-    </Switch>
+    <div className="wrapper">
+      <Switch >
+        <ProtectedRoute exact path="/signup" component={SignupFormContainer} />
+        <ProtectedRoute exact path="/login" component={LoginFormContainer} />
+        <Route path ="/" component={NavBarContainer} />
+      </Switch>
+      <ProtectedRoute exact path="/" component={Splash} />
+      <Switch>
+        <AuthRoute exact path="/:userId/projects/create" component={ProjectCreateContainer} />
+        <AuthRoute path="/:userId/projects/:projectId/todoLists/:todoListId" component={TodoListShowContainer} />
+        <AuthRoute path="/:userId/projects/:projectId/todoLists" component={TodoListIndexContainer} />
+        <AuthRoute path="/:userId/projects/:projectId/messages/:messageId/edit" component={MessageEditContainer} />
+        <AuthRoute path="/:userId/projects/:projectId/messages/new" component={MessageCreateContainer} />
+        <AuthRoute path="/:userId/projects/:projectId/messages/:messageId" component={MessageShowContainer} />
+        <AuthRoute path="/:userId/projects/:projectId/messages" component={MessagesIndexContainer} />
+        <AuthRoute path="/:userId/projects/:projectId/edit" component={ProjectEditContainer} />
+        <AuthRoute path="/:userId/projects/:projectId" component={ProjectToolboxContainer} />
+        <AuthRoute path="/:userId/projects" component={ProjectIndexContainer} />
+      </Switch>
+    </div>
     <Route path="/" component={FooterLinks} />
   </>
 )

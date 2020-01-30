@@ -28,8 +28,14 @@ time, mark, audio, video {
     font-family: 'Open Sans', sans-serif;
 }
 
-html, body {
+html, body, main {
   height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -44px;
 }
 
 body {

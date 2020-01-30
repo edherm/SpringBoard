@@ -1,7 +1,10 @@
 footer {
   z-index: 10;
   display: flex;
-  justify-content: start;
+  justify-content: flex-end;
+  position: absolute;
+  height: 45px;
+  width: 100%;
 }
 
 footer.user {
@@ -27,16 +30,4 @@ footer.user {
   font-size: inherit;
   text-decoration: underline;
   
-}
-
-////// Sticky Footer Styling ///////
-main {
-    min-height: 100%;
-}
-
-footer {
-  position: sticky;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
