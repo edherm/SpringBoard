@@ -30,11 +30,12 @@ ___
 #### Todo List In line Additions
 You can add a new todo list and see it appended to the end of your lists without having to navigate away from your List's index, allowing you to quickly reference your other tasks.
 
+#### Message Board
+Integrating the React-Quill library gives these messages their rich-text styling and the ability to safely re-render user-inputted text, regardless of the content.
+
 #### _Backend Routes_
 For easy connection between projects, lists, users and other associated data, routes have been nested under their `projectId`s. 
 ___
 ## __Still in Development:__
-
-* Todos in Todo Lists
 * Message Board
 * Schedule
