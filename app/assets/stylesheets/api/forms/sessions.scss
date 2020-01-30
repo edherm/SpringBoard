@@ -41,7 +41,6 @@
 .session-form {
   display: flex;
   flex-direction: column;
-  // padding: 0px 30px 30px 30px;
   background-color: white;
   color: #283c46;
   border-bottom-color: 1px solid rgb(217, 217, 217);
@@ -49,6 +48,18 @@
   border-bottom-right-radius: 5px;
 }
 
+
+// Switch form links
+.switch-session-form-link-wrapper {
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+}
+
+.switch-session-form-link {
+  text-decoration: underline;
+  margin-top: 10px;
+}
 
 // Inputs, buttons, and labels
 .session-input-container {
