@@ -16,7 +16,7 @@ export default () => {
           <div className="signup-button-container">
             <Link to="/signup" className="signUpLink">Give SpringBoard a Try</Link>
           </div>
-          <p className="user-count">9,469 companies signed up in the last week alone!</p>
+          <p className="user-count">1.0042 trillion companies swear by this sweet suite.</p>
         </div>
       </div>
     </div>
