@@ -2,9 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.projects-wrapper {
+  height: 180%;
+}
+
 .projects {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .project-index-item-container, .project-index-item-li, .project-index-item-name, .project-index-item-description {
