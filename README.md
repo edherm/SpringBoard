@@ -1,5 +1,4 @@
-______
-# ![Logo](https://raw.githubusercontent.com/edherm/SpringBoard/master/app/assets/images/spring_board_small.png) __SpringBoard__
+__SpringBoard__
 
 ![App Preview](https://raw.githubusercontent.com/edherm/SpringBoard/master/app/assets/images/SpringBoardPreview2.png)
 [SpringBoard on Heroku](https://springboard-app.herokuapp.com/#/ "SpringBoard's Splash Page")
@@ -27,15 +26,42 @@ ___
 ___
 ## __Features of Note__
 
-#### Todo List In line Additions
-You can add a new todo list and see it appended to the end of your lists without having to navigate away from your List's index, allowing you to quickly reference your other tasks.
+#### Modular React Components
+Headers, footers, and the wrappers for the Todo Lists, Todos, and Messages are among some of the reusable and flexible components that were engineered for SpringBoard.
+
+#### Todo List and Todo In line Additions
+Forms to create new lists and todo items are hidden and revealed inline by changing `div classNames`:
+```javascript
+// Reveal button and div containing the hidden form
+<input
+    className="new-todo"
+    type="submit"
+    onClick={this.revealForm}
+    value="Add a to-do"
+/>
+<div className={`expanding-form ${this.state.newTodoForm}`} > /* ... */ </div>
+
+// Reveal function
+revealForm() {
+    this.setState({ newTodoForm: "revealed" })
+}
+```
 
 #### Message Board
 Integrating the React-Quill library gives these messages their rich-text styling and the ability to safely re-render user-inputted text, regardless of the content.
-
-#### _Backend Routes_
-For easy connection between projects, lists, users and other associated data, routes have been nested under their `projectId`s. 
+```javascript
+// Using React-Quill's read-only prop to display a user's message safely
+<div className="message-body-wrapper" >
+    <ReactQuill
+        value={message.body}
+        readOnly={true}
+        theme={"bubble"}
+    />
+</div>
+```
 ___
 ## __Still in Development:__
-* Message Board
 * Schedule
+
+______
+# ![Logo](https://raw.githubusercontent.com/edherm/SpringBoard/master/app/assets/images/spring_board_small.png) 
