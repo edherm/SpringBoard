@@ -21,35 +21,46 @@ class TodoListShow extends React.Component {
 
     const { todoList, project, fetchTodos, updateTodo, todos } = this.props
     const { userId, projectId } = this.props.match.params
-    return(
+    return (
       <div className="toolbox-container  todo-list-index">
         {!project ? null : (
           <div className="toolbox-nav">
             <i className="fas fa-th-large"></i>
             <Link to={`/${userId}/projects/${projectId}`}>{project.name}</Link>
             <p>></p>
-            <Link to={`/${userId}/projects/${projectId}/todolists`} >To-dos</Link>
+            <Link to={`/${userId}/projects/${projectId}/todolists`}>
+              To-dos
+            </Link>
           </div>
         )}
         <div className="toolbox-main todo-list-index">
           <div className="toolbox-header-bordered todo-list-index">
-            <div className="toolbox-header-left todo-list-index"></div >
-            <div className="toolbox-header-center todo-list-index"></div >
-            <div className="toolbox-header-right todo-list-index"></div>
-          </div >
+            <div className="toolbox-header-left todo-list-index"></div>
+            <div className="toolbox-header-center todo-list-index"></div>
+            <div className="toolbox-header-right todo-list-index">
+              <div className="toolbox-edit-link-container">
+                <Link
+                  className="message toolbox-edit-link"
+                  to={`/${userId}/projects/${projectId}/todoLists/${todoList.id}/edit`}
+                >
+                  ...
+                </Link>
+              </div>
+            </div>
+          </div>
           <div className="toolbox-body todo-list-index">
-            <TodoList 
-              todoList={todoList} 
-              page="show" 
-              fetchTodos={fetchTodos} 
-              projectId={project.id} 
-              todos={todos} 
-              updateTodo={updateTodo} 
+            <TodoList
+              todoList={todoList}
+              page="show"
+              fetchTodos={fetchTodos}
+              projectId={project.id}
+              todos={todos}
+              updateTodo={updateTodo}
             />
-           </div>
+          </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

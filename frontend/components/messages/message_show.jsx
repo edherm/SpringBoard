@@ -31,7 +31,6 @@ class MessageShow extends React.Component {
               </>
           </div>
         )}
-        
         <div className={`toolbox-main messages-${page}`}>
           <div className={`toolbox-header-bordered messages-${page}`}>
             <div className={`toolbox-header-left messages-${page}`}>
@@ -48,7 +47,8 @@ class MessageShow extends React.Component {
                 >
                   ...
                 </Link>
-            </div></div>
+              </div>
+            </div>
           </div>
           <div className={`toolbox-body messages-${page}`}>
             <div className="message-info-wrapper">
