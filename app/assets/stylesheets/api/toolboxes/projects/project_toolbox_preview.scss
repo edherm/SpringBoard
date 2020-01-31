@@ -19,6 +19,32 @@
   border-top: 1.4px solid #d9d9d9;
   padding: 10px 0 10px;
 }
+
+.empty-preview-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-preview-wrapper > i {
+  font-size: 64px;
+  margin: 20px 0;
+}
+
+.empty-preview-wrapper > i.fa-check-square {
+  color: lightblue;
+}
+
+.empty-preview-wrapper > i.fa-envelope-square {
+  color: rgb(180, 0, 0);
+}
+
+.empty-preview-wrapper > p {
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
 //////////// Todos Preview ////////////
 
 .todos-preview-ul {
