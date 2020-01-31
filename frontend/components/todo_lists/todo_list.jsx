@@ -18,9 +18,9 @@ class TodoList extends React.Component {
     const { todoList, page, todos, projectId, updateTodo } = this.props;
     const todoListLink = page === "index" ? (`./todoLists/${todoList.id}`) : ("#");
 
-    if (todos.length === 0) {
-      return null;
-    }
+    // if (todos.length === 0) {
+    //   return null;
+    // }
     
     let completeTodos = [];
     let incompleteTodos = [];

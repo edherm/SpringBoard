@@ -24,7 +24,7 @@ class TodoForm extends React.Component {
 
     // const todo = Object.assign({}, this.state);
     this.props.formAction(projectId, todoListId, this.state).then(
-      () => this.props.hideForm()
+      () => this.hideForm()
     )
   }
 
