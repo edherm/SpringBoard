@@ -2,6 +2,7 @@ import React from "react";
 import ReactQuill from 'react-quill';
 import { Link } from "react-router-dom";
 import { lastUpdated } from "../../util/messages_api_util";
+import { ToolboxNavBar } from "../toolboxes/toolbox_nav_bar";
 
 class MessageShow extends React.Component {
   componentDidMount () {
@@ -13,23 +14,15 @@ class MessageShow extends React.Component {
 
 
   render () {
-    const { project, message, user, messageId, projectId, userId, page } = this.props
+    const { project, message, user, messageId, projectId, userId, page, match } 
+      = this.props
 
     if (!message) return null;
 
     return (
       <div className={`toolbox-container  messages-${page}`}>
         {!project ? null : (
-          <div className="toolbox-nav">
-              <>
-                <i className="fas fa-th-large"></i>
-                <Link to={`/${userId}/projects/${projectId}`}>{project.name}</Link>
-                <p>></p>
-                <Link to={`/${userId}/projects/${projectId}/messages`}>
-                  Message Board
-                </Link>
-              </>
-          </div>
+          <ToolboxNavBar topic="message" userId={userId} project={project} match={match} />
         )}
         <div className={`toolbox-main messages-${page}`}>
           <div className={`toolbox-header-bordered messages-${page}`}>
@@ -79,3 +72,23 @@ class MessageShow extends React.Component {
 }
 
 export default MessageShow;
+
+
+{/* <div className="toolbox-nav">
+  <>
+    {!projectId ? null : (
+      <>
+        <i className="fas fa-th-large"></i>
+        <Link to={`/${userId}/projects/${projectId}`}>{project.name}</Link>
+      </>
+    )}
+    {!match.params[`${topic}Id`] ? null : (
+      <>
+        <p>></p>
+        <Link to={`/${userId}/projects/${projectId}/${topic}s`}>
+          Message Board
+                  </Link>
+      </>
+    )}
+  </>
+</div> */}

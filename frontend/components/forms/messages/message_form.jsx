@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
 import { Link } from 'react-router-dom';
+import { ToolboxNavBar } from '../../toolboxes/toolbox_nav_bar';
 
 class MessageForm extends React.Component {
   constructor(props) {
@@ -51,19 +52,12 @@ class MessageForm extends React.Component {
   }
 
   render() {
-    const { project, projectId, userId, message, formType} = this.props;
+    const { project, projectId, userId, message, formType, match} = this.props;
   
     return (
       <div className="toolbox-container  messages-new">
         {!project || !message ? null : (
-          <div className="toolbox-nav">
-            <i className="fas fa-th-large"></i>
-            <Link to={`/${userId}/projects/${projectId}`}>{project.name}</Link>
-            <p>></p>
-            <Link to={`/${userId}/projects/${projectId}/messages`}>
-              Message Board
-            </Link>
-          </div>
+          <ToolboxNavBar topic="message" userId={userId} project={project} match={match} />
         )}
         {!message ? null : (
           <div className="toolbox-main messages-form">
