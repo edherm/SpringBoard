@@ -33,7 +33,6 @@ class TodoListForm extends React.Component {
     const { userId, project, todoList, history, deleteTodoList } = this.props
     
     deleteTodoList(project.id, todoList.id).then(() => {
-      debugger
       history.push(`/${userId}/projects/${project.id}/todoLists`)
     })
   }

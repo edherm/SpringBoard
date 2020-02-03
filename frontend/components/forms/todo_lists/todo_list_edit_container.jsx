@@ -32,7 +32,7 @@ class TodoListEdit extends React.Component {
 }
 
 const msp = (state, ownProps) => {
-  debugger
+  
   return {
     errors: Object.values(state.errors.todoLists),
     todoList: state.entities.todo_lists[ownProps.match.params.todoListId],
