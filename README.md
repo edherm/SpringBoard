@@ -1,15 +1,14 @@
-__SpringBoard__
+# [__SpringBoard__](https://springboard-app.herokuapp.com/#/ "SpringBoard's Splash Page")
 
 ![App Preview](https://raw.githubusercontent.com/edherm/SpringBoard/master/app/assets/images/SpringBoardPreview2.png)
-[SpringBoard on Heroku](https://springboard-app.herokuapp.com/#/ "SpringBoard's Splash Page")
 
 SpringBoard collects all of your project's todo lists, message board, and schedule into one easy to navigate dashboard.
 
 ___
 ### _Table of Contents_
-* How It Works
-* Features of Note
-* In Development
+* [How It Works](https://github.com/edherm/SpringBoard#how-it-works "SpringBoard Readme-How It Works")
+* [Features of Note](https://github.com/edherm/SpringBoard#features-of-note "SpringBoard Readme-Features of Note")
+* [In Development](https://github.com/edherm/SpringBoard#in-development "SpringBoard Readme-In Development")
 
 ___
 ## __How It Works__
