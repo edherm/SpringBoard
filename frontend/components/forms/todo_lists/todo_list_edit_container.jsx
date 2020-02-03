@@ -10,7 +10,11 @@ class TodoListEdit extends React.Component {
   }
 
   render () {
-    const { project, match, history, todoList, formType, hideForm, todoListAction } = this.props;
+    const { 
+      project, match, history, userId, 
+      todoList, formType, hideForm, 
+      todoListAction, deleteTodoList 
+    } = this.props;
     return (
       <TodoListForm 
         todoList={todoList} 
@@ -18,19 +22,22 @@ class TodoListEdit extends React.Component {
         formType={formType} 
         match={match} 
         history={history} 
+        userId={userId} 
         hideForm={hideForm} 
         todoListAction={todoListAction} 
+        deleteTodoList={deleteTodoList}
       />
     )
   }
 }
 
 const msp = (state, ownProps) => {
+  debugger
   return {
     errors: Object.values(state.errors.todoLists),
     todoList: state.entities.todo_lists[ownProps.match.params.todoListId],
     project: state.entities.projects[ownProps.match.params.projectId],
-    formType: "todoListEdit",
+    formType: "editTodoList",
     history: ownProps.history,
     match: ownProps.match,
     userId: ownProps.match.params.userId,
@@ -45,9 +52,7 @@ const mdp = dispatch => {
     fetchTodoList: (projectId, todoListId) => 
       dispatch(fetchTodoList(projectId, todoListId)),
     deleteTodoList: (projectId, todoListId) => 
-      dispatch(deleteTodoList(projectId, todoListId)),
-    fetchProject: projectId => 
-      dispatch(fetchProject(projectId))
+      dispatch(deleteTodoList(projectId, todoListId))
   }
 }
 

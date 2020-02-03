@@ -11,7 +11,7 @@ const msp = (state, ownProps) => {
       details: ""
     },
     project: state.entities.projects[ownProps.match.params.projectId],
-    formType: "todoListCreate",
+    formType: "createTodoList",
     hideForm: ownProps.hideForm,
     history: ownProps.history
   }

@@ -6,17 +6,17 @@ class TodoListForm extends React.Component {
 
     this.state = this.props.todoList;
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleDelete = this.handleDelete.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.todoListAction(this.props.match.params.projectId, this.state)
       .then(({ todoList }) => {
-        this.props.hideForm();
-        // this.setState
         if (this.props.formType === "createTodoList") {
           this.props.history.push(`./todoLists/${todoList.id}`)
+        } else {
+          this.props.hideForm();
         }
       })
   }
@@ -27,6 +27,16 @@ class TodoListForm extends React.Component {
     }
   }
 
+  handleDelete(e) {
+    e.preventDefault();
+
+    const { userId, project, todoList, history, deleteTodoList } = this.props
+    
+    deleteTodoList(project.id, todoList.id).then(() => {
+      debugger
+      history.push(`/${userId}/projects/${project.id}/todoLists`)
+    })
+  }
 
   render () {
     const { name, details } = this.state;
@@ -63,6 +73,9 @@ class TodoListForm extends React.Component {
               "Discard changes"
             )
           }</button>
+          {this.props.formType !== "editTodoList" ? null : (
+            <button onClick={this.handleDelete}>Delete Todo List</button>
+          )}
         </div>
       </form>
     )

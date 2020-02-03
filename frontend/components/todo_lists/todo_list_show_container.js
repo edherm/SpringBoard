@@ -47,8 +47,10 @@ class TodoListShow extends React.Component {
       fetchTodos,
       updateTodo,
       todos,
-      match
+      match,
+      history
     } = this.props;
+
     const { userId, projectId } = this.props.match.params;
     return (
       <div className="toolbox-container  todo-list-index">
@@ -82,6 +84,7 @@ class TodoListShow extends React.Component {
                   hideForm={this.hideForm} 
                   match={match} 
                   history={history} 
+                  userid={userId} 
                 />
               </div>
             </div>
