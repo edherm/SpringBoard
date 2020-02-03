@@ -57,7 +57,14 @@ class MessageForm extends React.Component {
     return (
       <div className="toolbox-container  messages-new">
         {!project || !message ? null : (
-          <ToolboxNavBar topic="message" userId={userId} project={project} match={match} />
+          <ToolboxNavBar 
+            topic="message" 
+            userId={userId} 
+            project={project} 
+            match={match} 
+            obj={message}
+            title={message.title} 
+          />
         )}
         {!message ? null : (
           <div className="toolbox-main messages-form">

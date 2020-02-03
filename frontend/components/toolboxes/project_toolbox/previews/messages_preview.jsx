@@ -18,7 +18,7 @@ class MessagesPreview extends React.Component {
         <div className="toolbox-item-body">
           {messages.length === 0 ? (
             <div className="empty-preview-wrapper">
-              <i class="fas fa-envelope-square"></i>
+              <i className="fas fa-envelope-square"></i>
               <p>Post announcements, pitch ideas, progress updates, etc.</p>
             </div>
           ) : (
