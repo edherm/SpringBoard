@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const ToolboxNavBar = ({topic, userId, project, match, obj, title}) => {
-  debugger
   return (
     <div className="toolbox-nav">
       <i className="fas fa-th-large"></i>

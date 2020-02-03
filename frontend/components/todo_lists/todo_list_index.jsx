@@ -2,44 +2,24 @@ import React from "react";
 import {Link} from "react-router-dom";
 import TodoList from "./todo_list";
 import { ToolboxNavBar } from "../toolboxes/toolbox_nav_bar";
+import TodoListCreateContainer from "../forms/todo_lists/todo_list_create_container";
 
 class TodoListIndex extends React.Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      newListForm: "hidden",
-      newTodoList: {
-        name: "",
-        details: ""
-      }
+      newListForm: "hidden"
     }
 
-    this.revealForm = this.revealForm.bind(this)
-    this.hideForm = this.hideForm.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.revealForm = this.revealForm.bind(this);
+    this.hideForm = this.hideForm.bind(this);
   }
 
   componentDidMount () {
     const projectId = this.props.match.params.projectId;
     this.props.fetchTodoLists(projectId);
     this.props.fetchProject(projectId);
-  }
-
-  handleSubmit (e) {
-    e.preventDefault();
-    this.props.createTodoList(this.props.match.params.projectId, this.state.newTodoList)
-      .then( ({ todoList }) => {
-        // this.props.history.push(`./todoLists/${todoList.id}`)
-        this.hideForm();
-      }
-      )
-  }
-
-  handleInput (field) {
-    return e => {
-      let newTodoList = Object.assign({}, this.state.newTodoList, { [field]: e.target.value })
-      this.setState({ newTodoList: newTodoList})}
   }
 
   revealForm () {
@@ -54,9 +34,8 @@ class TodoListIndex extends React.Component {
   }
   
   render () {
-    const { todoLists, project, fetchTodos, todos, updateTodo, match } = this.props;
+    const { todoLists, project, fetchTodos, todos, updateTodo, match, history } = this.props;
     const { projectId, userId } = this.props.match.params;
-    const { name, details } = this.state.newTodoList;
     
     if (!todoLists) return null;
 
@@ -90,28 +69,11 @@ class TodoListIndex extends React.Component {
           <div className="toolbox-body todo-list-index">
             <div className={`expanding-form ${this.state.newListForm}`}>
               <div className="expanding-form-container">
-                <form onSubmit={this.handleSubmit} >
-                  <input 
-                    className="new-list-name"
-                    type="text" 
-                    placeholder="Name this list..." 
-                    value={name} 
-                    onChange={this.handleInput("name")} 
-                  />
-                  <input 
-                    className="new-list-details" 
-                    type="text" 
-                    placeholder="Add extra details" 
-                    value={details} 
-                    onChange={this.handleInput("details")} 
-                  />
-                  <div className="new-list-buttons">
-                    <div className="submit-new-list" >
-                      <input type="submit" value="Add this list"/>
-                    </div>
-                    <button onClick={this.hideForm}>Cancel</button>
-                  </div>
-                </form>
+                <TodoListCreateContainer 
+                  hideForm={this.hideForm} 
+                  match={match} 
+                  history={history} 
+                />
               </div>
             </div>
             <ul className="todo-lists-ul">
