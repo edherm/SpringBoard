@@ -5,7 +5,7 @@ import { fetchProject } from "../../../actions/project_actions";
 
 const msp = (state, ownProps) => {
   return {
-    errors: Object.values(state.errors.messages),
+    errors: Object.values(state.errors.todoLists),
     todoList: {
       name: "",
       details: ""

@@ -1,0 +1,54 @@
+import React from "react";
+import { connect } from "react-redux";
+import { updateTodoList, fetchTodoList, deleteTodoList } from "../../../actions/todo_list_actions";
+import { fetchProject } from "../../../actions/project_actions";
+import TodoListForm from "./todo_list_form";
+
+class TodoListEdit extends React.Component {
+  componentDidMount() {
+    this.props.fetchTodoList(this.props.projectId, this.props.todoList.id);
+  }
+
+  render () {
+    const { project, match, history, todoList, formType, hideForm, todoListAction } = this.props;
+    return (
+      <TodoListForm 
+        todoList={todoList} 
+        project={project} 
+        formType={formType} 
+        match={match} 
+        history={history} 
+        hideForm={hideForm} 
+        todoListAction={todoListAction} 
+      />
+    )
+  }
+}
+
+const msp = (state, ownProps) => {
+  return {
+    errors: Object.values(state.errors.todoLists),
+    todoList: state.entities.todo_lists[ownProps.match.params.todoListId],
+    project: state.entities.projects[ownProps.match.params.projectId],
+    formType: "todoListEdit",
+    history: ownProps.history,
+    match: ownProps.match,
+    userId: ownProps.match.params.userId,
+    hideForm: ownProps.hideForm
+  }
+}
+
+const mdp = dispatch => {
+  return {
+    todoListAction: (projectId, todoList) =>
+      dispatch(updateTodoList(projectId, todoList)),
+    fetchTodoList: (projectId, todoListId) => 
+      dispatch(fetchTodoList(projectId, todoListId)),
+    deleteTodoList: (projectId, todoListId) => 
+      dispatch(deleteTodoList(projectId, todoListId)),
+    fetchProject: projectId => 
+      dispatch(fetchProject(projectId))
+  }
+}
+
+export default connect(msp,mdp)(TodoListEdit);

@@ -13,11 +13,12 @@ class TodoListForm extends React.Component {
     e.preventDefault();
     this.props.todoListAction(this.props.match.params.projectId, this.state)
       .then(({ todoList }) => {
-        // this.props.hideForm();
+        this.props.hideForm();
         // this.setState
-        this.props.history.push(`./todoLists/${todoList.id}`)
-      }
-      )
+        if (this.props.formType === "createTodoList") {
+          this.props.history.push(`./todoLists/${todoList.id}`)
+        }
+      })
   }
 
   handleInput(field) {
@@ -48,9 +49,20 @@ class TodoListForm extends React.Component {
         />
         <div className="new-list-buttons">
           <div className="submit-new-list" >
-            <input type="submit" value="Add this list" />
+            <input type="submit" value={
+              this.props.formType === "createTodoList" ? (
+                "Add this list"
+              ) : (
+                "Save changes"
+              )
+            } 
+            />
           </div>
-          <button onClick={this.props.hideForm}>Cancel</button>
+          <button onClick={this.props.hideForm}>{
+            this.props.formType === "createTodoList" ? "Cancel" : (
+              "Discard changes"
+            )
+          }</button>
         </div>
       </form>
     )
