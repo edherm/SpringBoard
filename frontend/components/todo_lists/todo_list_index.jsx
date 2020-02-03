@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import TodoList from "./todo_list";
+import { ToolboxNavBar } from "../toolboxes/toolbox_nav_bar";
 
 class TodoListIndex extends React.Component {
   constructor (props) {
@@ -53,7 +54,7 @@ class TodoListIndex extends React.Component {
   }
   
   render () {
-    const { todoLists, project, fetchTodos, todos, updateTodo } = this.props;
+    const { todoLists, project, fetchTodos, todos, updateTodo, match } = this.props;
     const { projectId, userId } = this.props.match.params;
     const { name, details } = this.state.newTodoList;
     
@@ -62,10 +63,12 @@ class TodoListIndex extends React.Component {
     return (
       <div className="toolbox-container  todo-list-index">
         { !project ? null : (
-          <div className="toolbox-nav">
-            <i className="fas fa-th-large"></i>
-            <Link to={`/${userId}/projects/${projectId}`}>{project.name}</Link>
-          </div>
+          <ToolboxNavBar 
+            topic="todoList" 
+            userId={userId} 
+            project={project} 
+            match={match}
+          />
         )}
         <div className="toolbox-main todo-list-index">
           <div className="toolbox-header-bordered todo-list-index">

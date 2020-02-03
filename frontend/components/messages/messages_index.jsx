@@ -1,5 +1,6 @@
 import React from "react";
 import MessageIndexItem from "./message_index_item";
+import { ToolboxNavBar } from "../toolboxes/toolbox_nav_bar";
 import { Link } from "react-router-dom";
 
 class MessagesIndex extends React.Component {
@@ -13,16 +14,13 @@ class MessagesIndex extends React.Component {
   }
 
   render () {
-    const { page, user, project, messages } = this.props;
+    const { page, user, project, messages, match } = this.props;
     const { projectId, userId } = this.props.match.params;
 
     return (
       <div className={`toolbox-container  messages-${page}`}>
         {!project ? null : (
-          <div className="toolbox-nav">
-            <i className="fas fa-th-large"></i>
-            <Link to={`/${userId}/projects/${projectId}`}>{project.name}</Link>
-          </div>
+          <ToolboxNavBar topic="message" userId={userId} project={project} match={match} />
         )}
         <div className={`toolbox-main messages-${page}`}>
           <div className={`toolbox-header-bordered messages-${page}`}>
