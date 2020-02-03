@@ -59,7 +59,7 @@ Integrating the React-Quill library gives these messages their rich-text styling
 </div>
 ```
 ___
-## __Still in Development:__
+## __In Development:__
 * Schedule
 
 ______
