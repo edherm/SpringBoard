@@ -20,7 +20,6 @@ export const receiveTodo = todo => {
 }
 
 export const removeTodo = todoId => {
-  debugger
   return {
     type: REMOVE_TODO,
     todoId
@@ -56,7 +55,6 @@ export const updateTodo = (projectId, todoListId, todo) => dispatch => {
 }
 
 export const deleteTodo = (projectId, todoListId, todoId) => dispatch => {
-  debugger
   return todoAPIUtil
     .deleteTodo(projectId, todoListId, todoId)
     .then(() => dispatch(removeTodo(todoId)));

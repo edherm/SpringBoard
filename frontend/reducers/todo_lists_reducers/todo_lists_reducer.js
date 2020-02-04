@@ -13,7 +13,6 @@ export default (oldState = {}, action) => {
     case RECEIVE_TODO_LIST:
       return Object.assign({}, oldState, { [action.todoList.id]: action.todoList});
     case REMOVE_TODO_LIST:
-      debugger
       let nextState = Object.assign({}, oldState);
       delete nextState[action.todoListId];
       return nextState;

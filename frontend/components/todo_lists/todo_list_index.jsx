@@ -1,5 +1,4 @@
 import React from "react";
-import {Link} from "react-router-dom";
 import TodoList from "./todo_list";
 import { ToolboxNavBar } from "../toolboxes/toolbox_nav_bar";
 import TodoListCreateContainer from "../forms/todo_lists/todo_list_create_container";
