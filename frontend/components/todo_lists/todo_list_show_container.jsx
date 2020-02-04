@@ -95,7 +95,8 @@ class TodoListShow extends React.Component {
               fetchTodos={fetchTodos}
               projectId={project.id}
               todos={todos}
-              updateTodo={updateTodo}
+              updateTodo={updateTodo} 
+              userId={userId}
             />
           </div>
         </div>

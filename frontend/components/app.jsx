@@ -18,6 +18,8 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
   // TodoLists
     import TodoListIndexContainer from "./todo_lists/todo_list_index_container";
     import TodoListShowContainer from "./todo_lists/todo_list_show_container";
+  // Todos
+    import TodoShowContainer from "./todo_lists/todos/todo_show_container";
   // Messages
     import MessagesIndexContainer from "./messages/messages_index_container";
     import MessageCreateContainer from "./forms/messages/message_create_container";
@@ -36,6 +38,7 @@ const App = () => (
       <ProtectedRoute exact path="/" component={Splash} />
       <Switch>
         <AuthRoute exact path="/:userId/projects/create" component={ProjectCreateContainer} />
+        <AuthRoute path="/:userId/projects/:projectId/todoLists/:todoListId/:todoId" component={TodoShowContainer} />
         <AuthRoute path="/:userId/projects/:projectId/todoLists/:todoListId" component={TodoListShowContainer} />
         <AuthRoute path="/:userId/projects/:projectId/todoLists" component={TodoListIndexContainer} />
         <AuthRoute path="/:userId/projects/:projectId/messages/:messageId/edit" component={MessageEditContainer} />

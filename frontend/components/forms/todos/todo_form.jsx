@@ -4,14 +4,10 @@ class TodoForm extends React.Component {
   constructor (props) {
     super(props);
 
-    this.state = {
-      todo: this.props.todo,
-      newTodoForm: "hidden"
-    }
+    this.state = this.props.todo
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.revealForm = this.revealForm.bind(this);
-    this.hideForm = this.hideForm.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }  
 
   handleChange (field) {
@@ -24,65 +20,69 @@ class TodoForm extends React.Component {
 
     // const todo = Object.assign({}, this.state);
     this.props.formAction(projectId, todoListId, this.state).then(
-      () => this.hideForm()
+      () => this.props.toggleForm()
     )
   }
 
-  revealForm() {
-    this.setState({ newTodoForm: "revealed" })
-  }
+  handleDelete (e) {
+    e.preventDefault();
+    debugger
+    const { userId, projectId, todo, todoListId, history, deleteTodo } = this.props
 
-  hideForm(e) {
-    if (e) {
-      e.preventDefault();
-    }
-    this.setState({ newTodoForm: "hidden" })
+    deleteTodo(projectId, todoListId, todo.id).then(() => {
+      history.push(`/${userId}/projects/${projectId}/todoLists/${todoListId}`)
+    })
   }
 
   render () {
     const { description, notes } = this.state;
 
     return (
-      <div className="new-todo-form-container">
-        <input
-          className="new-todo"
-          type="submit"
-          onClick={this.revealForm}
-          value="Add a to-do"
-        />
-        <div className={`expanding-form ${this.state.newTodoForm}`} >
-          <form className={`${this.props.formType}-form`} onSubmit={this.handleSubmit}>
-            <div className={`todo-description-row ${this.props.formType}`}>
-              <div className={`todo-checkbox ${false} ${this.props.formType}`}>
-                <i className="far fa-square"></i>
-              </div>
-              <div className={`todo-description-input ${this.props.formType}`}>
-                <input 
-                  type="text" 
-                  placeholder="Describe this to-do..." 
-                  value={description}
-                  onChange={this.handleChange("description")} 
-                />
-              </div>
-            </div>
-            <div className={`todo-notes-input ${this.props.formType}`}>
-              <label>
-                <span>Notes</span>
-              </label>
-              <input 
-                type="text" 
-                placeholder= "Add extra details" 
-                value={notes} 
-                onChange={this.handleChange("notes")}
-              />
-            </div>
-            <div className="submit-todo-container">
-              <input type="submit" value="Add this to-do" />
-              <button onClick={this.hideForm}>Cancel</button>
-            </div>
-          </form>
+      <form 
+        className={`${this.props.formType}-form`} 
+        onSubmit={this.handleSubmit} 
+        >
+        <fieldset disabled={this.props.formType === "new-todo" ? "" : this.props.canEdit} >
+        <div className={`todo-description-row ${this.props.formType}`}>
+          <div className={`todo-checkbox ${false} ${this.props.formType}`}>
+            <i className="far fa-square"></i>
+          </div>
+          <div className={`todo-description-input ${this.props.formType}`}>
+            <input 
+              type="text" 
+              placeholder="Describe this to-do..." 
+              value={description}
+              onChange={this.handleChange("description")} 
+            />
+          </div>
         </div>
-      </div >
+        <div className={`todo-notes-input ${this.props.formType}`}>
+          <label>
+            <span>Notes</span>
+          </label>
+          <input 
+            type="text" 
+            placeholder= "Add extra details" 
+            value={notes} 
+            onChange={this.handleChange("notes")}
+          />
+        </div>
+        {this.props.canEdit ? null : (
+          <div className="submit-todo-container">
+              <input type="submit" value={this.props.formType === "new-todo" ? (
+                "Add this to-do"
+                ) : (
+                  "Save changes"
+                )} 
+              />
+            <button onClick={this.props.toggleForm}>Cancel</button>
+              {this.props.formType === "new-todo" ? null : (
+                <button onClick={this.handleDelete}>Delete Todo</button>
+              )}
+          </div>
+        )}
+        </fieldset>
+      </form>
     )
   }
 

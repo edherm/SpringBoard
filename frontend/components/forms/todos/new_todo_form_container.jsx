@@ -11,7 +11,8 @@ const msp = (state, ownProps) => {
       description: "",
       notes: ""
     },
-    formType: "newTodo"
+    formType: "newTodo",
+    toggleForm: ownProps.hideForm
   })
 }
 
