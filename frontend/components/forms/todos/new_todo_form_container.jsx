@@ -12,7 +12,7 @@ const msp = (state, ownProps) => {
       notes: ""
     },
     formType: "newTodo",
-    hideForm: ownProps.hideForm
+    toggleForm: ownProps.hideForm
   })
 }
 
