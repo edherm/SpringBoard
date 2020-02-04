@@ -6,12 +6,31 @@ import NewTodoFormContainer from "../forms/todos/new_todo_form_container";
 class TodoList extends React.Component {
   constructor (props) {
     super(props);
+
+    this.state = {
+      newTodoForm: "hidden"
+    }
+
+    this.hideForm = this.hideForm.bind(this);
+    this.revealForm = this.revealForm.bind(this);
   }
 
   
   componentDidMount () {
     window.scrollTo(0, 0);
     this.props.fetchTodos(this.props.projectId, this.props.todoList.id)
+  }
+
+
+  hideForm(e) {
+    if (e) {
+      e.preventDefault();
+    }
+    this.setState({ newTodoForm: "hidden" })
+  }
+
+  revealForm() {
+    this.setState({ newTodoForm: "revealed" })
   }
 
   render () {
@@ -71,11 +90,22 @@ class TodoList extends React.Component {
           {page === "project" ? (
             null
           ): (
-            <NewTodoFormContainer
-              page={page}
-              todoList={todoList}
-              projectId={projectId}
-            />
+            <div className="new-todo-form-container">
+              <input
+                className="new-todo"
+                type="submit"
+                onClick={this.revealForm}
+                value="Add a to-do"
+              />
+              <div className={`expanding-form ${this.state.newTodoForm}`} >
+                <NewTodoFormContainer
+                  page={page}
+                  todoList={todoList}
+                  projectId={projectId} 
+                  hideForm={this.hideForm} 
+                />
+              </div>
+            </div>
           )}
           {completeTodos.map(todo => {
             return (

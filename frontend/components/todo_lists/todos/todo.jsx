@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class Todo extends React.Component {
   constructor (props) {
@@ -32,7 +33,11 @@ class Todo extends React.Component {
         >
           {checkbox}
         </div>
-        <span className={`todo-item-description ${todo.complete} ${page}`}>{todo.description}</span>
+        <span className={`todo-item-description ${todo.complete} ${page}`}>
+          <Link >
+            {todo.description}
+          </Link>
+        </span>
       </li>
     )
   }
