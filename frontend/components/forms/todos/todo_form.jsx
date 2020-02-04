@@ -4,9 +4,7 @@ class TodoForm extends React.Component {
   constructor (props) {
     super(props);
 
-    this.state = {
-      todo: this.props.todo
-    }
+    this.state = this.props.todo
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }  
@@ -32,8 +30,8 @@ class TodoForm extends React.Component {
       <form 
         className={`${this.props.formType}-form`} 
         onSubmit={this.handleSubmit} 
-        disabled={this.props.formType === "new-todo" ? false : this.props.canEdit}
-      >
+        >
+        <fieldset disabled={this.props.formType === "new-todo" ? "" : this.props.canEdit} >
         <div className={`todo-description-row ${this.props.formType}`}>
           <div className={`todo-checkbox ${false} ${this.props.formType}`}>
             <i className="far fa-square"></i>
@@ -62,6 +60,7 @@ class TodoForm extends React.Component {
           <input type="submit" value="Add this to-do" />
           <button onClick={this.props.toggleForm}>Cancel</button>
         </div>
+        </fieldset>
       </form>
     )
   }

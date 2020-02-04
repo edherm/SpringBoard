@@ -17,7 +17,7 @@ class Todo extends React.Component {
 
 
   render () {
-    const {todo, page} = this.props;
+    const {todo, page, userId, projectId, todoListId} = this.props;
 
     const checkbox = todo.complete ? (
       <i className="fas fa-check-square"></i>
@@ -34,7 +34,7 @@ class Todo extends React.Component {
           {checkbox}
         </div>
         <span className={`todo-item-description ${todo.complete} ${page}`}>
-          <Link >
+          <Link to={`/${userId}/projects/${projectId}/todoLists/${todoListId}/${todo.id}`}>
             {todo.description}
           </Link>
         </span>

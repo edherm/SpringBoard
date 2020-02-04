@@ -6,25 +6,39 @@ class TodoShow extends React.Component {
   constructor (props) {
     super(props)
 
-    this.state = { canEdit: false }
+    this.state = { canEdit: "disabled" }
 
     this.toggleForm = this.toggleForm.bind(this);
   }
 
   componentDidMount () {
-
+    const { projectId, todoListId, todoId, fetchTodo, fetchProject } = this.props;
+    
+    fetchProject(projectId);
+    fetchTodo(projectId, todoListId, todoId);
   }
 
   toggleForm(){
-    this.setState({ canEdit: !this.state.canEdit})
+    let newState;
+    if (this.state.canEdit) {
+      newState = "";
+    } else {
+      newState= "disabled";
+    }
+
+    this.setState({ canEdit: newState});
   }
   
   render () {
+    const { todo, project, userId, match, history } = this.props;
+
+    if (!todo || !project) return null;
+
     return (
       <div className="toolbox-container  todo-show">
         {!project ? null : (
           <ToolboxNavBar 
-            topic="todo"
+            topic="todoList"
             userId={userId}
             project={project}
             match={match}

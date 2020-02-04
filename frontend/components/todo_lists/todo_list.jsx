@@ -34,7 +34,7 @@ class TodoList extends React.Component {
   }
 
   render () {
-    const { todoList, page, todos, projectId, updateTodo } = this.props;
+    const { todoList, page, todos, projectId, updateTodo, userId } = this.props;
     const todoListLink = page === "index" ? (`./todoLists/${todoList.id}`) : ("#");
 
     // if (todos.length === 0) {
@@ -83,7 +83,9 @@ class TodoList extends React.Component {
                 page={page}
                 todo={todo}
                 projectId={projectId}
-                updateTodo={updateTodo}
+                userId={userId} 
+                todoListId={todoList.id} 
+                updateTodo={updateTodo} 
               />
             )
           })}
@@ -114,7 +116,9 @@ class TodoList extends React.Component {
                 page={page}
                 todo={todo}
                 projectId={projectId}
-                updateTodo={updateTodo}
+                userId={userId}
+                todoListId={todoList.id}
+                updateTodo={updateTodo} 
               />
             )
           })}
