@@ -12,9 +12,10 @@ class TodoShow extends React.Component {
   }
 
   componentDidMount () {
-    const { projectId, todoListId, todoId, fetchTodo, fetchProject } = this.props;
+    const { projectId, todoListId, todoId, fetchTodo, fetchProject, fetchTodoList } = this.props;
     
     fetchProject(projectId);
+    fetchTodoList(projectId, todoListId);
     fetchTodo(projectId, todoListId, todoId);
   }
 
@@ -30,9 +31,9 @@ class TodoShow extends React.Component {
   }
   
   render () {
-    const { todo, project, userId, match, history } = this.props;
+    const { todo, todoList, project, userId, match, history } = this.props;
 
-    if (!todo || !project) return null;
+    if (!todo || !todoList || !project) return null;
 
     return (
       <div className="toolbox-container  todo-show">
@@ -41,7 +42,9 @@ class TodoShow extends React.Component {
             topic="todoList"
             userId={userId}
             project={project}
-            match={match}
+            match={match} 
+            title={todoList.name} 
+            obj={todoList}
           />
         )}
         <div className="toolbox-main todo-list-index">
