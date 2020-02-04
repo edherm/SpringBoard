@@ -26,7 +26,6 @@ class TodoForm extends React.Component {
 
   handleDelete (e) {
     e.preventDefault();
-    debugger
     const { userId, projectId, todo, todoListId, history, deleteTodo } = this.props
 
     deleteTodo(projectId, todoListId, todo.id).then(() => {
@@ -37,6 +36,12 @@ class TodoForm extends React.Component {
   render () {
     const { description, notes } = this.state;
 
+    const checkbox = this.state.complete === undefined ? (
+        <i className="far fa-square"></i>
+      ) : (
+        <i className="fas fa-check-square"></i>
+      )
+
     return (
       <form 
         className={`${this.props.formType}-form`} 
@@ -44,8 +49,14 @@ class TodoForm extends React.Component {
         >
         <fieldset disabled={this.props.formType === "new-todo" ? "" : this.props.canEdit} >
         <div className={`todo-description-row ${this.props.formType}`}>
-          <div className={`todo-checkbox ${false} ${this.props.formType}`}>
-            <i className="far fa-square"></i>
+          <div className={`todo-checkbox ${
+            this.state.complete === undefined ? (
+              'false'
+            ) : (
+              this.state.complete
+            )
+          } ${this.props.formType}`}>
+            {checkbox}
           </div>
           <div className={`todo-description-input ${this.props.formType}`}>
             <input 
