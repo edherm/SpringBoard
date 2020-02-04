@@ -88,6 +88,7 @@ class TodoListIndex extends React.Component {
                     todos={todos} 
                     updateTodo={updateTodo} 
                     hideForm={this.hideForm} 
+                    userId={userId} 
                   />
                 </li>
                 )

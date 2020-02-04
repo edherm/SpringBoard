@@ -7,6 +7,7 @@ class TodoForm extends React.Component {
     this.state = this.props.todo
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }  
 
   handleChange (field) {
@@ -21,6 +22,16 @@ class TodoForm extends React.Component {
     this.props.formAction(projectId, todoListId, this.state).then(
       () => this.props.toggleForm()
     )
+  }
+
+  handleDelete (e) {
+    e.preventDefault();
+    debugger
+    const { userId, projectId, todo, todoListId, history, deleteTodo } = this.props
+
+    deleteTodo(projectId, todoListId, todo.id).then(() => {
+      history.push(`/${userId}/projects/${projectId}/todoLists/${todoListId}`)
+    })
   }
 
   render () {
@@ -56,10 +67,20 @@ class TodoForm extends React.Component {
             onChange={this.handleChange("notes")}
           />
         </div>
-        <div className="submit-todo-container">
-          <input type="submit" value="Add this to-do" />
-          <button onClick={this.props.toggleForm}>Cancel</button>
-        </div>
+        {this.props.canEdit ? null : (
+          <div className="submit-todo-container">
+              <input type="submit" value={this.props.formType === "new-todo" ? (
+                "Add this to-do"
+                ) : (
+                  "Save changes"
+                )} 
+              />
+            <button onClick={this.props.toggleForm}>Cancel</button>
+              {this.props.formType === "new-todo" ? null : (
+                <button onClick={this.handleDelete}>Delete Todo</button>
+              )}
+          </div>
+        )}
         </fieldset>
       </form>
     )

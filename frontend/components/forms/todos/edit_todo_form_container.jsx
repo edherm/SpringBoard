@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import TodoForm from "./todo_form";
-import { updateTodo } from "../../../actions/todo_actions";
+import { updateTodo, deleteTodo } from "../../../actions/todo_actions";
 
 const msp = (state, ownProps) => {
   return ({
@@ -20,7 +20,9 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => {
   return ({
     formAction: (projectId, todoListId, todo) => 
-      dispatch(updateTodo(projectId, todoListId, todo))
+      dispatch(updateTodo(projectId, todoListId, todo)),
+    deleteTodo: (projectId, todoListId, todoId) => 
+      dispatch(deleteTodo(projectId, todoListId, todoId))
   })
 };
 

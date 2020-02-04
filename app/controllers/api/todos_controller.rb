@@ -29,6 +29,7 @@ class Api::TodosController < ApplicationController
   end
 
   def destroy
+    debugger
     @todo = Todo.find_by(id: params[:id])
     @todo.destroy
   end

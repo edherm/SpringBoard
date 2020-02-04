@@ -13,6 +13,10 @@ export default (oldState = {}, action) => {
       return Object.assign({}, oldState, action.todos);
     case RECEIVE_TODO:
       return Object.assign({}, oldState, { [action.todo.id]: action.todo });
+    case REMOVE_TODO:
+      let nextState = Object.assign({}, oldState);
+      delete nextState[action.todoId];
+      return nextState;
     case LOGOUT_CURRENT_USER:
       return {};
     default:
