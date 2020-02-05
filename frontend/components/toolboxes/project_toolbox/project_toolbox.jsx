@@ -25,7 +25,7 @@ class ProjectToolbox extends React.Component {
     return (
       <div className="toolbox-container">
         <div className="toolbox-main">
-          <EditLink match={match} />
+          <EditLink match={match} page="project" />
           <div className="toolbox-header">
             <div className="toolbox-header-left"></div>
             <div className="toolbox-header-center">

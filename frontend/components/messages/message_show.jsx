@@ -3,6 +3,7 @@ import ReactQuill from 'react-quill';
 import { Link } from "react-router-dom";
 import { lastUpdated } from "../../util/messages_api_util";
 import { ToolboxNavBar } from "../toolboxes/toolbox_nav_bar";
+import { EditLink } from "../toolboxes/project_toolbox/edit_link";
 
 class MessageShow extends React.Component {
   componentDidMount () {
@@ -33,14 +34,7 @@ class MessageShow extends React.Component {
               
             </div>
             <div className={`toolbox-header-right messages-${page}`}>
-              <div className="toolbox-edit-link-container">
-                <Link
-                  className="message toolbox-edit-link" 
-                  to={`/${userId}/projects/${projectId}/messages/${messageId}/edit`}
-                >
-                  ...
-                </Link>
-              </div>
+              <EditLink match={match} page="message" />
             </div>
           </div>
           <div className={`toolbox-body messages-${page}`}>
