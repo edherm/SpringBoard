@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+// Message Index and Preview
 .messages-index {
   min-height: 100%;
   display: flex;
@@ -34,6 +36,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 40px;
+  height: 40px;
   border: 1px solid #fdd738;
   border-radius: 50%;
   background-color: #fdd738;
@@ -47,8 +51,6 @@
 }
 
 .index.message-author-initials {
-  width: 40px;
-  height: 40px;
   font-size: 18px;
 }
 
@@ -61,15 +63,15 @@
     padding-top: 2px;
   }
 
-  .index.message-item-container > h2 {
-    font-size: 15px;
-  }
-
   .preview.message-item-container > p {
     font-size: 12px;
     padding-top: 2px;
   }
-  
+
+  .index.message-item-container > h2 {
+    font-size: 15px;
+  }
+
   .index.message-item-container > p {
     font-size: 14px;
     padding-top: 4px;
@@ -108,3 +110,44 @@
   font-size: 13px;
   margin-left: 5px;
 }
+
+// messages-show header
+
+.toolbox-header-bordered.messages-show {
+  border: none;
+}
+
+.toolbox-header-left.messages-show {
+  display: flex;
+  width: fit-content;
+  font-size: 30px;
+}
+
+.toolbox-body.messages-show {
+  flex-direction: column;
+}
+
+  .message-info-wrapper {
+    display: flex;
+    margin: 0 40px;
+    border-top: 1px solid grey;
+    padding-top: 5px;
+    border-bottom: 1px solid grey;
+    padding-bottom: 5px;
+
+  }
+
+    .messages-show.author-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 10px;
+    }
+
+      .messages-show.author-info > span {
+        margin: 2.5px;
+      }
+  
+  .message-body-wrapper {
+    margin: 20px 25px;
+  }

@@ -46,7 +46,7 @@ class MessageShow extends React.Component {
                   .join("")
                   .toUpperCase()}
               </div>
-              <div>
+              <div className={`messages-${page} author-info`}>
                 <span>{user.name}</span>
                 <span>{lastUpdated(message.updated_at)}</span>
               </div>
