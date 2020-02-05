@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import MessagesPreview from "./previews/messages_preview";
 import TodosPreview from "./previews/todos_preview";
 import SchedulePreview from "./previews/schedule_preview";
+import { EditLink } from "./edit_link";
 
 class ProjectToolbox extends React.Component {
   constructor (props) {
@@ -18,20 +19,13 @@ class ProjectToolbox extends React.Component {
       return null
     }
     
-    const {project, user, fetchMessages, messages, fetchTodoLists, fetchTodos, todoLists, todos} = this.props
+    const {project, user, fetchMessages, messages, fetchTodoLists, fetchTodos, todoLists, todos, match} = this.props
     const { userId, projectId } = this.props.match.params
 
     return (
       <div className="toolbox-container">
         <div className="toolbox-main">
-          <div className="toolbox-edit-link-container">
-            <Link
-              className="project toolbox-edit-link"
-              to={`/${userId}/projects/${projectId}/edit`}
-            >
-              ...
-            </Link>
-          </div>
+          <EditLink match={match} page="project" />
           <div className="toolbox-header">
             <div className="toolbox-header-left"></div>
             <div className="toolbox-header-center">
