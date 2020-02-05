@@ -34,9 +34,11 @@ class Todo extends React.Component {
           {checkbox}
         </div>
         <span className={`todo-item-description ${todo.complete} ${page}`}>
-          <Link to={`/${userId}/projects/${projectId}/todoLists/${todoListId}/${todo.id}`}>
-            {todo.description}
-          </Link>
+          {page === "project" ? (todo.description) : (
+            <Link to={`/${userId}/projects/${projectId}/todoLists/${todoListId}/${todo.id}`}>
+              {todo.description}
+            </Link>
+          )}
         </span>
       </li>
     )
