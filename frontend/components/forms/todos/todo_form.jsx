@@ -34,9 +34,9 @@ class TodoForm extends React.Component {
   }
 
   render () {
-    const { description, notes } = this.state;
+    const { description, notes, complete } = this.state;
 
-    const checkbox = this.state.complete === undefined ? (
+    const checkbox = complete === undefined ? (
         <i className="far fa-square"></i>
       ) : (
         <i className="fas fa-check-square"></i>
@@ -44,7 +44,7 @@ class TodoForm extends React.Component {
 
     return (
       <form 
-        className={`${this.props.formType}-form`} 
+        className={`${this.props.formType}-form${this.props.canEdit ? ` ${this.props.canEdit}` : ""}`} 
         onSubmit={this.handleSubmit} 
         >
         <fieldset disabled={this.props.formType === "new-todo" ? "" : this.props.canEdit} >
@@ -79,13 +79,13 @@ class TodoForm extends React.Component {
           />
         </div>
         {this.props.canEdit ? null : (
-          <div className="submit-todo-container">
-              <input type="submit" value={this.props.formType === "new-todo" ? (
-                "Add this to-do"
-                ) : (
-                  "Save changes"
-                )} 
-              />
+          <div className={`submit-todo-container ${this.props.formType}`}>
+            <input type="submit" value={this.props.formType === "new-todo" ? (
+              "Add this to-do"
+              ) : (
+                "Save changes"
+              )} 
+            />
             <button onClick={this.props.toggleForm}>Cancel</button>
               {this.props.formType === "new-todo" ? null : (
                 <button onClick={this.handleDelete}>Delete Todo</button>

@@ -47,16 +47,16 @@ class TodoShow extends React.Component {
             obj={todoList}
           />
         )}
-        <div className="toolbox-main todo-list-index">
-          <div className="toolbox-header-bordered todo-list-index">
-            <div className="toolbox-header-left todo-list-index">
+        <div className="toolbox-main todo-show">
+          <div className="toolbox-header-bordered todo-show">
+            <div className="toolbox-header-left todo-show">
             </div>
-            <div className="toolbox-header-center todo-list-index">
+            <div className="toolbox-header-center todo-show">
             </div>
-            <div className="toolbox-header-right todo-list-index">
+            <div className="toolbox-header-right todo-show">
               <div className="toolbox-edit-link-container">
                 <div
-                  className="message toolbox-edit-link"
+                  className="todo toolbox-edit-link"
                   onClick={this.toggleForm}
                 >
                   ...
@@ -64,10 +64,10 @@ class TodoShow extends React.Component {
               </div>
             </div>
           </div>
-          <div className="toolbox-body todo-list-index">
+          <div className={`toolbox-body todo-show ${this.state.canEdit}`}>
             <EditTodoFormContainer
               canEdit={this.state.canEdit} 
-              toggleForm={this.toggleForm}
+              toggleForm={this.toggleForm} 
               match={match}
               history={history}
             />
