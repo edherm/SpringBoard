@@ -14,7 +14,7 @@ class MessagesPreview extends React.Component {
 
     return (
       <li className="toolbox-item-li">
-        <h1 className="toolbox-item-header">Message Board</h1>
+        <h1 className="toolbox-item-header">NoteBook</h1>
         <div className="toolbox-item-body">
           {messages.length === 0 ? (
             <div className="empty-preview-wrapper">

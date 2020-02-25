@@ -2,7 +2,7 @@
 
 ![App Preview](https://raw.githubusercontent.com/edherm/SpringBoard/master/app/assets/images/SpringBoardPreview2.png)
 
-SpringBoard collects all of your project's todo lists, message board, and schedule into one easy to navigate dashboard.
+SpringBoard collects all of your project's todo lists, notebook, and schedule into one easy to navigate dashboard.
 
 ___
 ### _Table of Contents_
@@ -46,8 +46,8 @@ revealForm() {
 }
 ```
 
-#### Message Board
-Integrating the React-Quill library gives these messages their rich-text styling and the ability to safely re-render user-inputted text, regardless of the content.
+#### NoteBook
+Integrating the React-Quill library gives these notes their rich-text styling and the ability to safely re-render user-inputted text, regardless of the content.
 ```javascript
 // Using React-Quill's read-only prop to display a user's message safely
 <div className="message-body-wrapper" >
