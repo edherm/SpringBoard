@@ -66,23 +66,3 @@ class MessageShow extends React.Component {
 }
 
 export default MessageShow;
-
-
-{/* <div className="toolbox-nav">
-  <>
-    {!projectId ? null : (
-      <>
-        <i className="fas fa-th-large"></i>
-        <Link to={`/${userId}/projects/${projectId}`}>{project.name}</Link>
-      </>
-    )}
-    {!match.params[`${topic}Id`] ? null : (
-      <>
-        <p>></p>
-        <Link to={`/${userId}/projects/${projectId}/${topic}s`}>
-          Message Board
-                  </Link>
-      </>
-    )}
-  </>
-</div> */}

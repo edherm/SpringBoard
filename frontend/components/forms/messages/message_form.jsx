@@ -96,7 +96,7 @@ class MessageForm extends React.Component {
                 />
                 <div className="message-form-section-3">
                   <input type="submit" value={formType === "messageCreate" ? (
-                      "Post this Message" 
+                      "Post this Note" 
                     ) :(
                       "Save changes"
                     )} 
@@ -105,7 +105,7 @@ class MessageForm extends React.Component {
                     <Link to="./">Cancel</Link>
                   </button>
                   {formType !== "messageEdit" ? null :(
-                    <button onClick={this.handleDelete}>Delete Message</button>
+                    <button onClick={this.handleDelete}>Delete Note</button>
                   )}
                 </div>
               </form>

@@ -10,7 +10,7 @@ export const ToolboxNavBar = ({topic, userId, project, match, obj, title}) => {
         <>
           <p>></p>
           <Link to={`/${userId}/projects/${project.id}/${topic}s`}>
-            {topic === 'message' ? 'Message Board' : (
+            {topic === 'message' ? 'NoteBook' : (
               topic === 'todoList' ? 'To-dos' : 'Schedule'
             )}
           </Link>
