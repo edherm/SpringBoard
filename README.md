@@ -46,8 +46,8 @@ revealForm() {
 }
 ```
 
-#### Message Board
-Integrating the React-Quill library gives these messages their rich-text styling and the ability to safely re-render user-inputted text, regardless of the content.
+#### Note Book
+Integrating the React-Quill library gives these notes their rich-text styling and the ability to safely re-render user-inputted text, regardless of the content.
 ```javascript
 // Using React-Quill's read-only prop to display a user's message safely
 <div className="message-body-wrapper" >
