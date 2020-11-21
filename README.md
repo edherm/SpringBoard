@@ -60,7 +60,8 @@ Integrating the React-Quill library gives these notes their rich-text styling an
 ```
 ___
 ## __In Development:__
-* Schedule calendar events and view your dated to-dos on the calendar
+* Schedule calendar events
+* View your dated to-dos on the calendar
 
 ______
 # ![Logo](https://raw.githubusercontent.com/edherm/SpringBoard/master/app/assets/images/spring_board_small.png) 
