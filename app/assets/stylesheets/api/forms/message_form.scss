@@ -1,11 +1,12 @@
-// 
+//
 .toolbox-main.messages-form {
   padding-left: 0;
   padding-right: 0;
   width: 920px;
 }
 
-.toolbox-body.messages-new, .toolbox-body.messages-new > form  {
+.toolbox-body.messages-new,
+.toolbox-body.messages-new > form {
   width: 100%;
 }
 
@@ -22,36 +23,36 @@
   align-items: flex-start;
   width: 80%;
 }
-  // Select
-  div.message-form-category-select {
-    display: flex;
-    border: 1px solid black;
-    border-radius: 20px;
-    height: 30px;
-    padding: 0 10px;
-    background-color: transparent;
-    margin-bottom: 10px;    
-  }
+// Select
+div.message-form-category-select {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 20px;
+  height: 30px;
+  padding: 0 10px;
+  background-color: transparent;
+  margin-bottom: 10px;
+}
 
-  div.message-form-category-select > select {
-    border: 0px solid;
-    background-color: transparent;
-    font-size: 13.5px;
-  }
+div.message-form-category-select > select {
+  border: 0px solid;
+  background-color: transparent;
+  font-size: 13.5px;
+}
 
-  // Title
-  input.message-form-title-input {
-    border: 0px solid;
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    width: 100%;
-  }
-  
-  input.message-form-title-input:focus, 
-  div.message-form-category-select > select:focus {
-    outline: none;
-  }
+// Title
+input.message-form-title-input {
+  border: 0px solid;
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+input.message-form-title-input:focus,
+div.message-form-category-select > select:focus {
+  outline: none;
+}
 
 // Quill
 
@@ -59,7 +60,8 @@
   width: 100%;
 }
 
-div.ql-toolbar.ql-snow, div.ql-container.ql-snow {
+div.ql-toolbar.ql-snow,
+div.ql-container.ql-snow {
   padding-left: 85px;
   border-right: none;
   border-left: none;
@@ -68,41 +70,41 @@ div.ql-toolbar.ql-snow, div.ql-container.ql-snow {
 
 .ql-editor {
   height: fit-content;
-  min-height: 400px
+  min-height: 400px;
 }
 
-
-
 // Message Submit
-  .message-form-section-3 {
+.message-form-section-3 {
   display: flex;
   justify-content: flex-start;
   width: 80%;
   margin-top: 10px;
   margin-bottom: 20px;
-  }
+  z-index: 1;
+}
 
-  .message-form-section-3 > input {
-    display: flex;
-    justify-content: center;
-    background-color: #2ea561;
-    border-radius: 20px;
-    width: fit-content;
-    height: 30px;
-    width: fit-content;
-    font-size: 14px;  
-    border: none;
-    color: white;
-    padding: 1px 10px 2px;
-    cursor: pointer;
-  }
+.message-form-section-3 > input {
+  display: flex;
+  justify-content: center;
+  background-color: #2ea561;
+  border-radius: 20px;
+  width: fit-content;
+  height: 30px;
+  width: fit-content;
+  font-size: 14px;
+  border: none;
+  color: white;
+  padding: 1px 10px 2px;
+  cursor: pointer;
+}
 
-  .message-form-section-3 > button {
-    display: flex;
-    font-size: 14px;  
-    height: 30px;
-    border: 1px solid #2ea561;
-    border-radius: 20px;
-    color: #2ea561;
-    margin-left: 5px;
-  }
+.message-form-section-3 > button {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  height: 30px;
+  border: 1px solid #2ea561;
+  border-radius: 20px;
+  color: #2ea561;
+  margin-left: 5px;
+}
