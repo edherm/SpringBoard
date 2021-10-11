@@ -42,9 +42,8 @@ class MessagesIndex extends React.Component {
             <ul className={`${page} message-ul`}>
               {messages.map(message => {
                 return (
-                  <Link to={`/${userId}/projects/${projectId}/messages/${message.id}`}>
+                  <Link key={message.id} to={`/${userId}/projects/${projectId}/messages/${message.id}`}>
                     <MessageIndexItem
-                      key={message.id}
                       page={page}
                       message={message}
                       user={user}
