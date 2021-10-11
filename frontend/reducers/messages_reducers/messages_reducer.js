@@ -1,9 +1,9 @@
 import {
   RECEIVE_MESSAGES,
   RECEIVE_MESSAGE,
-  REMOVE_MESSAGE
-} from "../../actions/message_actions";
-import { LOGOUT_CURRENT_USER } from "../../actions/session_actions";
+  REMOVE_MESSAGE,
+} from '../../actions/message_actions';
+import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 
 export default (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -11,7 +11,9 @@ export default (oldState = {}, action) => {
     case RECEIVE_MESSAGES:
       return Object.assign({}, oldState, action.messages);
     case RECEIVE_MESSAGE:
-      return Object.assign({}, oldState, {[action.message.id]: action.message});
+      return Object.assign({}, oldState, {
+        [action.message.id]: action.message,
+      });
     case REMOVE_MESSAGE:
       let nextState = Object.assign({}, oldState);
       delete nextState[action.messageId];
@@ -21,4 +23,4 @@ export default (oldState = {}, action) => {
     default:
       return oldState;
   }
-}
+};
