@@ -1,35 +1,37 @@
-export const fetchProjects = userId => (
+export const fetchProjects = (userId) =>
   $.ajax({
-    url: "/api/projects",
-    data: { userId }
-  })
-)
+    url: '/api/projects',
+    data: { userId },
+  });
 
-export const fetchProject = projectId => (
+export const fetchProject = (projectId) =>
   $.ajax({
     url: `/api/projects/${projectId}`,
-  })
-)
+  });
 
-export const createProject = project => {
+export const createProject = (project) => {
   return $.ajax({
     url: `api/projects`,
-    method: "POST",
-    data: { project }
-  })
-}
+    method: 'POST',
+    data: { project },
+  });
+};
 
-export const updateProject = project => {
+export const updateProject = (project) => {
   return $.ajax({
     url: `api/projects/${project.id}`,
-    method: "PATCH",
-    data: { project }
-  })
-}
+    method: 'PATCH',
+    data: { project },
+  });
+};
 
-export const deleteProject = projectId => {
+export const deleteProject = (projectId) => {
   return $.ajax({
     url: `/api/projects/${projectId}`,
-    method: "DELETE"
-  })
-}
+    method: 'DELETE',
+  });
+};
+
+export const filterByProject = (slice, projectId) => {
+  return slice.filter((el) => el.project_id === parseInt(projectId));
+};
