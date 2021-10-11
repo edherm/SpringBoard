@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 // Message Index and Preview
 .messages-index {
   min-height: 100%;
@@ -54,28 +53,32 @@
   font-size: 18px;
 }
 
+.index.message-item-p {
+  line-height: normal;
+}
+
 .message-item-container {
   margin-left: 5px;
 }
 
-  .preview.message-item-container > h2 {
-    font-size: 12px;
-    padding-top: 2px;
-  }
+.preview.message-item-container > h2 {
+  font-size: 12px;
+  padding-top: 2px;
+}
 
-  .preview.message-item-container > p {
-    font-size: 12px;
-    padding-top: 2px;
-  }
+.preview.message-item-container > p {
+  font-size: 12px;
+  padding-top: 2px;
+}
 
-  .index.message-item-container > h2 {
-    font-size: 15px;
-  }
+.index.message-item-container > h2 {
+  font-size: 15px;
+}
 
-  .index.message-item-container > p {
-    font-size: 14px;
-    padding-top: 4px;
-  }
+.index.message-item-container > p {
+  font-size: 14px;
+  padding-top: 4px;
+}
 
 .messages-new-container {
   display: flex;
@@ -127,27 +130,26 @@
   flex-direction: column;
 }
 
-  .message-info-wrapper {
-    display: flex;
-    margin: 0 40px;
-    border-top: 1px solid grey;
-    padding-top: 5px;
-    border-bottom: 1px solid grey;
-    padding-bottom: 5px;
+.message-info-wrapper {
+  display: flex;
+  margin: 0 40px;
+  border-top: 1px solid grey;
+  padding-top: 5px;
+  border-bottom: 1px solid grey;
+  padding-bottom: 5px;
+}
 
-  }
+.messages-show.author-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
 
-    .messages-show.author-info {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin-left: 10px;
-    }
+.messages-show.author-info > span {
+  margin: 2.5px;
+}
 
-      .messages-show.author-info > span {
-        margin: 2.5px;
-      }
-  
-  .message-body-wrapper {
-    margin: 20px 25px;
-  }
+.message-body-wrapper {
+  margin: 20px 25px;
+}
