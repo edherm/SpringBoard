@@ -21,7 +21,7 @@ export const ToolboxNavBar = ({ topic }) => {
       <Link to={baseURL}>{project.name}</Link>
       {!pathname.includes(`${topicURL}`) ? null : (
         <>
-          <p>></p>
+          <p>{'>'}</p>
           <Link to={`${baseURL}${topicURL}`}>
             {topic === 'message' ? 'NoteBook' : (
               topic === 'todoList' ? 'To-dos' : 'Schedule'
@@ -29,7 +29,7 @@ export const ToolboxNavBar = ({ topic }) => {
           </Link>
           {!todoListId ? null : (
             <>
-              <p>></p>
+              <p>{'>'}</p>
               <Link to={`${baseURL}${topicURL}/${todoListId}`}>
                 {todoList?.name}
               </Link>
