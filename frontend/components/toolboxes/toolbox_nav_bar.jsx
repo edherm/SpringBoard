@@ -2,12 +2,14 @@ import React from "react";
 import { Link, useParams, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-export const ToolboxNavBar = ({topic, project}) => {
+export const ToolboxNavBar = ({ topic }) => {
   const { userId, projectId, todoListId } = useParams(); 
   const { pathname } = useLocation();
-  console.log(location)
-  const todoList = useSelector(state => {
-    return topic !== 'todoList' ? null : state.entities.todo_lists[todoListId]
+  
+  const {todoList, project} = useSelector(state => {
+    let todoList =  topic !== 'todoList' ? null : state.entities.todo_lists[todoListId]
+    let project = state.entities.projects[projectId]
+    return {todoList, project}
   })
 
   const baseURL = `/${userId}/projects/${projectId}`;

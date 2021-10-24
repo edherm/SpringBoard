@@ -20,7 +20,7 @@ class MessagesIndex extends React.Component {
     return (
       <div className={`toolbox-container  messages-${page}`}>
         {!project ? null : (
-          <ToolboxNavBar topic="message" project={project} />
+          <ToolboxNavBar topic="message"  />
         )}
         <div className={`toolbox-main messages-${page}`}>
           <div className={`toolbox-header-bordered messages-${page}`}>

@@ -56,10 +56,7 @@ class MessageForm extends React.Component {
     return (
       <div className="toolbox-container  messages-new">
         {!project || !message ? null : (
-          <ToolboxNavBar 
-            topic="message" 
-            project={project}
-          />
+          <ToolboxNavBar topic="message" />
         )}
         {!message ? null : (
           <div className="toolbox-main messages-form">
