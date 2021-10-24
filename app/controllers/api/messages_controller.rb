@@ -1,3 +1,5 @@
+# require byebug
+
 class Api::MessagesController < ApplicationController
   def index
     project = Project.find_by(id: params[:project_id])
@@ -8,12 +10,8 @@ class Api::MessagesController < ApplicationController
     @message = Message.find_by(id: params[:id])
   end
 
-  def new
-
-  end
-
   def create
-    project = Project.find_by(id: params[:project_id])
+    project = Project.find_by(id: message_params[:project_id])
     @message = project.messages.new(message_params)
 
     if @message.save
@@ -21,10 +19,6 @@ class Api::MessagesController < ApplicationController
     else
       render json: @message.errors.full_messages, status: 404
     end
-  end
-
-  def edit
-    @message = Message.find_by(id: params[:id])
   end
 
   def update
@@ -40,10 +34,12 @@ class Api::MessagesController < ApplicationController
   def destroy
     @message = Message.find_by(id: params[:id])
     @message.destroy
+
+    render json: {}, status: :no_content
   end
 
   private
   def message_params
-    params.require(:message).permit(:title, :category, :body)
+    params.require(:message).permit(:title, :category, :body, :project_id)
   end
 end

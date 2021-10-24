@@ -6,7 +6,7 @@ import { fetchProject } from '../../../actions/project_actions';
 
 class MessageLoad extends React.Component {
   componentDidMount() {
-    this.props.fetchMessage(this.props.projectId, this.props.messageId)
+    this.props.fetchMessage(this.props.messageId)
   }
 
   render () {
@@ -36,11 +36,12 @@ class MessageLoad extends React.Component {
 }
 
 const msp = (state, ownProps) => {
-  const {projectId, userId, messageId} = ownProps.match.params;
+  const { projectId, userId, messageId } = ownProps.match.params;
+  const { messages, projects } = state.entities;
   return ({
     errors: Object.values(state.errors.messages),
-    message: state.entities.messages[messageId],
-    project: state.entities.projects[projectId],
+    message: messages[messageId],
+    project: projects[projectId],
     messageId,
     projectId,
     userId,
@@ -50,12 +51,12 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => {
   return ({
-    messageAction: (projectId, message) => 
-      dispatch(updateMessage(projectId, message)),
-    fetchMessage: (projectId, messageId) => 
-      dispatch(fetchMessage(projectId, messageId)),
-    deleteMessage: (projectId, messageId) =>
-      dispatch(deleteMessage(projectId, messageId)),
+    messageAction: (message) => 
+      dispatch(updateMessage(message)),
+    fetchMessage: (messageId) => 
+      dispatch(fetchMessage(messageId)),
+    deleteMessage: (messageId) =>
+      dispatch(deleteMessage(messageId)),
     fetchProject: projectId =>
       dispatch(fetchProject(projectId))
   })

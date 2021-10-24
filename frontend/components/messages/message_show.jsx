@@ -10,7 +10,7 @@ class MessageShow extends React.Component {
     window.scrollTo(0,0);
     
     this.props.fetchProject(this.props.projectId);
-    this.props.fetchMessage(this.props.projectId, this.props.messageId)
+    this.props.fetchMessage(this.props.messageId)
   }
 
 
