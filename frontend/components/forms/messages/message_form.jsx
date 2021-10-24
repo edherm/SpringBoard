@@ -52,7 +52,7 @@ class MessageForm extends React.Component {
   }
 
   render() {
-    const { project, projectId, userId, message, formType, match} = this.props;
+    const { project, userId, message, formType, match} = this.props;
   
     return (
       <div className="toolbox-container  messages-new">
