@@ -19,7 +19,7 @@ class TodoForm extends React.Component {
     const { projectId, todoListId } = this.props;
 
     // const todo = Object.assign({}, this.state);
-    this.props.formAction(projectId, todoListId, this.state).then(
+    this.props.formAction(this.state).then(
       () => this.props.toggleForm()
     )
   }

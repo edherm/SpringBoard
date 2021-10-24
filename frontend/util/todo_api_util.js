@@ -10,9 +10,9 @@ export const fetchTodo = (todo_id) => {
   });
 };
 
-export const createTodo = (projectId, todo_list_id, todo) => {
+export const createTodo = (todo) => {
   return $.ajax({
-    url: `/api/projects/${projectId}/todo_lists/${todo_list_id}/todos`,
+    url: `/api/todos`,
     method: 'POST',
     data: { todo },
   });

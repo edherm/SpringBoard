@@ -4,10 +4,13 @@ import { connect } from "react-redux";
 import { createTodo } from "../../../actions/todo_actions"
 
 const msp = (state, ownProps) => {
+  const {todoList, projectId} = ownProps;
+  const todoListId = todoList.id;
   return ({
-    todoListId: ownProps.todoList.id,
-    projectId: ownProps.projectId,
+    todoListId,
+    projectId,
     todo: {
+      todo_list_id: todoListId,
       description: "",
       notes: ""
     },
@@ -17,7 +20,7 @@ const msp = (state, ownProps) => {
 }
 
 const mdp = dispatch => ({
-  formAction: (projectId, todoListid, todo) => dispatch(createTodo(projectId, todoListid, todo))
+  formAction: (todo) => dispatch(createTodo(todo))
 })
 
 export default connect(msp, mdp)(TodoForm);

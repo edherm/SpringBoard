@@ -9,7 +9,8 @@ class Api::TodosController < ApplicationController
   end
 
   def create
-    todo_list = TodoList.find_by(id: params[:todo_list_id])
+    byebug
+    todo_list = TodoList.find_by(id: todo_params[:todo_list_id])
     @todo = todo_list.todos.new(todo_params)
     if @todo.save
       render :show
