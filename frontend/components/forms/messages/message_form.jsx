@@ -34,7 +34,7 @@ class MessageForm extends React.Component {
     e.preventDefault();
     const { userId, projectId } = this.props
 
-    this.props.messageAction(projectId, this.state).then(
+    this.props.messageAction(this.state).then(
         // Once show page is implemented, we will push show page url
         this.props.history.push(`/${userId}/projects/${projectId}/messages`)
     )

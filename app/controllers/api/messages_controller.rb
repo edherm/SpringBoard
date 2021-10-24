@@ -1,3 +1,5 @@
+# require byebug
+
 class Api::MessagesController < ApplicationController
   def index
     project = Project.find_by(id: params[:project_id])
@@ -9,7 +11,7 @@ class Api::MessagesController < ApplicationController
   end
 
   def create
-    project = Project.find_by(id: params[:project_id])
+    project = Project.find_by(id: message_params[:project_id])
     @message = project.messages.new(message_params)
 
     if @message.save
@@ -40,6 +42,6 @@ class Api::MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:title, :category, :body)
+    params.require(:message).permit(:title, :category, :body, :project_id)
   end
 end

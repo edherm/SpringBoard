@@ -46,8 +46,8 @@ export const fetchMessage = (projectId, messageId) => (dispatch) => {
     .then((message) => dispatch(receiveMessage(message)));
 };
 
-export const createMessage = (projectId, message) => (dispatch) => {
-  return messageAPIUtil.createMessage(projectId, message).then(
+export const createMessage = (message) => (dispatch) => {
+  return messageAPIUtil.createMessage(message).then(
     (message) => {
       return dispatch(receiveMessage(message));
     },

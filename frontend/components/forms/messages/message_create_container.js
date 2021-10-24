@@ -8,6 +8,7 @@ const msp = (state, ownProps) => {
   return {
     errors: Object.values(state.errors.messages),
     message: {
+      project_id: projectId,
       title: '',
       category: '',
       body: '',
@@ -20,8 +21,7 @@ const msp = (state, ownProps) => {
 };
 
 const mdp = (dispatch) => ({
-  messageAction: (projectId, message) =>
-    dispatch(createMessage(projectId, message)),
+  messageAction: (message) => dispatch(createMessage(message)),
   fetchProject: (projectId) => dispatch(fetchProject(projectId)),
 });
 
