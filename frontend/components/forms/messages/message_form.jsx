@@ -60,7 +60,6 @@ class MessageForm extends React.Component {
             topic="message" 
             project={project} 
             match={match} 
-            title={message.title} 
           />
         )}
         {!message ? null : (

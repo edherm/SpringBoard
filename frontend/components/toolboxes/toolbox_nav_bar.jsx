@@ -2,12 +2,13 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-export const ToolboxNavBar = ({topic, project, match, obj, title}) => {
-  const {userId, projectId} = useParams(); 
-  debugger;
-  // const {obj} = useSelector(state => {
-  //   return topic === 'message' ? () : ()
-  // })
+export const ToolboxNavBar = ({topic, project, match, title}) => {
+  const { userId, projectId, todoListId } = useParams(); 
+
+  const todoList = useSelector(state => {
+    return topic !== 'todoList' ? null : state.entities.todo_lists[todoListId]
+  })
+
   return (
     <div className="toolbox-nav">
       <i className="fas fa-th-large"></i>
@@ -20,11 +21,11 @@ export const ToolboxNavBar = ({topic, project, match, obj, title}) => {
               topic === 'todoList' ? 'To-dos' : 'Schedule'
             )}
           </Link>
-          {!obj ? null : (
+          {!todoListId ? null : (
             <>
               <p>></p>
-              <Link to={`/${userId}/projects/${projectId}/${topic}s/${obj.id}`}>
-                {title}
+              <Link to={`/${userId}/projects/${projectId}/${topic}s/${todoListId}`}>
+                {todoList?.name}
               </Link>
             </>
           )}

@@ -16,7 +16,6 @@ class MessagesIndex extends React.Component {
   render () {
     const { page, user, project, messages, match } = this.props;
     const { projectId, userId } = this.props.match.params;
-    console.log(messages)
 
     return (
       <div className={`toolbox-container  messages-${page}`}>

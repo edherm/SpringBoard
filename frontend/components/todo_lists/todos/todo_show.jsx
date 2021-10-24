@@ -43,8 +43,6 @@ class TodoShow extends React.Component {
             userId={userId}
             project={project}
             match={match} 
-            title={todoList.name} 
-            obj={todoList}
           />
         )}
         <div className="toolbox-main todo-show">
