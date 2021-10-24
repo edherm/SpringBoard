@@ -16,7 +16,7 @@ class TodoShow extends React.Component {
     
     fetchProject(projectId);
     fetchTodoList(projectId, todoListId);
-    fetchTodo(projectId, todoListId, todoId);
+    fetchTodo(todoId);
   }
 
   toggleForm(){
