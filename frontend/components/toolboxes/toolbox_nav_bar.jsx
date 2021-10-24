@@ -7,7 +7,7 @@ export const ToolboxNavBar = ({topic, project, match, obj, title}) => {
   return (
     <div className="toolbox-nav">
       <i className="fas fa-th-large"></i>
-      <Link to={`/${userId}/projects/${parseInt(projectId)}`}>{project.name}</Link>
+      <Link to={`/${userId}/projects/${projectId}`}>{project.name}</Link>
       {!match.url.includes(`${topic}s/`) ? null : (
         <>
           <p>></p>
