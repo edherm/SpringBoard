@@ -57,8 +57,8 @@ export const updateTodo = (projectId, todoListId, todo) => (dispatch) => {
   });
 };
 
-export const deleteTodo = (projectId, todoListId, todoId) => (dispatch) => {
+export const deleteTodo = (todoId) => (dispatch) => {
   return todoAPIUtil
-    .deleteTodo(projectId, todoListId, todoId)
+    .deleteTodo(todoId)
     .then(() => dispatch(removeTodo(todoId)));
 };

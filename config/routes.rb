@@ -5,10 +5,10 @@ Rails.application.routes.draw do
     resources :todo_lists, only: [] do
       resources :todos, only: [:index]
     end
-    resources :todos, only: [:show]
+    resources :todos, only: [:show, :destroy]
     resources :projects do 
       resources :todo_lists do
-        resources :todos, only: [:index, :create, :update, :destroy]
+        resources :todos, only: [:create, :update]
       end
       resources :messages, only: [:index]
     end

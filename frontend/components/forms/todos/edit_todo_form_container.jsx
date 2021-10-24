@@ -21,8 +21,8 @@ const mdp = dispatch => {
   return ({
     formAction: (projectId, todoListId, todo) => 
       dispatch(updateTodo(projectId, todoListId, todo)),
-    deleteTodo: (projectId, todoListId, todoId) => 
-      dispatch(deleteTodo(projectId, todoListId, todoId))
+    deleteTodo: (todoId) => 
+      dispatch(deleteTodo(todoId))
   })
 };
 

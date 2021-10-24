@@ -28,7 +28,7 @@ class TodoForm extends React.Component {
     e.preventDefault();
     const { userId, projectId, todo, todoListId, history, deleteTodo } = this.props
 
-    deleteTodo(projectId, todoListId, todo.id).then(() => {
+    deleteTodo(todo.id).then(() => {
       history.push(`/${userId}/projects/${projectId}/todoLists/${todoListId}`)
     })
   }

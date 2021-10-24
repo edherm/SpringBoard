@@ -26,9 +26,9 @@ export const updateTodo = (projectId, todo_list_id, todo) => {
   });
 };
 
-export const deleteTodo = (projectId, todo_list_id, todoId) => {
+export const deleteTodo = (todoId) => {
   return $.ajax({
-    url: `/api/projects/${projectId}/todo_lists/${todo_list_id}/todos/${todoId}`,
+    url: `/api/todos/${todoId}`,
     method: 'DELETE',
   });
 };
