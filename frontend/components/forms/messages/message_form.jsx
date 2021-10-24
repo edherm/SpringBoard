@@ -35,7 +35,6 @@ class MessageForm extends React.Component {
     const { userId, projectId } = this.props
 
     this.props.messageAction(projectId, this.state).then(
-      
         // Once show page is implemented, we will push show page url
         this.props.history.push(`/${userId}/projects/${projectId}/messages`)
     )
@@ -52,17 +51,15 @@ class MessageForm extends React.Component {
   }
 
   render() {
-    const { project, userId, message, formType, match} = this.props;
+    const { project, message, formType, match} = this.props;
   
     return (
       <div className="toolbox-container  messages-new">
         {!project || !message ? null : (
           <ToolboxNavBar 
             topic="message" 
-            userId={userId} 
             project={project} 
             match={match} 
-            obj={message}
             title={message.title} 
           />
         )}

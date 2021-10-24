@@ -15,7 +15,7 @@ class MessageShow extends React.Component {
 
 
   render () {
-    const { project, message, user, messageId, projectId, userId, page, match } 
+    const { project, message, user, page, match } 
       = this.props
 
     if (!message) return null;
@@ -23,7 +23,7 @@ class MessageShow extends React.Component {
     return (
       <div className={`toolbox-container  messages-${page}`}>
         {!project ? null : (
-          <ToolboxNavBar topic="message" userId={userId} project={project} match={match} />
+          <ToolboxNavBar topic="message" project={project} match={match} />
         )}
         <div className={`toolbox-main messages-${page}`}>
           <div className={`toolbox-header-bordered messages-${page}`}>
