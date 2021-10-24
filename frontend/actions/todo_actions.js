@@ -33,9 +33,9 @@ export const receiveTodoErrors = (errors) => {
   };
 };
 
-export const fetchTodos = (projectId, todoListId) => (dispatch) => {
+export const fetchTodos = (todoListId) => (dispatch) => {
   return todoAPIUtil
-    .fetchTodos(projectId, todoListId)
+    .fetchTodos(todoListId)
     .then((todos) => dispatch(receiveTodos(todos)));
 };
 

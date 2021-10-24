@@ -23,8 +23,7 @@ const msp = (state, ownProps) => {
 const mdp = (dispatch) => {
   return {
     fetchTodoLists: (projectId) => dispatch(fetchTodoLists(projectId)),
-    fetchTodos: (projectId, todoListId) =>
-      dispatch(fetchTodos(projectId, todoListId)),
+    fetchTodos: (todoListId) => dispatch(fetchTodos(todoListId)),
     fetchProject: (projectId) => dispatch(fetchProject(projectId)),
     createTodoList: (projectId, todoList) =>
       dispatch(createTodoList(projectId, todoList)),

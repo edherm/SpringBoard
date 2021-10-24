@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:show, :create]
     resources :messages, only: [:show, :create, :update, :destroy]
+    resources :todo_lists, only: [] do
+      resources :todos, only: [:index]
+    end
     resources :todos, only: [:show]
     resources :projects do 
       resources :todo_lists do

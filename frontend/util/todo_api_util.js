@@ -1,6 +1,6 @@
-export const fetchTodos = (project_id, todo_list_id) => {
+export const fetchTodos = (todo_list_id) => {
   return $.ajax({
-    url: `/api/projects/${project_id}/todo_lists/${todo_list_id}/todos`,
+    url: `/api/todo_lists/${todo_list_id}/todos`,
   });
 };
 

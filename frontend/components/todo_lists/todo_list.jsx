@@ -18,7 +18,7 @@ class TodoList extends React.Component {
   
   componentDidMount () {
     window.scrollTo(0, 0);
-    this.props.fetchTodos(this.props.projectId, this.props.todoList.id)
+    this.props.fetchTodos(this.props.todoList.id)
   }
 
 
