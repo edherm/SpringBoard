@@ -16,12 +16,11 @@ class MessagesIndex extends React.Component {
   render () {
     const { page, user, project, messages, match } = this.props;
     const { projectId, userId } = this.props.match.params;
-    console.log(messages)
 
     return (
       <div className={`toolbox-container  messages-${page}`}>
         {!project ? null : (
-          <ToolboxNavBar topic="message" userId={userId} project={project} match={match} />
+          <ToolboxNavBar topic="message"  />
         )}
         <div className={`toolbox-main messages-${page}`}>
           <div className={`toolbox-header-bordered messages-${page}`}>

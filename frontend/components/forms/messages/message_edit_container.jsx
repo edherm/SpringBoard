@@ -36,13 +36,14 @@ class MessageLoad extends React.Component {
 }
 
 const msp = (state, ownProps) => {
+  const {projectId, userId, messageId} = ownProps.match.params;
   return ({
     errors: Object.values(state.errors.messages),
-    message: state.entities.messages[ownProps.match.params.messageId],
-    messageId: ownProps.match.params.messageId,
-    project: state.entities.projects[ownProps.match.params.projectId],
-    projectId: ownProps.match.params.projectId,
-    userId: ownProps.match.params.userId,
+    message: state.entities.messages[messageId],
+    project: state.entities.projects[projectId],
+    messageId,
+    projectId,
+    userId,
     formType: "messageEdit"
   })
 }
