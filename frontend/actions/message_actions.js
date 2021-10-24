@@ -57,8 +57,8 @@ export const createMessage = (message) => (dispatch) => {
   );
 };
 
-export const updateMessage = (projectId, message) => (dispatch) => {
-  return messageAPIUtil.updateMessage(projectId, message).then(
+export const updateMessage = (message) => (dispatch) => {
+  return messageAPIUtil.updateMessage(message).then(
     (message) => {
       return dispatch(receiveMessage(message));
     },

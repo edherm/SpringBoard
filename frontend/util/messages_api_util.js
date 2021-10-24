@@ -18,9 +18,9 @@ export const createMessage = (message) => {
   });
 };
 
-export const updateMessage = (projectId, message) => {
+export const updateMessage = (message) => {
   return $.ajax({
-    url: `/api/projects/${projectId}/messages/${message.id}`,
+    url: `/api/messages/${message.id}`,
     method: 'PATCH',
     data: { message },
   });

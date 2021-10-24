@@ -38,6 +38,8 @@ class Api::MessagesController < ApplicationController
   def destroy
     @message = Message.find_by(id: params[:id])
     @message.destroy
+
+    render json: {}, status: :no_content
   end
 
   private
