@@ -18,7 +18,7 @@ class MessageForm extends React.Component {
     const { projectId, messageId } = this.props;
     this.props.fetchProject(projectId)
     if (this.props.formType === "messageEdit") {
-      this.props.fetchMessage(projectId, messageId)
+      this.props.fetchMessage(messageId)
     }
   }
 

@@ -8,10 +8,6 @@ class Api::MessagesController < ApplicationController
     @message = Message.find_by(id: params[:id])
   end
 
-  def new
-
-  end
-
   def create
     project = Project.find_by(id: params[:project_id])
     @message = project.messages.new(message_params)

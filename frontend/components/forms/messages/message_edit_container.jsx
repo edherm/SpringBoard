@@ -6,7 +6,7 @@ import { fetchProject } from '../../../actions/project_actions';
 
 class MessageLoad extends React.Component {
   componentDidMount() {
-    this.props.fetchMessage(this.props.projectId, this.props.messageId)
+    this.props.fetchMessage(this.props.messageId)
   }
 
   render () {
@@ -52,8 +52,8 @@ const mdp = dispatch => {
   return ({
     messageAction: (projectId, message) => 
       dispatch(updateMessage(projectId, message)),
-    fetchMessage: (projectId, messageId) => 
-      dispatch(fetchMessage(projectId, messageId)),
+    fetchMessage: (messageId) => 
+      dispatch(fetchMessage(messageId)),
     deleteMessage: (projectId, messageId) =>
       dispatch(deleteMessage(projectId, messageId)),
     fetchProject: projectId =>
