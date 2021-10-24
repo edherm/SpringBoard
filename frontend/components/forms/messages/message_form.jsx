@@ -58,8 +58,7 @@ class MessageForm extends React.Component {
         {!project || !message ? null : (
           <ToolboxNavBar 
             topic="message" 
-            project={project} 
-            match={match} 
+            project={project}
           />
         )}
         {!message ? null : (

@@ -56,10 +56,8 @@ class TodoListShow extends React.Component {
       <div className="toolbox-container  todo-list-index">
         {!project ? null : (
           <ToolboxNavBar
-            topic="todoList"
-            userId={userId}
-            project={project}
-            match={match}
+            topic="todoList" 
+            project={project} 
           />
         )}
         <div className="toolbox-main todo-list-index">
