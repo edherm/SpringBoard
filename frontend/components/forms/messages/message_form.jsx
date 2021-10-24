@@ -42,11 +42,10 @@ class MessageForm extends React.Component {
 
   handleDelete (e) {
     e.preventDefault();
+    const { userId, projectId, messageId, deleteMessage, history } = this.props;
 
-    const { userId, projectId, messageId } = this.props
-
-    this.props.deleteMessage(projectId, messageId).then(
-      this.props.history.push(`/${userId}/projects/${projectId}/messages`)
+    deleteMessage(messageId).then(
+      history.push(`/${userId}/projects/${projectId}/messages`)
     )
   }
 

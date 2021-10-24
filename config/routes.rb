@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:show, :create]
-    resources :messages, only: [:show]
+    resources :messages, only: [:show, :destroy]
     resources :projects do 
       resources :todo_lists do
         resources :todos, only: [:index, :show, :create, :update, :destroy]
       end
-      resources :messages, only: [:index, :create, :update, :destroy]
+      resources :messages, only: [:index, :create, :update]
     end
     resource :sessions, only: [:create, :destroy]
   end

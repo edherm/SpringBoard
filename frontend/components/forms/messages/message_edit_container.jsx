@@ -54,8 +54,8 @@ const mdp = dispatch => {
       dispatch(updateMessage(projectId, message)),
     fetchMessage: (messageId) => 
       dispatch(fetchMessage(messageId)),
-    deleteMessage: (projectId, messageId) =>
-      dispatch(deleteMessage(projectId, messageId)),
+    deleteMessage: (messageId) =>
+      dispatch(deleteMessage(messageId)),
     fetchProject: projectId =>
       dispatch(fetchProject(projectId))
   })

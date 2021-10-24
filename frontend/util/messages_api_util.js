@@ -26,9 +26,9 @@ export const updateMessage = (projectId, message) => {
   });
 };
 
-export const deleteMessage = (projectId, messageId) => {
+export const deleteMessage = (messageId) => {
   return $.ajax({
-    url: `/api/projects/${projectId}/messages/${messageId}`,
+    url: `/api/messages/${messageId}`,
     method: 'DELETE',
   });
 };
