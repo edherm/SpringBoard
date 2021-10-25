@@ -4,15 +4,17 @@ import TodoForm from "./todo_form";
 import { updateTodo, deleteTodo } from "../../../actions/todo_actions";
 
 const msp = (state, ownProps) => {
+  const { canEdit, toggleForm, match, history } = ownProps;
+  const { todoId, userId, projectId, todoListId } = match.params;
   return ({
-    canEdit: ownProps.canEdit,
-    toggleForm: ownProps.toggleForm,
-    match: ownProps.match,
-    history: ownProps.history,
-    todo: state.entities.todos[ownProps.match.params.todoId],
-    userId: ownProps.match.params.userId,
-    projectId: ownProps.match.params.projectId,
-    todoListId: ownProps.match.params.todoListId,
+    canEdit: canEdit,
+    toggleForm: toggleForm,
+    match: match,
+    history: history,
+    todo: state.entities.todos[todoId],
+    userId,
+    projectId,
+    todoListId,
     formType: "edit-todo"
   })
 };

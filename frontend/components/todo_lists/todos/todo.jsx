@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import TodoCheckbox from './todo_checkbox';
 
 class Todo extends React.Component {
   constructor (props) {
@@ -19,19 +20,13 @@ class Todo extends React.Component {
   render () {
     const {todo, page, userId, projectId, todoListId} = this.props;
 
-    const checkbox = todo.complete ? (
-      <i className="fas fa-check-square"></i>
-    ) : (
-      <i className="far fa-square"></i>
-    )
-
     return (
       <li key={todo.id} className={`todos-item ${page}`} >
         <div 
           onClick={ page === "project" ? (null) : (this.handleClick) } 
           className={`todo-checkbox ${todo.complete} ${page}`}
         >
-          {checkbox}
+          <TodoCheckbox checked={todo.complete} />
         </div>
         <span className={`todo-item-description ${todo.complete} ${page}`}>
           {page === "project" ? (todo.description) : (

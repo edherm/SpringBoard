@@ -1,4 +1,5 @@
 import React from "react";
+import TodoCheckbox from "../../todo_lists/todos/todo_checkbox";
 
 class TodoForm extends React.Component {
   constructor (props) {
@@ -35,30 +36,25 @@ class TodoForm extends React.Component {
 
   render () {
     const { description, notes, complete } = this.state;
-
-    const checkbox = complete === undefined ? (
-        <i className="far fa-square"></i>
-      ) : (
-        <i className="fas fa-check-square"></i>
-      )
+    const { canEdit, formType, toggleForm } = this.props;
 
     return (
       <form 
-        className={`${this.props.formType}-form${this.props.canEdit ? ` ${this.props.canEdit}` : ""}`} 
+        className={`${formType}-form${canEdit ? ` ${canEdit}` : ""}`} 
         onSubmit={this.handleSubmit} 
         >
-        <fieldset disabled={this.props.formType === "new-todo" ? "" : this.props.canEdit} >
-        <div className={`todo-description-row ${this.props.formType}`}>
+        <fieldset disabled={formType === "new-todo" ? "" : canEdit} >
+        <div className={`todo-description-row ${formType}`}>
           <div className={`todo-checkbox ${
             this.state.complete === undefined ? (
               'false'
             ) : (
               this.state.complete
             )
-          } ${this.props.formType}`}>
-            {checkbox}
+          } ${formType}`}>
+            <TodoCheckbox checked={complete} />
           </div>
-          <div className={`todo-description-input ${this.props.formType}`}>
+          <div className={`todo-description-input ${formType}`}>
             <input 
               type="text" 
               placeholder="Describe this to-do..." 
@@ -67,7 +63,7 @@ class TodoForm extends React.Component {
             />
           </div>
         </div>
-        <div className={`todo-notes-input ${this.props.formType}`}>
+        <div className={`todo-notes-input ${formType}`}>
           <label>
             <span>Notes</span>
           </label>
@@ -78,16 +74,16 @@ class TodoForm extends React.Component {
             onChange={this.handleChange("notes")}
           />
         </div>
-        {this.props.canEdit ? null : (
-          <div className={`submit-todo-container ${this.props.formType}`}>
-            <input type="submit" value={this.props.formType === "new-todo" ? (
+        {canEdit ? null : (
+          <div className={`submit-todo-container ${formType}`}>
+            <input type="submit" value={formType === "new-todo" ? (
               "Add this to-do"
               ) : (
                 "Save changes"
               )} 
             />
-            <button onClick={this.props.toggleForm}>Cancel</button>
-              {this.props.formType === "new-todo" ? null : (
+            <button onClick={toggleForm}>Cancel</button>
+              {formType === "new-todo" ? null : (
                 <button onClick={this.handleDelete}>Delete Todo</button>
               )}
           </div>
