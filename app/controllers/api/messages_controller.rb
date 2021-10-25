@@ -1,5 +1,3 @@
-# require byebug
-
 class Api::MessagesController < ApplicationController
   def index
     project = Project.find_by(id: params[:project_id])
