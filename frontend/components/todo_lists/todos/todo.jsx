@@ -39,10 +39,3 @@ class Todo extends React.Component {
 }
 
 export default Todo;
-
-// <div
-//   onClick={page === 'project' ? null : this.handleClick}
-//   className={`todo-checkbox ${todo.complete} ${page}`}
-// >
-//   <TodoCheckbox checked={todo.complete} />
-// </div>

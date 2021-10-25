@@ -9,23 +9,17 @@ export default function TodoToggle({ todo, page }) {
 
   useEffect(() => {
     if (checked !== todo.complete) {
+      debugger;
       dispatch(updateTodo({ ...todo, complete: checked }));
     }
   }, [checked, todo]);
-
-  const handleClick = () => {
-    debugger;
-    setChecked((checked) => !checked);
-    const updatedTodo = { ...todo, complete: checked };
-    dispatch(updateTodo(updatedTodo));
-  };
-
+  debugger;
   return (
     <div
       onClick={
         page === 'project' ? null : () => setChecked((checked) => !checked)
       }
-      className={`todo-checkbox ${todo.complete} ${page}`}
+      className={`todo-checkbox ${checked} ${page}`}
     >
       <TodoCheckbox checked={checked} />
     </div>
