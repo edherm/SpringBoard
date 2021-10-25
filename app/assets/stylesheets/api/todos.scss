@@ -6,7 +6,9 @@
   margin-right: 10px;
 }
 
-.todo-checkbox.newTodo, .todo-checkbox.index, .todo-checkbox.show {
+.todo-checkbox.newTodo,
+.todo-checkbox.index,
+.todo-checkbox.show {
   font-size: 28px;
   cursor: pointer;
 }
@@ -43,50 +45,51 @@
 
 .edit-todo-form {
   fieldset {
-  display: flex;
-  background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
   }
 }
-  .todo-description-row.edit-todo {
-    .todo-checkbox {
+.todo-description-row.edit-todo {
+  .todo-checkbox {
     font-size: 60px;
-    }
   }
+}
 
-  .todo-notes-input.edit-todo > label > span, 
-  .todo-description-row.edit-todo > .todo-checkbox {
-    padding-left: 120px;
+.todo-notes-input.edit-todo > label > span,
+.todo-description-row.edit-todo > .todo-checkbox {
+  padding-left: 120px;
+}
+
+.todo-description-row.edit-todo {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  padding-bottom: 10px;
+
+  input {
+    border: none;
+    margin-left: 5px;
+    font-size: 32px;
+    font-weight: bold;
   }
+}
 
-  .todo-description-row.edit-todo {
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    padding-bottom: 10px;
+.todo-notes-input.edit-todo {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+  padding: 10px 5px;
 
-    input {
-      border: none;
-      margin-left: 5px;
-      font-size: 32px;
-      font-weight: bold;
-    }
+  input {
+    border: none;
+    padding-left: 10px;
+    font-size: 16px;
   }
+}
 
-  .todo-notes-input.edit-todo {
-    display: flex;
-    align-items: center;
-    border-top: 1px solid #e2e2e2;
-    border-bottom: 1px solid #e2e2e2;
-    padding: 10px 5px;
-  
-    input {
-      border: none;
-      padding-left: 10px;
-      font-size: 16px;
-    }
-  }
-
-  .submit-todo-container.edit-todo {
-    padding-left: 120px;
-    margin-bottom: 5px;
-  }
+.submit-todo-container.edit-todo {
+  padding-left: 120px;
+  margin-bottom: 5px;
+}
