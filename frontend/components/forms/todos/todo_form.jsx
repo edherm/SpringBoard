@@ -19,7 +19,10 @@ class TodoForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const { projectId, todoListId } = this.props;
-    this.props.formAction(this.state).then(() => this.props.toggleForm());
+    this.props.formAction(this.state).then(() => {
+      this.setState(this.props.todo);
+      this.props.toggleForm();
+    });
   }
 
   handleDelete(e) {
@@ -35,7 +38,7 @@ class TodoForm extends React.Component {
   render() {
     const { description, notes, complete } = this.state;
     const { canEdit, formType, toggleForm } = this.props;
-    console.log(formType);
+
     return (
       <form
         className={`${formType}-form${canEdit ? ` ${canEdit}` : ''}`}
