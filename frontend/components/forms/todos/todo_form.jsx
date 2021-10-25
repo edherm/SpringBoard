@@ -69,11 +69,11 @@ class TodoForm extends React.Component {
               <input
                 type="submit"
                 value={
-                  formType === 'new-todo' ? 'Add this to-do' : 'Save changes'
+                  formType === 'newTodo' ? 'Add this to-do' : 'Save changes'
                 }
               />
               <button onClick={toggleForm}>Cancel</button>
-              {formType === 'new-todo' ? null : (
+              {formType === 'newTodo' ? null : (
                 <button onClick={this.handleDelete}>Delete Todo</button>
               )}
             </div>
