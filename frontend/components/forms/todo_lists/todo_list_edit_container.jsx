@@ -6,7 +6,7 @@ import TodoListForm from "./todo_list_form";
 
 class TodoListEdit extends React.Component {
   componentDidMount() {
-    this.props.fetchTodoList(this.props.projectId, this.props.todoList.id);
+    this.props.fetchTodoList(this.props.todoList.id);
   }
 
   render () {
@@ -49,8 +49,8 @@ const mdp = dispatch => {
   return {
     todoListAction: (projectId, todoList) =>
       dispatch(updateTodoList(projectId, todoList)),
-    fetchTodoList: (projectId, todoListId) => 
-      dispatch(fetchTodoList(projectId, todoListId)),
+    fetchTodoList: (todoListId) => 
+      dispatch(fetchTodoList(todoListId)),
     deleteTodoList: (projectId, todoListId) => 
       dispatch(deleteTodoList(projectId, todoListId))
   }
