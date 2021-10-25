@@ -13,13 +13,13 @@ export default function TodoToggle({ todo, page }) {
     }
   }, [checked, todo]);
 
+  const handleClick =
+    page === 'project' || page === 'newTodo'
+      ? null
+      : () => setChecked((checked) => !checked);
+
   return (
-    <div
-      onClick={
-        page === 'project' ? null : () => setChecked((checked) => !checked)
-      }
-      className={`todo-checkbox ${checked} ${page}`}
-    >
+    <div onClick={handleClick} className={`todo-checkbox ${checked} ${page}`}>
       <TodoCheckbox checked={checked} />
     </div>
   );
