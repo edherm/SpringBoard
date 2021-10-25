@@ -1,4 +1,4 @@
-import { RECEIVE_TODO, RECEIVE_TODO_ERRORS } from "../../actions/todo_actions";
+import { RECEIVE_TODO, RECEIVE_TODO_ERRORS } from '../../actions/todo_actions';
 
 const _nullErrors = [];
 
@@ -13,4 +13,4 @@ export default (oldState = _nullErrors, action) => {
     default:
       return oldState;
   }
-}
+};

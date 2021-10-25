@@ -1,4 +1,7 @@
-import { RECEIVE_CURRENT_USER, RECEIVE_ERRORS } from '../../actions/session_actions';
+import {
+  RECEIVE_CURRENT_USER,
+  RECEIVE_ERRORS,
+} from '../../actions/session_actions';
 
 const _nullErrors = [];
 
@@ -12,4 +15,4 @@ export default (oldState = _nullErrors, action) => {
     default:
       return _nullErrors;
   }
-}
+};

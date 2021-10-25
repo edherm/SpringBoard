@@ -1,12 +1,12 @@
-import React from "react";
-import { connect } from "react-redux";
-import TodoForm from "./todo_form";
-import { updateTodo, deleteTodo } from "../../../actions/todo_actions";
+import React from 'react';
+import { connect } from 'react-redux';
+import TodoForm from './todo_form';
+import { updateTodo, deleteTodo } from '../../../actions/todo_actions';
 
 const msp = (state, ownProps) => {
   const { canEdit, toggleForm, match, history } = ownProps;
   const { todoId, userId, projectId, todoListId } = match.params;
-  return ({
+  return {
     canEdit: canEdit,
     toggleForm: toggleForm,
     match: match,
@@ -15,14 +15,13 @@ const msp = (state, ownProps) => {
     userId,
     projectId,
     todoListId,
-    formType: "edit-todo"
-  })
+    formType: 'edit-todo',
+  };
 };
 
-const mdp = dispatch => ({
-    formAction: (todo) => dispatch(updateTodo(todo)),
-    deleteTodo: (todoId) => dispatch(deleteTodo(todoId))
+const mdp = (dispatch) => ({
+  formAction: (todo) => dispatch(updateTodo(todo)),
+  deleteTodo: (todoId) => dispatch(deleteTodo(todoId)),
 });
-
 
 export default connect(msp, mdp)(TodoForm);

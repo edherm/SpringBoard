@@ -1,18 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 // import { fetchMessages, fetchMessage, createMessage, updateMessage, deleteMessage } from "./actions/message_actions";
 
-
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {
     const preloadedState = {
       entities: {
-        users: { [window.currentUser.id]: window.currentUser }
+        users: { [window.currentUser.id]: window.currentUser },
       },
-      session: { currentUser: window.currentUser.id }
+      session: { currentUser: window.currentUser.id },
     };
     store = configureStore(preloadedState);
     delete window.currentUser;
@@ -28,9 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.createMessage = createMessage;
   // window.updateMessage = updateMessage;
   // window.deleteMessage = deleteMessage;
-  
-  
-  const root = document.getElementById("root")
 
-  ReactDOM.render(<Root store={store} />, root)
-})
+  const root = document.getElementById('root');
+
+  ReactDOM.render(<Root store={store} />, root);
+});
