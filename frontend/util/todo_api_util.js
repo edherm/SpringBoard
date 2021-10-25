@@ -18,9 +18,9 @@ export const createTodo = (todo) => {
   });
 };
 
-export const updateTodo = (projectId, todo_list_id, todo) => {
+export const updateTodo = (todo) => {
   return $.ajax({
-    url: `/api/projects/${projectId}/todo_lists/${todo_list_id}/todos/${todo.id}`,
+    url: `/api/todos/${todo.id}`,
     method: 'PATCH',
     data: { todo },
   });

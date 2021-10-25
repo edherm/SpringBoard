@@ -51,8 +51,8 @@ export const createTodo = (todo) => (dispatch) => {
     .then((todo) => dispatch(receiveTodo(todo)));
 };
 
-export const updateTodo = (projectId, todoListId, todo) => (dispatch) => {
-  return todoAPIUtil.updateTodo(projectId, todoListId, todo).then((todo) => {
+export const updateTodo = (todo) => (dispatch) => {
+  return todoAPIUtil.updateTodo(todo).then((todo) => {
     return dispatch(receiveTodo(todo));
   });
 };

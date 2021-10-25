@@ -10,9 +10,9 @@ class Todo extends React.Component {
   }
 
   handleClick (e) {
-    const { projectId, todo, updateTodo } = this.props;
+    const { todo, updateTodo } = this.props;
     todo.complete = (!todo.complete)
-    updateTodo(projectId, todo.todo_list_id, todo)
+    updateTodo(todo)
   }
 
 

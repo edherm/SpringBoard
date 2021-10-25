@@ -17,14 +17,10 @@ const msp = (state, ownProps) => {
   })
 };
 
-const mdp = dispatch => {
-  return ({
-    formAction: (projectId, todoListId, todo) => 
-      dispatch(updateTodo(projectId, todoListId, todo)),
-    deleteTodo: (todoId) => 
-      dispatch(deleteTodo(todoId))
-  })
-};
+const mdp = dispatch => ({
+    formAction: (todo) => dispatch(updateTodo(todo)),
+    deleteTodo: (todoId) => dispatch(deleteTodo(todoId))
+});
 
 
 export default connect(msp, mdp)(TodoForm);
