@@ -11,7 +11,7 @@ class TodoListForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.todoListAction(this.props.match.params.projectId, this.state)
+    this.props.todoListAction(this.state, this.props.match.params.projectId)
       .then(({ todoList }) => {
         if (this.props.formType === "createTodoList") {
           this.props.history.push(`./todoLists/${todoList.id}`)
@@ -32,7 +32,7 @@ class TodoListForm extends React.Component {
 
     const { userId, project, todoList, history, deleteTodoList } = this.props
     
-    deleteTodoList(project.id, todoList.id).then(() => {
+    deleteTodoList(todoList.id).then(() => {
       history.push(`/${userId}/projects/${project.id}/todoLists`)
     })
   }

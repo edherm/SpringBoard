@@ -12,10 +12,17 @@ class TodoShow extends React.Component {
   }
 
   componentDidMount () {
-    const { projectId, todoListId, todoId, fetchTodo, fetchProject, fetchTodoList } = this.props;
+    const { 
+      fetchProject, 
+      projectId, 
+      fetchTodoList,
+      todoListId, 
+      fetchTodo,
+      todoId
+    } = this.props;
     
     fetchProject(projectId);
-    fetchTodoList(projectId, todoListId);
+    fetchTodoList(todoListId);
     fetchTodo(todoId);
   }
 

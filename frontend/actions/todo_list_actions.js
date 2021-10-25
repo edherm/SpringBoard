@@ -39,12 +39,10 @@ export const fetchTodoLists = (projectId) => (dispatch) => {
     .then((todoLists) => dispatch(receiveTodoLists(todoLists)));
 };
 
-export const fetchTodoList = (projectId, todoListId) => (dispatch) => {
-  return todoListAPIUtil
-    .fetchTodoList(projectId, todoListId)
-    .then((todoList) => {
-      return dispatch(receiveTodoList(todoList));
-    });
+export const fetchTodoList = (todoListId) => (dispatch) => {
+  return todoListAPIUtil.fetchTodoList(todoListId).then((todoList) => {
+    return dispatch(receiveTodoList(todoList));
+  });
 };
 
 export const createTodoList = (projectId, todoList) => (dispatch) => {
@@ -58,8 +56,8 @@ export const createTodoList = (projectId, todoList) => (dispatch) => {
   );
 };
 
-export const updateTodoList = (projectId, todoList) => (dispatch) => {
-  return todoListAPIUtil.updateTodoList(projectId, todoList).then(
+export const updateTodoList = (todoList) => (dispatch) => {
+  return todoListAPIUtil.updateTodoList(todoList).then(
     (todoList) => {
       return dispatch(receiveTodoList(todoList));
     },

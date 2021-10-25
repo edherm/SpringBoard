@@ -20,11 +20,10 @@ class TodoListShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchProject(this.props.match.params.projectId);
-    this.props.fetchTodoList(
-      this.props.match.params.projectId,
-      this.props.match.params.todoListId
-    );
+    const {projectId, todoListId} = this.props.match.params;
+
+    this.props.fetchProject(projectId);
+    this.props.fetchTodoList(todoListId);
   }
 
   revealForm() {
@@ -112,8 +111,7 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => {
   return {
-    fetchTodoList: (projectId, todoListId) =>
-      dispatch(fetchTodoList(projectId, todoListId)),
+    fetchTodoList: (todoListId) => dispatch(fetchTodoList(todoListId)),
     fetchProject: projectId => dispatch(fetchProject(projectId)),
     fetchTodos: (todoListId) => dispatch(fetchTodos(todoListId)),
     createTodo: (todo) => dispatch(createTodo(todo)),
