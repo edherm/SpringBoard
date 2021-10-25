@@ -2,7 +2,6 @@ class Api::TodoListsController < ApplicationController
   def index
     project = Project.find_by(id: params[:project_id])
     @todo_lists = project.todo_lists
-    # @todos = 
   end
 
   def show

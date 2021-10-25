@@ -56,8 +56,8 @@ export const createTodoList = (projectId, todoList) => (dispatch) => {
   );
 };
 
-export const updateTodoList = (projectId, todoList) => (dispatch) => {
-  return todoListAPIUtil.updateTodoList(projectId, todoList).then(
+export const updateTodoList = (todoList) => (dispatch) => {
+  return todoListAPIUtil.updateTodoList(todoList).then(
     (todoList) => {
       return dispatch(receiveTodoList(todoList));
     },
