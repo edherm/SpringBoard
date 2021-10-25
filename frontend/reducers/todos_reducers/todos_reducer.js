@@ -1,13 +1,13 @@
 import {
   RECEIVE_TODOS,
   RECEIVE_TODO,
-  REMOVE_TODO
-} from "../../actions/todo_actions";
-import { LOGOUT_CURRENT_USER } from "../../actions/session_actions";
+  REMOVE_TODO,
+} from '../../actions/todo_actions';
+import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 
 export default (oldState = {}, action) => {
   Object.freeze(oldState);
-  
+
   switch (action.type) {
     case RECEIVE_TODOS:
       return Object.assign({}, oldState, action.todos);
@@ -20,6 +20,6 @@ export default (oldState = {}, action) => {
     case LOGOUT_CURRENT_USER:
       return {};
     default:
-      return oldState
+      return oldState;
   }
-}
+};

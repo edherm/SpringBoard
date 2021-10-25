@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import usersReducer from './users_reducer';
 import projectsReducer from './projects_reducers/projects_reducer';
 import todoListsReducer from './todo_lists_reducers/todo_lists_reducer';
@@ -10,5 +10,5 @@ export default combineReducers({
   projects: projectsReducer,
   todo_lists: todoListsReducer,
   todos: todosReducer,
-  messages: messagesReducer
-})
+  messages: messagesReducer,
+});

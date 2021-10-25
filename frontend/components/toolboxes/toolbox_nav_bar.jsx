@@ -1,16 +1,17 @@
-import React from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { Link, useParams, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export const ToolboxNavBar = ({ topic }) => {
-  const { userId, projectId, todoListId } = useParams(); 
+  const { userId, projectId, todoListId } = useParams();
   const { pathname } = useLocation();
-  
-  const {todoList, project} = useSelector(state => {
-    let todoList =  topic !== 'todoList' ? null : state.entities.todo_lists[todoListId]
-    let project = state.entities.projects[projectId]
-    return {todoList, project}
-  })
+
+  const { todoList, project } = useSelector((state) => {
+    let todoList =
+      topic !== 'todoList' ? null : state.entities.todo_lists[todoListId];
+    let project = state.entities.projects[projectId];
+    return { todoList, project };
+  });
 
   const baseURL = `/${userId}/projects/${projectId}`;
   const topicURL = `/${topic}s`;
@@ -23,9 +24,11 @@ export const ToolboxNavBar = ({ topic }) => {
         <>
           <p>{'>'}</p>
           <Link to={`${baseURL}${topicURL}`}>
-            {topic === 'message' ? 'NoteBook' : (
-              topic === 'todoList' ? 'To-dos' : 'Schedule'
-            )}
+            {topic === 'message'
+              ? 'NoteBook'
+              : topic === 'todoList'
+              ? 'To-dos'
+              : 'Schedule'}
           </Link>
           {!todoListId ? null : (
             <>
@@ -38,8 +41,8 @@ export const ToolboxNavBar = ({ topic }) => {
         </>
       )}
     </div>
-  )
-} 
+  );
+};
 
 // need to refactor so that the second link displays for the new message form,
 //    and a third to message show from the edit message form

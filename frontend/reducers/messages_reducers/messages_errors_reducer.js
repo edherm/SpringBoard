@@ -1,8 +1,8 @@
-import { 
-  RECEIVE_MESSAGES, 
-  RECEIVE_MESSAGE, 
-  RECEIVE_MESSAGE_ERRORS 
-} from "../../actions/message_actions";
+import {
+  RECEIVE_MESSAGES,
+  RECEIVE_MESSAGE,
+  RECEIVE_MESSAGE_ERRORS,
+} from '../../actions/message_actions';
 
 const _nullErrors = [];
 
@@ -17,6 +17,6 @@ export default (oldState = _nullErrors, action) => {
     case RECEIVE_MESSAGE:
       return _nullErrors;
     default:
-      return oldState
+      return oldState;
   }
-}
+};

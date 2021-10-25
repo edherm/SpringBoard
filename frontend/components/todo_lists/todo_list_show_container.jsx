@@ -1,61 +1,51 @@
-import React from "react";
-import { connect } from "react-redux";
-import { fetchTodoList } from "../../actions/todo_list_actions";
-import { fetchProject } from "../../actions/project_actions";
-import { fetchTodos, createTodo, updateTodo } from "../../actions/todo_actions";
-import TodoList from "./todo_list";
-import { Link } from "react-router-dom";
-import { ToolboxNavBar } from "../toolboxes/toolbox_nav_bar";
-import TodoListEditContainer from "../forms/todo_lists/todo_list_edit_container";
-
+import React from 'react';
+import { connect } from 'react-redux';
+import { fetchTodoList } from '../../actions/todo_list_actions';
+import { fetchProject } from '../../actions/project_actions';
+import { fetchTodos, createTodo, updateTodo } from '../../actions/todo_actions';
+import TodoList from './todo_list';
+import { Link } from 'react-router-dom';
+import { ToolboxNavBar } from '../toolboxes/toolbox_nav_bar';
+import TodoListEditContainer from '../forms/todo_lists/todo_list_edit_container';
 
 class TodoListShow extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { editListForm: "hidden" };
+    this.state = { editListForm: 'hidden' };
 
     this.revealForm = this.revealForm.bind(this);
     this.hideForm = this.hideForm.bind(this);
   }
 
   componentDidMount() {
-    const {projectId, todoListId} = this.props.match.params;
+    const { projectId, todoListId } = this.props.match.params;
 
     this.props.fetchProject(projectId);
     this.props.fetchTodoList(todoListId);
   }
 
   revealForm() {
-    this.setState({ editListForm: "revealed" });
+    this.setState({ editListForm: 'revealed' });
   }
 
   hideForm(e) {
     if (e) {
       e.preventDefault();
     }
-    this.setState({ editListForm: "hidden" });
+    this.setState({ editListForm: 'hidden' });
   }
 
   render() {
     if (!this.props.todoList || !this.props.project) return null;
 
-    const {
-      todoList,
-      project,
-      fetchTodos,
-      updateTodo,
-      todos,
-      match,
-      history
-    } = this.props;
+    const { todoList, project, fetchTodos, updateTodo, todos, match, history } =
+      this.props;
 
     const { userId, projectId } = this.props.match.params;
     return (
       <div className="toolbox-container  todo-list-index">
-        {!project ? null : (
-          <ToolboxNavBar topic="todoList" />
-        )}
+        {!project ? null : <ToolboxNavBar topic="todoList" />}
         <div className="toolbox-main todo-list-index">
           <div className="toolbox-header-bordered todo-list-index">
             <div className="toolbox-header-left todo-list-index"></div>
@@ -64,7 +54,7 @@ class TodoListShow extends React.Component {
               <div className="toolbox-edit-link-container">
                 <div
                   className="message toolbox-edit-link"
-                  onClick={this.revealForm} 
+                  onClick={this.revealForm}
                 >
                   ...
                 </div>
@@ -74,22 +64,22 @@ class TodoListShow extends React.Component {
           <div className="toolbox-body todo-list-index">
             <div className={`expanding-form ${this.state.editListForm}`}>
               <div className="expanding-form-container">
-                <TodoListEditContainer 
-                  hideForm={this.hideForm} 
-                  match={match} 
-                  history={history} 
-                  userid={userId} 
+                <TodoListEditContainer
+                  hideForm={this.hideForm}
+                  match={match}
+                  history={history}
+                  userid={userId}
                 />
               </div>
             </div>
-            
+
             <TodoList
               todoList={todoList}
               page="show"
               fetchTodos={fetchTodos}
               projectId={project.id}
               todos={todos}
-              updateTodo={updateTodo} 
+              updateTodo={updateTodo}
               userId={userId}
             />
           </div>
@@ -99,25 +89,22 @@ class TodoListShow extends React.Component {
   }
 }
 
-
-
 const msp = (state, ownProps) => {
   return {
     project: state.entities.projects[ownProps.match.params.projectId],
     todoList: state.entities.todo_lists[ownProps.match.params.todoListId],
-    todos: Object.values(state.entities.todos)
-  } 
-}
+    todos: Object.values(state.entities.todos),
+  };
+};
 
-const mdp = dispatch => {
+const mdp = (dispatch) => {
   return {
     fetchTodoList: (todoListId) => dispatch(fetchTodoList(todoListId)),
-    fetchProject: projectId => dispatch(fetchProject(projectId)),
+    fetchProject: (projectId) => dispatch(fetchProject(projectId)),
     fetchTodos: (todoListId) => dispatch(fetchTodos(todoListId)),
     createTodo: (todo) => dispatch(createTodo(todo)),
-    updateTodo: (todo) =>
-      dispatch(updateTodo(todo))
+    updateTodo: (todo) => dispatch(updateTodo(todo)),
   };
-}
+};
 
-export default connect(msp, mdp)(TodoListShow)
+export default connect(msp, mdp)(TodoListShow);

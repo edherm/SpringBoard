@@ -1,26 +1,36 @@
-import React from "react";
-import {Link} from "react-router-dom";
-import MessagesPreview from "./previews/messages_preview";
-import TodosPreview from "./previews/todos_preview";
-import SchedulePreview from "./previews/schedule_preview";
-import { EditLink } from "./edit_link";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import MessagesPreview from './previews/messages_preview';
+import TodosPreview from './previews/todos_preview';
+import SchedulePreview from './previews/schedule_preview';
+import { EditLink } from './edit_link';
 
 class ProjectToolbox extends React.Component {
-  constructor (props) {
-    super(props)
-  }
-  
-  componentDidMount () {
-    this.props.fetchProject(this.props.match.params.projectId)
+  constructor(props) {
+    super(props);
   }
 
-  render () {
+  componentDidMount() {
+    this.props.fetchProject(this.props.match.params.projectId);
+  }
+
+  render() {
     if (!this.props.project) {
-      return null
+      return null;
     }
-    
-    const {project, user, fetchMessages, messages, fetchTodoLists, fetchTodos, todoLists, todos, match} = this.props
-    const { userId, projectId } = this.props.match.params
+
+    const {
+      project,
+      user,
+      fetchMessages,
+      messages,
+      fetchTodoLists,
+      fetchTodos,
+      todoLists,
+      todos,
+      match,
+    } = this.props;
+    const { userId, projectId } = this.props.match.params;
 
     return (
       <div className="toolbox-container">
@@ -38,10 +48,10 @@ class ProjectToolbox extends React.Component {
             <div className="toolbox-items-container">
               <ul className="toolbox-items-ul">
                 <Link to={`/${userId}/projects/${projectId}/messages`}>
-                  <MessagesPreview 
-                    fetchMessages={fetchMessages} 
-                    messages={messages} 
-                    projectId={projectId} 
+                  <MessagesPreview
+                    fetchMessages={fetchMessages}
+                    messages={messages}
+                    projectId={projectId}
                     user={user}
                   />
                 </Link>
