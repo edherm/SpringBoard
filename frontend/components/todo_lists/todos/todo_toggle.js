@@ -9,11 +9,10 @@ export default function TodoToggle({ todo, page }) {
 
   useEffect(() => {
     if (checked !== todo.complete) {
-      debugger;
       dispatch(updateTodo({ ...todo, complete: checked }));
     }
   }, [checked, todo]);
-  debugger;
+
   return (
     <div
       onClick={
