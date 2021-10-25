@@ -56,10 +56,9 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch) => {
   return {
-    todoListAction: (projectId, todoList) => dispatch(updateTodoList(todoList)),
+    todoListAction: (todoList) => dispatch(updateTodoList(todoList)),
     fetchTodoList: (todoListId) => dispatch(fetchTodoList(todoListId)),
-    deleteTodoList: (projectId, todoListId) =>
-      dispatch(deleteTodoList(projectId, todoListId)),
+    deleteTodoList: (todoListId) => dispatch(deleteTodoList(todoListId)),
   };
 };
 
