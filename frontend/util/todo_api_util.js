@@ -1,34 +1,34 @@
-export const fetchTodos = (project_id, todo_list_id) => {
+export const fetchTodos = (todo_list_id) => {
   return $.ajax({
-    url: `/api/projects/${project_id}/todo_lists/${todo_list_id}/todos`
-  })
-}
+    url: `/api/todo_lists/${todo_list_id}/todos`,
+  });
+};
 
-export const fetchTodo = (project_id, todo_list_id, todo_id) => {
+export const fetchTodo = (todo_id) => {
   return $.ajax({
-    url: `/api/projects/${project_id}/todo_lists/${todo_list_id}/todos/${todo_id}`
-  })
-}
+    url: `/api/todos/${todo_id}`,
+  });
+};
 
-export const createTodo = (projectId, todo_list_id, todo) => {
+export const createTodo = (todo) => {
   return $.ajax({
-    url: `/api/projects/${projectId}/todo_lists/${todo_list_id}/todos`,
-    method: "POST",
-    data: { todo }
-  })
-}
+    url: `/api/todos`,
+    method: 'POST',
+    data: { todo },
+  });
+};
 
-export const updateTodo = (projectId, todo_list_id, todo) => {
+export const updateTodo = (todo) => {
   return $.ajax({
-    url: `/api/projects/${projectId}/todo_lists/${todo_list_id}/todos/${todo.id}`,
-    method: "PATCH",
-    data: { todo }
-  })
-}
+    url: `/api/todos/${todo.id}`,
+    method: 'PATCH',
+    data: { todo },
+  });
+};
 
-export const deleteTodo = (projectId, todo_list_id, todoId) => {
+export const deleteTodo = (todoId) => {
   return $.ajax({
-    url: `/api/projects/${projectId}/todo_lists/${todo_list_id}/todos/${todoId}`,
-    method: "DELETE"
-  })
-}
+    url: `/api/todos/${todoId}`,
+    method: 'DELETE',
+  });
+};

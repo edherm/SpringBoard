@@ -28,8 +28,7 @@ const mdp = (dispatch) => ({
   fetchProject: (projectId) => dispatch(fetchProject(projectId)),
   fetchMessages: (projectId) => dispatch(fetchMessages(projectId)),
   fetchTodoLists: (projectId) => dispatch(fetchTodoLists(projectId)),
-  fetchTodos: (projectId, todoListId) =>
-    dispatch(fetchTodos(projectId, todoListId)),
+  fetchTodos: (todoListId) => dispatch(fetchTodos(todoListId)),
 });
 
 export default connect(msp, mdp)(ProjectToolbox);

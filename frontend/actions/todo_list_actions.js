@@ -1,72 +1,76 @@
-import * as todoListAPIUtil from "../util/todo_list_api_util";
+import * as todoListAPIUtil from '../util/todo_list_api_util';
 
 export const RECEIVE_TODO_LISTS = 'RECEIVE_TODO_LISTS';
 export const RECEIVE_TODO_LIST = 'RECEIVE_TODO_LIST';
 export const REMOVE_TODO_LIST = 'REMOVE_TODO_LIST';
 export const RECEIVE_TODO_LIST_ERRORS = 'RECEIVE_TODO_LIST_ERRORS';
 
-export const receiveTodoLists = todoLists => {
+export const receiveTodoLists = (todoLists) => {
   return {
     type: RECEIVE_TODO_LISTS,
-    todoLists
-  }
-}
+    todoLists,
+  };
+};
 
-export const receiveTodoList = todoList => {
+export const receiveTodoList = (todoList) => {
   return {
     type: RECEIVE_TODO_LIST,
-    todoList
-  }
-}
+    todoList,
+  };
+};
 
-export const removeTodoList = todoListId => {
+export const removeTodoList = (todoListId) => {
   return {
     type: REMOVE_TODO_LIST,
-    todoListId
-  }
-}
+    todoListId,
+  };
+};
 
-export const receiveTodoListErrors = errors => {
+export const receiveTodoListErrors = (errors) => {
   return {
     type: RECEIVE_TODO_LIST_ERRORS,
-    errors
-  }
-}
+    errors,
+  };
+};
 
-export const fetchTodoLists = (projectId) => dispatch => {
-  return todoListAPIUtil.fetchTodoLists(projectId)
-    .then(todoLists => dispatch(receiveTodoLists(todoLists)))
-}
+export const fetchTodoLists = (projectId) => (dispatch) => {
+  return todoListAPIUtil
+    .fetchTodoLists(projectId)
+    .then((todoLists) => dispatch(receiveTodoLists(todoLists)));
+};
 
-export const fetchTodoList = (projectId, todoListId) => dispatch => {
-  return todoListAPIUtil.fetchTodoList(projectId, todoListId)
-    .then(todoList => {
-      return dispatch(receiveTodoList(todoList))
-    }
-  )
-}
-
-export const createTodoList = (projectId, todoList) => dispatch => {
-  return todoListAPIUtil.createTodoList(projectId, todoList)
-    .then(todoList => {
+export const fetchTodoList = (projectId, todoListId) => (dispatch) => {
+  return todoListAPIUtil
+    .fetchTodoList(projectId, todoListId)
+    .then((todoList) => {
       return dispatch(receiveTodoList(todoList));
-    }, errors => {
+    });
+};
+
+export const createTodoList = (projectId, todoList) => (dispatch) => {
+  return todoListAPIUtil.createTodoList(projectId, todoList).then(
+    (todoList) => {
+      return dispatch(receiveTodoList(todoList));
+    },
+    (errors) => {
       return dispatch(receiveTodoListErrors(errors.responseJSON));
     }
-  )
-}
+  );
+};
 
-export const updateTodoList = (projectId, todoList) => dispatch => {
-  return todoListAPIUtil.updateTodoList(projectId, todoList)
-    .then(todoList => {
-      return dispatch(receiveTodoList(todoList))
-    }, errors => {
+export const updateTodoList = (projectId, todoList) => (dispatch) => {
+  return todoListAPIUtil.updateTodoList(projectId, todoList).then(
+    (todoList) => {
+      return dispatch(receiveTodoList(todoList));
+    },
+    (errors) => {
       return dispatch(receiveTodoListErrors(errors.responseJSON));
     }
-  )
-}
+  );
+};
 
-export const deleteTodoList = (projectId, todoListId) => dispatch => {
-  return todoListAPIUtil.deleteTodoList(projectId, todoListId)
-    .then(() => dispatch(removeTodoList(todoListId)))
-}
+export const deleteTodoList = (todoListId) => (dispatch) => {
+  return todoListAPIUtil
+    .deleteTodoList(todoListId)
+    .then(() => dispatch(removeTodoList(todoListId)));
+};

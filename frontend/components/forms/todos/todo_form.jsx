@@ -19,7 +19,7 @@ class TodoForm extends React.Component {
     const { projectId, todoListId } = this.props;
 
     // const todo = Object.assign({}, this.state);
-    this.props.formAction(projectId, todoListId, this.state).then(
+    this.props.formAction(this.state).then(
       () => this.props.toggleForm()
     )
   }
@@ -28,7 +28,7 @@ class TodoForm extends React.Component {
     e.preventDefault();
     const { userId, projectId, todo, todoListId, history, deleteTodo } = this.props
 
-    deleteTodo(projectId, todoListId, todo.id).then(() => {
+    deleteTodo(todo.id).then(() => {
       history.push(`/${userId}/projects/${projectId}/todoLists/${todoListId}`)
     })
   }

@@ -5,7 +5,7 @@ import {
   createTodoList,
 } from '../../actions/todo_list_actions';
 import { fetchProject } from '../../actions/project_actions';
-import { fetchTodos, createTodo, updateTodo } from '../../actions/todo_actions';
+import { fetchTodos, updateTodo } from '../../actions/todo_actions';
 import { filterByProject } from '../../util/project_api_util';
 
 const msp = (state, ownProps) => {
@@ -23,13 +23,11 @@ const msp = (state, ownProps) => {
 const mdp = (dispatch) => {
   return {
     fetchTodoLists: (projectId) => dispatch(fetchTodoLists(projectId)),
-    fetchTodos: (projectId, todoListId) =>
-      dispatch(fetchTodos(projectId, todoListId)),
+    fetchTodos: (todoListId) => dispatch(fetchTodos(todoListId)),
     fetchProject: (projectId) => dispatch(fetchProject(projectId)),
     createTodoList: (projectId, todoList) =>
       dispatch(createTodoList(projectId, todoList)),
-    updateTodo: (projectId, todoListId, todo) =>
-      dispatch(updateTodo(projectId, todoListId, todo)),
+    updateTodo: (todo) => dispatch(updateTodo(todo)),
   };
 };
 

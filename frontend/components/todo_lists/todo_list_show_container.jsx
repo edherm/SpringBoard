@@ -115,12 +115,10 @@ const mdp = dispatch => {
     fetchTodoList: (projectId, todoListId) =>
       dispatch(fetchTodoList(projectId, todoListId)),
     fetchProject: projectId => dispatch(fetchProject(projectId)),
-    fetchTodos: (projectId, todoListId) =>
-      dispatch(fetchTodos(projectId, todoListId)),
-    createTodo: (projectId, todoListId, todo) =>
-      dispatch(createTodo(projectId, todoListId, todo)),
-    updateTodo: (projectId, todoListId, todo) =>
-      dispatch(updateTodo(projectId, todoListId, todo))
+    fetchTodos: (todoListId) => dispatch(fetchTodos(todoListId)),
+    createTodo: (todo) => dispatch(createTodo(todo)),
+    updateTodo: (todo) =>
+      dispatch(updateTodo(todo))
   };
 }
 
