@@ -9,10 +9,6 @@ class Api::TodoListsController < ApplicationController
     @todo_list = TodoList.find_by(id: params[:id])
   end
 
-  def new
-
-  end
-
   def create
     project = Project.find_by(id: params[:project_id])
     @todo_list = project.todo_lists.new(todo_list_params)
@@ -22,10 +18,6 @@ class Api::TodoListsController < ApplicationController
     else
       render json: @todo_list.errors.full_messages, status: 404
     end
-  end
-
-  def edit
-    @todo_list = TodoList.find_by(id: params[:id])
   end
 
   def update

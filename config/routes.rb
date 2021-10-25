@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
     resources :todos, only: [:show, :create, :update, :destroy]
     resources :projects do 
-      resources :todo_lists
+      resources :todo_lists, only: [:index, :show, :create, :update, :destroy]
       resources :messages, only: [:index]
     end
     resource :sessions, only: [:create, :destroy]
