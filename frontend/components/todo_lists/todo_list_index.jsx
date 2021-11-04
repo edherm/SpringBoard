@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoList from './todo_list';
+import TodoListList from './todo_list_list';
 import { ToolboxNavBar } from '../toolboxes/toolbox_nav_bar';
 import TodoListCreateContainer from '../forms/todo_lists/todo_list_create_container';
 
@@ -33,16 +33,7 @@ class TodoListIndex extends React.Component {
   }
 
   render() {
-    const {
-      todoLists,
-      project,
-      fetchTodos,
-      todos,
-      updateTodo,
-      match,
-      history,
-    } = this.props;
-    const { projectId, userId } = this.props.match.params;
+    const { todoLists, project, match, history } = this.props;
 
     if (!todoLists) return null;
 
@@ -75,24 +66,7 @@ class TodoListIndex extends React.Component {
                 />
               </div>
             </div>
-            <ul className="todo-lists-ul">
-              {todoLists.map((todoList) => {
-                return (
-                  <li key={todoList.id} className="todo-lists-li">
-                    <TodoList
-                      todoList={todoList}
-                      projectId={projectId}
-                      page="index"
-                      fetchTodos={fetchTodos}
-                      todos={todos}
-                      updateTodo={updateTodo}
-                      hideForm={this.hideForm}
-                      userId={userId}
-                    />
-                  </li>
-                );
-              })}
-            </ul>
+            <TodoListList page="index" />
           </div>
         </div>
       </div>
@@ -101,3 +75,23 @@ class TodoListIndex extends React.Component {
 }
 
 export default TodoListIndex;
+
+{
+  /* <ul className="todo-lists-ul">
+  {todoLists.map((todoList) => {
+    return (
+      <li key={todoList.id} className="todo-lists-li">
+        <TodoList
+          todoList={todoList}
+          projectId={projectId}
+          page="index"
+          fetchTodos={fetchTodos}
+          todos={todos}
+          updateTodo={updateTodo}
+          userId={userId}
+        />
+      </li>
+    );
+  })}
+</ul>; */
+}

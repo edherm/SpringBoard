@@ -15,7 +15,6 @@ const msp = (state, ownProps) => {
       Object.values(state.entities.todo_lists),
       projectId
     ),
-    todos: Object.values(state.entities.todos),
     project: state.entities.projects[projectId],
   };
 };
@@ -23,11 +22,9 @@ const msp = (state, ownProps) => {
 const mdp = (dispatch) => {
   return {
     fetchTodoLists: (projectId) => dispatch(fetchTodoLists(projectId)),
-    fetchTodos: (todoListId) => dispatch(fetchTodos(todoListId)),
     fetchProject: (projectId) => dispatch(fetchProject(projectId)),
     createTodoList: (projectId, todoList) =>
       dispatch(createTodoList(projectId, todoList)),
-    updateTodo: (todo) => dispatch(updateTodo(todo)),
   };
 };
 

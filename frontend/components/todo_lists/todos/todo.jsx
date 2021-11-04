@@ -18,7 +18,6 @@ class Todo extends React.Component {
 
   render() {
     const { todo, page, userId, projectId, todoListId } = this.props;
-
     return (
       <li key={todo.id} className={`todos-item ${page}`}>
         <TodoToggle todo={todo} page={page} />
