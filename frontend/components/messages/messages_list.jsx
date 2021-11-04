@@ -3,12 +3,16 @@ import { Link, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import MessageIndexItem from './message_index_item';
 import { fetchMessages } from '../../actions/message_actions';
+import { filterByProject } from '../../util/project_api_util';
 
 export default ({ page }) => {
   const dispatch = useDispatch();
   const { userId, projectId } = useParams();
   const { messages, user } = useSelector((state) => ({
-    messages: Object.values(state.entities.messages),
+    messages: filterByProject(
+      Object.values(state.entities.messages),
+      projectId
+    ),
     user: state.entities.users[userId],
   }));
 
