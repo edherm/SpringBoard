@@ -47,7 +47,7 @@
 
 //////////// Todos Preview ////////////
 
-.todos-preview-ul {
+.todo-preview-ul {
   list-style: none;
 }
 
@@ -61,7 +61,7 @@
   display: flex;
   align-items: center;
   font-size: 12px;
-   margin: 5px 5px 0 0;
+  margin: 5px 5px 0 0;
 }
 
 .todolist-checkbox.false {
@@ -78,7 +78,8 @@
 
 //////////// Schedule Preview ////////////
 
-.event-preview-ul, .event-preview-details {
+.event-preview-ul,
+.event-preview-details {
   list-style: none;
 }
 
@@ -114,7 +115,6 @@
 }
 
 .schedule-preview-date-details {
-
 }
 
 .preview-time {

@@ -19,7 +19,6 @@ export default ({ page }) => {
 
   useEffect(() => {
     if (!loaded) {
-      debugger;
       setLoaded(true);
       dispatch(fetchMessages(projectId));
     }

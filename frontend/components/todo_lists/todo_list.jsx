@@ -6,8 +6,12 @@ import NewTodoFormContainer from '../forms/todos/new_todo_form_container';
 class TodoList extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
+      loaded: false,
+      completeTodos: [],
+      incompleteTodos: [],
+      numCompleted: 0,
+      numTodos: 0,
       newTodoForm: 'hidden',
     };
 
@@ -17,47 +21,74 @@ class TodoList extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    this.props.fetchTodos(this.props.todoList.id);
+    this.props.fetchTodos(this.props.todoList.id).then((res) => {
+      let completeTodos = [];
+      let incompleteTodos = [];
+      let numCompleted = 0;
+      let numTodos = 0;
+
+      Object.values(res.todos).forEach((todo) => {
+        if (todo.todo_list_id === this.props.todoList.id) {
+          numTodos++;
+          if (todo.complete) {
+            completeTodos.push(todo);
+            numCompleted++;
+          } else {
+            incompleteTodos.push(todo);
+          }
+        }
+      });
+      this.setState((oldState) => ({
+        ...oldState,
+        ...oldState.todos,
+        completeTodos,
+        incompleteTodos,
+        numCompleted,
+        numTodos,
+        loaded: true,
+      }));
+    });
   }
 
   hideForm(e) {
     if (e) {
       e.preventDefault();
     }
-    this.setState({ newTodoForm: 'hidden' });
+    this.setState((oldState) => ({ ...oldState, newTodoForm: 'hidden' }));
   }
 
   revealForm() {
-    this.setState({ newTodoForm: 'revealed' });
+    this.setState((oldState) => ({ ...oldState, newTodoForm: 'revealed' }));
   }
 
   render() {
     const { todoList, page, todos, projectId, updateTodo, userId } = this.props;
     const todoListLink = page === 'index' ? `./todoLists/${todoList.id}` : '#';
-
+    const { loaded, completeTodos, incompleteTodos, numCompleted, numTodos } =
+      this.state;
     // if (todos.length === 0) {
     //   return null;
     // }
 
-    let completeTodos = [];
-    let incompleteTodos = [];
-    let numCompleted = 0;
-    let numTodos = 0;
+    // let completeTodos = [];
+    // let incompleteTodos = [];
+    // let numCompleted = 0;
+    // let numTodos = 0;
 
-    todos.forEach((todo) => {
-      if (todo.todo_list_id === todoList.id) {
-        numTodos++;
-        if (todo.complete) {
-          completeTodos.push(todo);
-          numCompleted++;
-        } else {
-          incompleteTodos.push(todo);
-        }
-      }
-    });
+    // todos.forEach((todo) => {
+    //   if (todo.todo_list_id === todoList.id) {
+    //     numTodos++;
+    //     if (todo.complete) {
+    //       completeTodos.push(todo);
+    //       numCompleted++;
+    //     } else {
+    //       incompleteTodos.push(todo);
+    //     }
+    //   }
+    // });
 
     const todoListTitle =
-      page === 'project' ? (
+      page === 'preview' ? (
         <>
           <p>
             {numCompleted}/{numTodos} completed
@@ -73,7 +104,7 @@ class TodoList extends React.Component {
         </Link>
       );
 
-    return (
+    return !loaded ? null : (
       <>
         <ul className="todos-ul">
           <li className={`todo-list-title ${page}`}>{todoListTitle}</li>
@@ -90,7 +121,7 @@ class TodoList extends React.Component {
               />
             );
           })}
-          {page === 'project' ? null : (
+          {page === 'preview' ? null : (
             <div className="new-todo-form-container">
               <input
                 className="new-todo"

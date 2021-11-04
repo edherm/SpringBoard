@@ -19,18 +19,8 @@ class ProjectToolbox extends React.Component {
       return null;
     }
 
-    const {
-      project,
-      user,
-      fetchMessages,
-      messages,
-      fetchTodoLists,
-      fetchTodos,
-      todoLists,
-      todos,
-      match,
-    } = this.props;
-    const { userId, projectId } = this.props.match.params;
+    const { project, match } = this.props;
+    const { userId, projectId } = match.params;
 
     return (
       <div className="toolbox-container">
@@ -48,21 +38,10 @@ class ProjectToolbox extends React.Component {
             <div className="toolbox-items-container">
               <ul className="toolbox-items-ul">
                 <Link to={`/${userId}/projects/${projectId}/messages`}>
-                  <MessagesPreview
-                    fetchMessages={fetchMessages}
-                    messages={messages}
-                    projectId={projectId}
-                    user={user}
-                  />
+                  <MessagesPreview />
                 </Link>
                 <Link to={`/${userId}/projects/${projectId}/todoLists`}>
-                  <TodosPreview
-                    fetchTodoLists={fetchTodoLists}
-                    fetchTodos={fetchTodos}
-                    projectId={projectId}
-                    todoLists={todoLists}
-                    todos={todos}
-                  />
+                  <TodosPreview />
                 </Link>
                 <Link to="#">
                   <div className="schedule-preview">
