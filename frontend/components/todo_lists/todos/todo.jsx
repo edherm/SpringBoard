@@ -23,7 +23,7 @@ class Todo extends React.Component {
       <li key={todo.id} className={`todos-item ${page}`}>
         <TodoToggle todo={todo} page={page} />
         <span className={`todo-item-description ${todo.complete} ${page}`}>
-          {page === 'project' ? (
+          {page === 'preview' ? (
             todo.description
           ) : (
             <Link
