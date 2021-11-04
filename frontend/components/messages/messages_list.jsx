@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import MessageIndexItem from './message_index_item';
@@ -15,21 +15,33 @@ export default ({ page }) => {
     ),
     user: state.entities.users[userId],
   }));
+  const [loaded, setLoaded] = useState(!!messages.length);
 
   useEffect(() => {
-    dispatch(fetchMessages(projectId));
-  }, [projectId, dispatch]);
+    if (!loaded) {
+      debugger;
+      setLoaded(true);
+      dispatch(fetchMessages(projectId));
+    }
+  }, [loaded, projectId, dispatch]);
 
-  return !messages.length ? null : (
+  const ConditionalLink = ({ children, messageId }) => {
+    return page === 'preview' ? (
+      children
+    ) : (
+      <Link to={`/${userId}/projects/${projectId}/messages/${messageId}`}>
+        {children}
+      </Link>
+    );
+  };
+
+  return !loaded ? null : (
     <ul className={`${page} message-ul`}>
       {messages.map((message) => {
         return (
-          <Link
-            key={message.id}
-            to={`/${userId}/projects/${projectId}/messages/${message.id}`}
-          >
+          <ConditionalLink key={message.id} messageId={message.id}>
             <MessageIndexItem page={page} message={message} user={user} />
-          </Link>
+          </ConditionalLink>
         );
       })}
     </ul>

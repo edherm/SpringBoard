@@ -1,16 +1,13 @@
-import React from "react";
-import MessageIndexItem from "../../../messages/message_index_item";
+import React from 'react';
+import MessagesList from '../../../messages/messages_list';
 
 class MessagesPreview extends React.Component {
-  
   componentDidMount() {
-    this.props.fetchMessages(this.props.projectId)
+    this.props.fetchMessages(this.props.projectId);
   }
 
-  render () {
-    const { messages, user } = this.props;
-
-    // if (messages.length === 0) return null;
+  render() {
+    const { messages } = this.props;
 
     return (
       <li className="toolbox-item-li">
@@ -22,18 +19,7 @@ class MessagesPreview extends React.Component {
               <p>Post announcements, pitch ideas, progress updates, etc.</p>
             </div>
           ) : (
-            <ul className="preview message-ul">
-              {messages.map(message => {
-                return (
-                  <MessageIndexItem 
-                    key={message.id} 
-                    page="preview" 
-                    message={message}
-                    user={user}
-                  />
-                )
-              })}
-            </ul>
+            <MessagesList page="preview" />
           )}
         </div>
       </li>
