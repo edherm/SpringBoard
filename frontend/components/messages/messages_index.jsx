@@ -2,18 +2,17 @@ import React from 'react';
 import MessageIndexItem from './message_index_item';
 import { ToolboxNavBar } from '../toolboxes/toolbox_nav_bar';
 import { Link } from 'react-router-dom';
+import MessagesList from './messages_list';
 
 class MessagesIndex extends React.Component {
   componentDidMount() {
     const { projectId } = this.props.match.params;
-
-    this.props.fetchMessages(projectId);
     this.props.fetchProject(projectId);
     window.scrollTo(0, 0);
   }
 
   render() {
-    const { page, user, project, messages, match } = this.props;
+    const { page, project, messages, match } = this.props;
     const { projectId, userId } = this.props.match.params;
 
     return (
@@ -38,22 +37,7 @@ class MessagesIndex extends React.Component {
             <div className={`toolbox-header-right messages-${page}`}></div>
           </div>
           <div className={`toolbox-body messages-${page}`}>
-            <ul className={`${page} message-ul`}>
-              {messages.map((message) => {
-                return (
-                  <Link
-                    key={message.id}
-                    to={`/${userId}/projects/${projectId}/messages/${message.id}`}
-                  >
-                    <MessageIndexItem
-                      page={page}
-                      message={message}
-                      user={user}
-                    />
-                  </Link>
-                );
-              })}
-            </ul>
+            <MessagesList page={page} />
           </div>
         </div>
       </div>
@@ -62,3 +46,18 @@ class MessagesIndex extends React.Component {
 }
 
 export default MessagesIndex;
+
+{
+  /* <ul className={`${page} message-ul`}>
+  {messages.map((message) => {
+    return (
+      <Link
+        key={message.id}
+        to={`/${userId}/projects/${projectId}/messages/${message.id}`}
+      >
+        <MessageIndexItem page={page} message={message} user={user} />
+      </Link>
+    );
+  })}
+</ul>; */
+}
