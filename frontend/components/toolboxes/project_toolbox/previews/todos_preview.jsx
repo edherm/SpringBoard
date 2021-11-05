@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import TodoListList from '../../../todo_lists/todo_list_list';
 import Preview from './preview';
 
