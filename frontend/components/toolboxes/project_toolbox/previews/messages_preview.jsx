@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import MessagesList from '../../../messages/messages_list';
 import Preview from './preview';
 
