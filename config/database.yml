@@ -19,6 +19,7 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
+  url: <%= ENV['DATABASE_URL'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
@@ -75,11 +76,4 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: spring_board_production
-  username: spring_board
-  password: <%= ENV['SPRING_BOARD_DATABASE_PASSWORD'] %>
