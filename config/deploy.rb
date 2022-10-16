@@ -1,12 +1,13 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.17.1"
 
-set :application, "SpringBoard"
+set :application, "springBoard"
 set :repo_url, "git@github.com:Guarapo/SpringBoard.git"
 
 set :rbenv_ruby, '3.1.1'
 set :rbenv_path, "/home/deploy/.rbenv"
 
+set :user, "deploy"
 # set :default_env, { path: '~/.rbenv/shims:/usr/bin/:$PATH' }
 #
 # Default branch is :master
