@@ -1,20 +1,19 @@
+import fetchAPI from "./fetch_api";
+
 export const signup = (user) => {
-  return $.ajax({
-    url: 'api/users',
+  return fetchAPI('api/users',{
     method: 'POST',
-    data: { user },
+    body: JSON.stringify({ user }),
   });
 };
 
 export const login = (user) =>
-  $.ajax({
-    url: 'api/sessions',
+  fetchAPI('api/sessions', {
     method: 'POST',
-    data: { user },
+    body: JSON.stringify({ user }),
   });
 
 export const logout = () =>
-  $.ajax({
-    url: 'api/sessions',
+  fetchAPI('api/sessions', {
     method: 'DELETE',
   });

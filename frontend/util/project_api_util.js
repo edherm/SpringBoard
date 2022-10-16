@@ -1,33 +1,28 @@
+import fetchAPI from "./fetch_api";
+
 export const fetchProjects = (userId) =>
-  $.ajax({
-    url: '/api/projects',
-    data: { userId },
+  fetchAPI(`/api/projects?userId=${userId}`, {
   });
 
 export const fetchProject = (projectId) =>
-  $.ajax({
-    url: `/api/projects/${projectId}`,
-  });
+  fetchAPI(`/api/projects/${projectId}`);
 
 export const createProject = (project) => {
-  return $.ajax({
-    url: `api/projects`,
+  return fetchAPI(`api/projects`, {
     method: 'POST',
-    data: { project },
+    body: JSON.stringify({ project }),
   });
 };
 
 export const updateProject = (project) => {
-  return $.ajax({
-    url: `api/projects/${project.id}`,
+  return fetchAPI(`api/projects/${project.id}`, {
     method: 'PATCH',
-    data: { project },
+    body: JSON.stringify({ project }),
   });
 };
 
 export const deleteProject = (projectId) => {
-  return $.ajax({
-    url: `/api/projects/${projectId}`,
+  return fetchAPI(`/api/projects/${projectId}`, {
     method: 'DELETE',
   });
 };

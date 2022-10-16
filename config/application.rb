@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module SpringBoard
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.2
+    config.load_defaults 7.0
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -18,5 +18,6 @@ module SpringBoard
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.autoload_paths += %W[#{config.root}/lib]
   end
 end

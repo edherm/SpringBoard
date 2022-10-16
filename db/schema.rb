@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_16_134616) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_10_16_140637) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,8 +19,8 @@ ActiveRecord::Schema.define(version: 2022_10_16_134616) do
     t.string "category"
     t.integer "project_id", null: false
     t.text "body", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["project_id"], name: "index_messages_on_project_id"
   end
 
@@ -29,8 +28,8 @@ ActiveRecord::Schema.define(version: 2022_10_16_134616) do
     t.string "name", null: false
     t.text "description"
     t.integer "manager_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["manager_id"], name: "index_projects_on_manager_id"
   end
 
@@ -38,8 +37,8 @@ ActiveRecord::Schema.define(version: 2022_10_16_134616) do
     t.string "name", null: false
     t.text "details"
     t.integer "project_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["project_id"], name: "index_todo_lists_on_project_id"
   end
 
@@ -48,8 +47,8 @@ ActiveRecord::Schema.define(version: 2022_10_16_134616) do
     t.integer "todo_list_id", null: false
     t.text "notes"
     t.boolean "complete", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["todo_list_id"], name: "index_todos_on_todo_list_id"
   end
 
@@ -57,8 +56,8 @@ ActiveRecord::Schema.define(version: 2022_10_16_134616) do
     t.string "email", null: false
     t.string "password_digest", null: false
     t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "session_token", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
