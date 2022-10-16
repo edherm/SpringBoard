@@ -41,11 +41,6 @@
 #
 # Global options
 # --------------
-#  set :ssh_options, {
-#    keys: %w(/home/user_name/.ssh/id_rsa),
-#    forward_agent: false,
-#    auth_methods: %w(password)
-#  }
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
@@ -60,8 +55,14 @@
 #     # password: "please use keys"
 #   }
 server '172.104.197.183', user: 'deploy', port: 22, roles: [:web, :app, :db], primary: true
+# set :ssh_options, {
+#   forward_agent: true,
+#   auth_methods: %w[publickey],
+#   keys: %w[~/.ssh/id_ed25519]
+# }
 set :ssh_options, {
-  forward_agent: true,
-  auth_methods: %w[publickey],
-  keys: %w[~/.ssh/id_ed25519]
+  keys: %w[~/.ssh/id_ed25519],
+  # auth_methods: %w[publickey],
+  forward_agent: false,
+  auth_methods: %w(password)
 }

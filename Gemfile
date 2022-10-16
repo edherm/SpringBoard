@@ -53,7 +53,7 @@ group :development do
   gem 'annotate', '~> 3.2'
 
   gem 'capistrano', '~> 3.17', '>= 3.17.1'
-  gem 'capistrano3-puma', require: false
+  gem 'capistrano3-puma'
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rbenv', require: false
   gem 'capistrano-rbenv-install', '~> 1.2.0'
