@@ -51,6 +51,13 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate', '~> 3.2'
+
+  gem 'capistrano', '~> 3.17', '>= 3.17.1'
+  gem 'capistrano3-puma', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rbenv', require: false
+  gem 'capistrano-rbenv-install', '~> 1.2.0'
+  gem 'capistrano-rails', '~> 1.6', '>= 1.6.2'
 end
 
 group :test do
