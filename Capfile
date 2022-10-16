@@ -17,6 +17,8 @@ require 'capistrano/rbenv'
 require "capistrano/scm/git"
 require 'capistrano/rbenv_install'
 require 'capistrano/puma'
+install_plugin Capistrano::Puma
+install_plugin Capistrano::Puma::Daemon
 
 install_plugin Capistrano::SCM::Git
 # install_plugin Capistrano::Puma
