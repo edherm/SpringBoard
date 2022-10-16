@@ -1,34 +1,29 @@
+import fetchAPI from "./fetch_api";
+
 export const fetchMessages = (projectId) => {
-  return $.ajax({
-    url: `api/projects/${projectId}/messages`,
-  });
+  return fetchAPI(`api/projects/${projectId}/messages`);
 };
 
 export const fetchMessage = (messageId) => {
-  return $.ajax({
-    url: `api/messages/${messageId}`,
-  });
+  return fetchAPI(`api/messages/${messageId}`);
 };
 
 export const createMessage = (message) => {
-  return $.ajax({
-    url: `api/messages`,
+  return fetchAPI(`api/messages`, {
     method: 'POST',
-    data: { message },
+    body: JSON.stringify({ message }),
   });
 };
 
 export const updateMessage = (message) => {
-  return $.ajax({
-    url: `/api/messages/${message.id}`,
+  return fetchAPI(`/api/messages/${message.id}`, {
     method: 'PATCH',
-    data: { message },
+    body: JSON.stringify({ message }),
   });
 };
 
 export const deleteMessage = (messageId) => {
-  return $.ajax({
-    url: `/api/messages/${messageId}`,
+  return fetchAPI(`/api/messages/${messageId}`, {
     method: 'DELETE',
   });
 };

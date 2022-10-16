@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :todos, only: [:index]
     end
     resources :todos, only: [:show, :create, :update, :destroy]
-    resources :projects do 
+    resources :projects do
       resources :todo_lists, only: [:index, :create]
       resources :messages, only: [:index]
     end

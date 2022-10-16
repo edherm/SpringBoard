@@ -32,6 +32,10 @@ export const receiveProjectErrors = (errors) => ({
 export const fetchProjects = (userId) => (dispatch) =>
   projectAPIUtil
     .fetchProjects(userId)
+    .then((projects) => {
+      console.log(projects)
+      return projects
+    })
     .then((projects) => dispatch(receiveProjects(projects)));
 
 export const fetchProject = (projectId) => (dispatch) =>

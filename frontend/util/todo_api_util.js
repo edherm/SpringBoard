@@ -1,34 +1,29 @@
+import fetchAPI from "./fetch_api";
+
 export const fetchTodos = (todo_list_id) => {
-  return $.ajax({
-    url: `/api/todo_lists/${todo_list_id}/todos`,
-  });
+  return fetchAPI(`/api/todo_lists/${todo_list_id}/todos`);
 };
 
 export const fetchTodo = (todo_id) => {
-  return $.ajax({
-    url: `/api/todos/${todo_id}`,
-  });
+  return fetchAPI(`/api/todos/${todo_id}`);
 };
 
 export const createTodo = (todo) => {
-  return $.ajax({
-    url: `/api/todos`,
+  return fetchAPI(`/api/todos`, {
     method: 'POST',
-    data: { todo },
+    body: JSON.stringify({ todo }),
   });
 };
 
 export const updateTodo = (todo) => {
-  return $.ajax({
-    url: `/api/todos/${todo.id}`,
+  return fetchAPI(`/api/todos/${todo.id}`, {
     method: 'PATCH',
-    data: { todo },
+    body: JSON.stringify({ todo }),
   });
 };
 
 export const deleteTodo = (todoId) => {
-  return $.ajax({
-    url: `/api/todos/${todoId}`,
+  return fetchAPI(`/api/todos/${todoId}`, {
     method: 'DELETE',
   });
 };
