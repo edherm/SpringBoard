@@ -74,3 +74,15 @@ namespace :puma do
 
   before 'deploy:starting', 'puma:make_dirs'
 end
+before 'deploy:assets:precompile', 'deploy:npm_install'
+namespace :deploy do
+  desc 'Run rake npm:install'
+  task :npm_install do
+    on roles(:web) do
+      within release_path do
+        execute("cd #{release_path} && npm install")
+        execute("cd #{release_path} && npm run postinstall")
+      end
+    end
+  end
+end
