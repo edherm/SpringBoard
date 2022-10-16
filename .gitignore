@@ -34,3 +34,6 @@ bundle.js
 
 .DS_Store
 .idea/**
+/config/credentials/development.key
+
+/config/credentials/production.key
